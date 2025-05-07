@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ECSiteAPIKey" xml:space="preserve">
+    <value>d11c248b3cb1f60b46a1928458a3caf5</value>
+  </data>
+  <data name="ECSiteAPIUrl" xml:space="preserve">
+    <value>https://www.well-mill.com/version-test</value>
+  </data>
+  <data name="ECSiteKekkaHokokuURL" xml:space="preserve">
+    <value>/api/1.1/wf/create_new_result</value>
+  </data>
+  <data name="ECSiteShohinHasoURL" xml:space="preserve">
+    <value>/api/1.1/wf/update_fulfillment</value>
+  </data>
+  <data name="EC_URL" xml:space="preserve">
+    <value>https://www.well-mill.com/version-test/</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\Icon\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ERR_CSVDataItems" xml:space="preserve">
+    <value>CSVファイルのデータが正しくない</value>
+  </data>
+  <data name="ERR_CSVFormat" xml:space="preserve">
+    <value>CSVの形式が正しくありません。</value>
+  </data>
+  <data name="ERR_CSVImport" xml:space="preserve">
+    <value>CSVのインポートが失敗しました。</value>
+  </data>
+  <data name="ERR_CSVNoData" xml:space="preserve">
+    <value>CSVファイルにデータがありません。</value>
+  </data>
+  <data name="ERR_EmailFormat" xml:space="preserve">
+    <value>メールの形式が正しくありません。</value>
+  </data>
+  <data name="ERR_EndDateAfterStartDate" xml:space="preserve">
+    <value>{0}の終了日は、開始日以降の日付を入力してください。</value>
+  </data>
+  <data name="ERR_EndValueAfterStartValue" xml:space="preserve">
+    <value>{0}Toには{1}Fromより大きい値を入力してください。</value>
+  </data>
+  <data name="ERR_EnterDateAfterToday" xml:space="preserve">
+    <value>{0}は本日以降の日付を入力してください。</value>
+  </data>
+  <data name="ERR_ExistedError" xml:space="preserve">
+    <value>{0}が既に存在しています。</value>
+  </data>
+  <data name="ERR_FileNotFound" xml:space="preserve">
+    <value>ファイルが見つかりません。</value>
+  </data>
+  <data name="ERR_InsertError" xml:space="preserve">
+    <value>{0}情報の登録が出来ませんでした。</value>
+  </data>
+  <data name="ERR_InvalidBirthday" xml:space="preserve">
+    <value>生年月日は1900/01/01から現在の日付まで入力してください。</value>
+  </data>
+  <data name="ERR_InvalidTorihikiChushi" xml:space="preserve">
+    <value>注文情報が存在します。最終取引日：{0}</value>
+  </data>
+  <data name="ERR_KentaiIDFormat" xml:space="preserve">
+    <value>検体IDのバーコードではありません（形式不一致）</value>
+  </data>
+  <data name="ERR_KentaiIDLenght" xml:space="preserve">
+    <value>検体IDのバーコードではありません（桁数不一致）</value>
+  </data>
+  <data name="ERR_MinusCheck" xml:space="preserve">
+    <value>{0}にマイナスの値が入力されています。</value>
+  </data>
+  <data name="ERR_MixedOkuriType" xml:space="preserve">
+    <value>ヤマトB2・ゆうプリRが混在しています。再度確認してください。</value>
+  </data>
+  <data name="ERR_NoData" xml:space="preserve">
+    <value>該当するデータがありません。</value>
+  </data>
+  <data name="ERR_NotExist" xml:space="preserve">
+    <value>対象のデータが存在しません。</value>
+  </data>
+  <data name="ERR_NotVaildValue" xml:space="preserve">
+    <value>{0}は有効な値が指定されていません。</value>
+  </data>
+  <data name="ERR_OrderExistAfterStopTradingDate" xml:space="preserve">
+    <value>文情報が存在します。最終取引日：{0}。</value>
+  </data>
+  <data name="ERR_PostCodeNotExist" xml:space="preserve">
+    <value>入力した郵便番号は存在しません。</value>
+  </data>
+  <data name="ERR_PromptForEntry" xml:space="preserve">
+    <value>{0}を入力してください。</value>
+  </data>
+  <data name="ERR_PromptForKubunEntry" xml:space="preserve">
+    <value>名称区分は[対象の区分名]を設定してください。</value>
+  </data>
+  <data name="ERR_RequiredCheck" xml:space="preserve">
+    <value>{0}は必須項目です。</value>
+  </data>
+  <data name="ERR_ShukaDetailsRequired" xml:space="preserve">
+    <value>明細情報へ1件以上の情報を追加してください。</value>
+  </data>
+  <data name="ERR_StatusOnlyStandby" xml:space="preserve">
+    <value>ステータスは待機のみ登録可。</value>
+  </data>
+  <data name="ERR_TorikomiPositionNoMapping" xml:space="preserve">
+    <value>インポートファイル内のデータでマッピング位置を設定してください。</value>
+  </data>
+  <data name="ERR_TorikomiPositionNotExist" xml:space="preserve">
+    <value>験者情報取込ファイル項目位置のデータが存在しません</value>
+  </data>
+  <data name="ERR_UpdateError" xml:space="preserve">
+    <value>{0}情報の更新が出来ませんでした。</value>
+  </data>
+  <data name="ERR_ZeroCheck" xml:space="preserve">
+    <value>{0}ゼロは登録しない。</value>
+  </data>
+  <data name="ERR_ZeroTanka" xml:space="preserve">
+    <value>単価ゼロは登録しない。</value>
+  </data>
+  <data name="IRAISHO_HAKKO_QR_URL" xml:space="preserve">
+    <value>https://well-mill.com/version-test/sample-registration?sample={0}</value>
+  </data>
+  <data name="MSG_ChangeAddressConfrim" xml:space="preserve">
+    <value>住所へ反映してもよろしいですか？</value>
+  </data>
+  <data name="MSG_ClearConfirm" xml:space="preserve">
+    <value>内容が変更されていますが、クリアしてよろしいですか？</value>
+  </data>
+  <data name="MSG_CloseConfirm" xml:space="preserve">
+    <value>内容が変更されていますが、終了してよろしいですか？</value>
+  </data>
+  <data name="MSG_DeleteCompleted" xml:space="preserve">
+    <value>削除が完了しました。</value>
+  </data>
+  <data name="MSG_DeleteConfirm" xml:space="preserve">
+    <value>削除します。よろしいですか？</value>
+  </data>
+  <data name="MSG_DeleteRowConfirm" xml:space="preserve">
+    <value>選択中の行を削除します。よろしいですか？</value>
+  </data>
+  <data name="MSG_EndConfirm" xml:space="preserve">
+    <value>内容が変更されていますが、終了してよろしいですか？</value>
+  </data>
+  <data name="MSG_IrisuConfirm" xml:space="preserve">
+    <value>入数で割り切れない本数が入力されています。</value>
+  </data>
+  <data name="MSG_OutputFinished" xml:space="preserve">
+    <value>出力が完了しました。</value>
+  </data>
+  <data name="MSG_RegistrationCompleted" xml:space="preserve">
+    <value>登録が完了しました。</value>
+  </data>
+  <data name="MSG_RegistrationConfirm" xml:space="preserve">
+    <value>登録します。よろしいですか？</value>
+  </data>
+  <data name="MSG_ShohinHasoError" xml:space="preserve">
+    <value>ESCサイトへ連携するとき、以下のエラーが発生しました。{0}</value>
+  </data>
+  <data name="MSG_ShowReportConfirm" xml:space="preserve">
+    <value>帳票が出ます。よろしいですか？</value>
+  </data>
+  <data name="MSG_UpdateCompleted" xml:space="preserve">
+    <value>更新が完了しました。</value>
+  </data>
+  <data name="MSG_UpdateKentaiUketsukeConfirm" xml:space="preserve">
+    <value>エラーの検体IDが存在しています。確定を実施しますか？</value>
+  </data>
+  <data name="REGEX_EmailFormat" xml:space="preserve">
+    <value>^(([^&lt;&gt;()\[\]\\.,;:\s@"]+(\.[^&lt;&gt;()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$</value>
+  </data>
+  <data name="Renkei" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\Icon\Renkei.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UI_Confirmation" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="UI_Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="UI_Female" xml:space="preserve">
+    <value>女性</value>
+  </data>
+  <data name="UI_Information" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="UI_Male" xml:space="preserve">
+    <value>男性</value>
+  </data>
+  <data name="UI_No" xml:space="preserve">
+    <value>なし</value>
+  </data>
+  <data name="UI_SexNoAnswered" xml:space="preserve">
+    <value>未回答</value>
+  </data>
+  <data name="UI_Yes" xml:space="preserve">
+    <value>あり</value>
+  </data>
+  <data name="yoko" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Image\Icon\yoko.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

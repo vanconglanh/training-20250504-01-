@@ -1,0 +1,3484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="imgTitle.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="imgTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="imgTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 0</value>
+  </data>
+  <data name="imgTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="imgTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 39</value>
+  </data>
+  <data name="imgTitle.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="imgTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;imgTitle.Name" xml:space="preserve">
+    <value>imgTitle</value>
+  </data>
+  <data name="&gt;&gt;imgTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imgTitle.Parent" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;imgTitle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1424, 14</value>
+  </data>
+  <data name="txtUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="txtUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 12</value>
+  </data>
+  <data name="txtUser.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="txtUser.Text" xml:space="preserve">
+    <value>ログインユーザー</value>
+  </data>
+  <data name="txtUser.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;txtUser.Name" xml:space="preserve">
+    <value>txtUser</value>
+  </data>
+  <data name="&gt;&gt;txtUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtUser.Parent" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;txtUser.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnLogout.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnLogout.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 10pt</value>
+  </data>
+  <data name="btnLogout.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnLogout.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLogout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1064, 6</value>
+  </data>
+  <data name="btnLogout.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnLogout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 28</value>
+  </data>
+  <data name="btnLogout.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnLogout.Text" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="btnLogout.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnLogout.Name" xml:space="preserve">
+    <value>btnLogout</value>
+  </data>
+  <data name="&gt;&gt;btnLogout.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnLogout.Parent" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;btnLogout.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pnlHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pnlHeader.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1660, 40</value>
+  </data>
+  <data name="pnlHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.Name" xml:space="preserve">
+    <value>pnlHeader</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlHeader.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnKengenMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKengenMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKengenMaster.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKengenMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKengenMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>677, 40</value>
+  </data>
+  <data name="btnKengenMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKengenMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKengenMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnKengenMaster.Text" xml:space="preserve">
+    <value>権限マスタ</value>
+  </data>
+  <data name="btnKengenMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKengenMaster.Name" xml:space="preserve">
+    <value>btnKengenMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKengenMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKengenMaster.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKengenMaster.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnLoginMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnLoginMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnLoginMaster.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnLoginMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLoginMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>549, 40</value>
+  </data>
+  <data name="btnLoginMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnLoginMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnLoginMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnLoginMaster.Text" xml:space="preserve">
+    <value>ログインマスタ</value>
+  </data>
+  <data name="btnLoginMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnLoginMaster.Name" xml:space="preserve">
+    <value>btnLoginMaster</value>
+  </data>
+  <data name="&gt;&gt;btnLoginMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnLoginMaster.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnLoginMaster.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnKomokusetMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKomokusetMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKomokusetMaster.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKomokusetMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKomokusetMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 40</value>
+  </data>
+  <data name="btnKomokusetMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKomokusetMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKomokusetMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnKomokusetMaster.Text" xml:space="preserve">
+    <value>項目セットマスタ</value>
+  </data>
+  <data name="btnKomokusetMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKomokusetMaster.Name" xml:space="preserve">
+    <value>btnKomokusetMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKomokusetMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKomokusetMaster.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKomokusetMaster.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnKensakomokuMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKensakomokuMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKensakomokuMaster.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKensakomokuMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKensakomokuMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 40</value>
+  </data>
+  <data name="btnKensakomokuMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKensakomokuMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKensakomokuMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnKensakomokuMaster.Text" xml:space="preserve">
+    <value>検査項目マスタ</value>
+  </data>
+  <data name="btnKensakomokuMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKensakomokuMaster.Name" xml:space="preserve">
+    <value>btnKensakomokuMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKensakomokuMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKensakomokuMaster.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKensakomokuMaster.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnKensameiMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKensameiMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKensameiMaster.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKensameiMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKensameiMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 40</value>
+  </data>
+  <data name="btnKensameiMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKensameiMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKensameiMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnKensameiMaster.Text" xml:space="preserve">
+    <value>検査名マスタ</value>
+  </data>
+  <data name="btnKensameiMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKensameiMaster.Name" xml:space="preserve">
+    <value>btnKensameiMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKensameiMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKensameiMaster.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnKensameiMaster.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnPermissionEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnPermissionEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnPermissionEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnPermissionEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPermissionEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 43</value>
+  </data>
+  <data name="btnPermissionEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnPermissionEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnPermissionEntry.Text" xml:space="preserve">
+    <value>Permission</value>
+  </data>
+  <data name="btnPermissionEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionEntry.Name" xml:space="preserve">
+    <value>btnPermissionEntry</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionEntry.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionEntry.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+
+  <data name="btnPermissionSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnPermissionSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnPermissionSearch.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnPermissionSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPermissionSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>173, 180</value>
+  </data>
+  <data name="btnPermissionSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnPermissionSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnPermissionSearch.Text" xml:space="preserve">
+    <value>Permission List</value>
+  </data>
+  <data name="btnPermissionSearch.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionSearch.Name" xml:space="preserve">
+    <value>btnPermissionSearch</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionSearch.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionSearch.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionSearch.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnPermissionScreenEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnPermissionScreenEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnPermissionScreenEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnPermissionScreenEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPermissionScreenEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>310, 43</value>
+  </data>
+  <data name="btnPermissionScreenEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnPermissionScreenEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnPermissionScreenEntry.Text" xml:space="preserve">
+    <value>PermissionScreen</value>
+  </data>
+  <data name="btnPermissionScreenEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenEntry.Name" xml:space="preserve">
+    <value>btnPermissionScreenEntry</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenEntry.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenEntry.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+
+  <data name="btnPermissionScreenSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnPermissionScreenSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnPermissionScreenSearch.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnPermissionScreenSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPermissionScreenSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>310, 180</value>
+  </data>
+  <data name="btnPermissionScreenSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnPermissionScreenSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnPermissionScreenSearch.Text" xml:space="preserve">
+    <value>PermissionScreen List</value>
+  </data>
+  <data name="btnPermissionScreenSearch.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenSearch.Name" xml:space="preserve">
+    <value>btnPermissionScreenSearch</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenSearch.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenSearch.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnPermissionScreenSearch.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnRoleEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRoleEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnRoleEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnRoleEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRoleEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 43</value>
+  </data>
+  <data name="btnRoleEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnRoleEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnRoleEntry.Text" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="btnRoleEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnRoleEntry.Name" xml:space="preserve">
+    <value>btnRoleEntry</value>
+  </data>
+  <data name="&gt;&gt;btnRoleEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRoleEntry.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnRoleEntry.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+
+  <data name="btnRoleSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRoleSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnRoleSearch.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnRoleSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRoleSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 180</value>
+  </data>
+  <data name="btnRoleSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnRoleSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnRoleSearch.Text" xml:space="preserve">
+    <value>Role List</value>
+  </data>
+  <data name="btnRoleSearch.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnRoleSearch.Name" xml:space="preserve">
+    <value>btnRoleSearch</value>
+  </data>
+  <data name="&gt;&gt;btnRoleSearch.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRoleSearch.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnRoleSearch.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnRolePermissionEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRolePermissionEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnRolePermissionEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnRolePermissionEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRolePermissionEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 43</value>
+  </data>
+  <data name="btnRolePermissionEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnRolePermissionEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnRolePermissionEntry.Text" xml:space="preserve">
+    <value>RolePermission</value>
+  </data>
+  <data name="btnRolePermissionEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionEntry.Name" xml:space="preserve">
+    <value>btnRolePermissionEntry</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionEntry.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionEntry.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+
+  <data name="btnRolePermissionSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnRolePermissionSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnRolePermissionSearch.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnRolePermissionSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnRolePermissionSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 180</value>
+  </data>
+  <data name="btnRolePermissionSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnRolePermissionSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnRolePermissionSearch.Text" xml:space="preserve">
+    <value>RolePermission List</value>
+  </data>
+  <data name="btnRolePermissionSearch.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionSearch.Name" xml:space="preserve">
+    <value>btnRolePermissionSearch</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionSearch.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionSearch.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnRolePermissionSearch.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnScreenEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnScreenEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnScreenEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnScreenEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnScreenEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>721, 43</value>
+  </data>
+  <data name="btnScreenEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnScreenEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnScreenEntry.Text" xml:space="preserve">
+    <value>Screen</value>
+  </data>
+  <data name="btnScreenEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnScreenEntry.Name" xml:space="preserve">
+    <value>btnScreenEntry</value>
+  </data>
+  <data name="&gt;&gt;btnScreenEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnScreenEntry.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnScreenEntry.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+
+  <data name="btnScreenSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnScreenSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnScreenSearch.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnScreenSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnScreenSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>721, 180</value>
+  </data>
+  <data name="btnScreenSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnScreenSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnScreenSearch.Text" xml:space="preserve">
+    <value>Screen List</value>
+  </data>
+  <data name="btnScreenSearch.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnScreenSearch.Name" xml:space="preserve">
+    <value>btnScreenSearch</value>
+  </data>
+  <data name="&gt;&gt;btnScreenSearch.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnScreenSearch.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnScreenSearch.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnUserEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnUserEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnUserEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnUserEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUserEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>858, 43</value>
+  </data>
+  <data name="btnUserEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnUserEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnUserEntry.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="btnUserEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnUserEntry.Name" xml:space="preserve">
+    <value>btnUserEntry</value>
+  </data>
+  <data name="&gt;&gt;btnUserEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnUserEntry.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnUserEntry.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+
+  <data name="btnUserSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnUserSearch.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnUserSearch.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnUserSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUserSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>858, 180</value>
+  </data>
+  <data name="btnUserSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 104</value>
+  </data>
+  <data name="btnUserSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnUserSearch.Text" xml:space="preserve">
+    <value>User List</value>
+  </data>
+  <data name="btnUserSearch.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnUserSearch.Name" xml:space="preserve">
+    <value>btnUserSearch</value>
+  </data>
+  <data name="&gt;&gt;btnUserSearch.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnUserSearch.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnUserSearch.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnShohinMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnShohinMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnShohinMaster.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnShohinMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnShohinMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 40</value>
+  </data>
+  <data name="btnShohinMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnShohinMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnShohinMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnShohinMaster.Text" xml:space="preserve">
+    <value>商品マスタ</value>
+  </data>
+  <data name="btnShohinMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnShohinMaster.Name" xml:space="preserve">
+    <value>btnShohinMaster</value>
+  </data>
+  <data name="&gt;&gt;btnShohinMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnShohinMaster.Parent" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;btnShohinMaster.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pnlMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 39</value>
+  </data>
+  <data name="pnlMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1463, 794</value>
+  </data>
+  <data name="pnlMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="pnlMaster.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlMaster.Name" xml:space="preserve">
+    <value>pnlMaster</value>
+  </data>
+  <data name="&gt;&gt;pnlMaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlMaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlMaster.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnImportTest.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnImportTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 10pt</value>
+  </data>
+  <data name="btnImportTest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnImportTest.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnImportTest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnImportTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 41</value>
+  </data>
+  <data name="btnImportTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="btnImportTest.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnImportTest.Text" xml:space="preserve">
+    <value>結果取込テスト</value>
+  </data>
+  <data name="btnImportTest.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnImportTest.Name" xml:space="preserve">
+    <value>btnImportTest</value>
+  </data>
+  <data name="&gt;&gt;btnImportTest.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnImportTest.Parent" xml:space="preserve">
+    <value>pnlTest</value>
+  </data>
+  <data name="&gt;&gt;btnImportTest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnTestUserControl.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnTestUserControl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 10pt</value>
+  </data>
+  <data name="btnTestUserControl.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnTestUserControl.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnTestUserControl.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTestUserControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 40</value>
+  </data>
+  <data name="btnTestUserControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="btnTestUserControl.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnTestUserControl.Text" xml:space="preserve">
+    <value>ユーザーコントロールテスト　</value>
+  </data>
+  <data name="btnTestUserControl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnTestUserControl.Name" xml:space="preserve">
+    <value>btnTestUserControl</value>
+  </data>
+  <data name="&gt;&gt;btnTestUserControl.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnTestUserControl.Parent" xml:space="preserve">
+    <value>pnlTest</value>
+  </data>
+  <data name="&gt;&gt;btnTestUserControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTestList.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnTestList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 10pt</value>
+  </data>
+  <data name="btnTestList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnTestList.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnTestList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTestList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, 40</value>
+  </data>
+  <data name="btnTestList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="btnTestList.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnTestList.Text" xml:space="preserve">
+    <value>テスト一覧
+　</value>
+  </data>
+  <data name="btnTestList.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnTestList.Name" xml:space="preserve">
+    <value>btnTestList</value>
+  </data>
+  <data name="&gt;&gt;btnTestList.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnTestList.Parent" xml:space="preserve">
+    <value>pnlTest</value>
+  </data>
+  <data name="&gt;&gt;btnTestList.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnTestEntry.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnTestEntry.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 10pt</value>
+  </data>
+  <data name="btnTestEntry.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnTestEntry.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnTestEntry.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTestEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 40</value>
+  </data>
+  <data name="btnTestEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="btnTestEntry.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnTestEntry.Text" xml:space="preserve">
+    <value>テスト検索・登録</value>
+  </data>
+  <data name="btnTestEntry.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnTestEntry.Name" xml:space="preserve">
+    <value>btnTestEntry</value>
+  </data>
+  <data name="&gt;&gt;btnTestEntry.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnTestEntry.Parent" xml:space="preserve">
+    <value>pnlTest</value>
+  </data>
+  <data name="&gt;&gt;btnTestEntry.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pnlTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 39</value>
+  </data>
+  <data name="pnlTest.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1463, 794</value>
+  </data>
+  <data name="pnlTest.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="pnlTest.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlTest.Name" xml:space="preserve">
+    <value>pnlTest</value>
+  </data>
+  <data name="&gt;&gt;pnlTest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlTest.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlTest.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnTest.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnTest.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 15.75pt</value>
+  </data>
+  <data name="btnTest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAqVJREFUWEfF
+        l8uPDFEUh3s1kR4zZkwMYoT4KyzFI2EhJB4hEwsWw8IjFmxsbJDYmYiQiCUWhI1XbDwWbEgkFrYixDtB
+        iEekfV/PrTbdXV11q4uZX/Il1ffWOee++pxblTzVarVe2Ag34QNchgWhuyHbQp/v3AJtekN3cWkMG+AO
+        fIdE7+EQDIZXfXcwtNmXSBtt9VF8IBjNhsPwEVr1GsZgJvSF5zfQKldDH43BRgujATgA7yBNn+BCwOc0
+        aauPgeA2XhhlzSxWrtRO6Atu44VRFbbCK+hW2uqjGtzGC6N+2A1lVkBbffQHt+2i05muhIOwH7bBJjgG
+        nuJv0K201cdR0Ke+jeG5WAVVB7AQbsDkv9r/lrGMOeIAnHmZZe5WxhxzAE9gKmefyJhXHUBR/YDHcBxG
+        wf28Dl+hqJ46gIcQe9C+wDmYF85wXfw2Z2yHR/ATYmTMixqn5fE0fYYzMBziNol2/02e9JeQp+Z6wkNM
+        1nsBa2FG3ShF9M2H85C1HY06EswmRMMcGIe0vP4LHsDi8Hqq6M/yoWy3v30Vacyqfu7rPVgUXk8V/UNw
+        BNJ8qPTqSMMs2AdvoZOewzLoCWZtom8unAUPaycZYy9MpGceNDoNHrIsuXwnodMh7IEV8Ax+Q5aMZcxh
+        DS+Fhhh5wjdDU3Xjt8GXwhWIzQfGHNe4qFwJc8EWWALLwcLlvyRv5q0qnIj+pRqJaBeUuXR0K2OOOoAR
+        uAZTXY6NWS/HXr9Xw+QLyXrYA7ehzPZoqw996TO5kBhrDXS+rtOZl1RipK0+hoLbeGE07ZfSab+W532Y
+        mNdPgMWl0zaV+jDJKk6NfA5ZdaTUp5lnYB20fpz+zeNBPKfVE23ugj6Kn4FEGCfXLcuxszwFbQXJttDn
+        O/dhB+TsfaXyB37CnGHLR8MQAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnTest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 300</value>
+  </data>
+  <data name="btnTest.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnTest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 60</value>
+  </data>
+  <data name="btnTest.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnTest.Text" xml:space="preserve">
+    <value> テスト　　　</value>
+  </data>
+  <data name="btnTest.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnTest.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="btnTest.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnTest.Name" xml:space="preserve">
+    <value>btnTest</value>
+  </data>
+  <data name="&gt;&gt;btnTest.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuBar, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnTest.Parent" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;btnTest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnMaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnMaster.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 15.75pt</value>
+  </data>
+  <data name="btnMaster.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAqVJREFUWEfF
+        l8uPDFEUh3s1kR4zZkwMYoT4KyzFI2EhJB4hEwsWw8IjFmxsbJDYmYiQiCUWhI1XbDwWbEgkFrYixDtB
+        iEekfV/PrTbdXV11q4uZX/Il1ffWOee++pxblTzVarVe2Ag34QNchgWhuyHbQp/v3AJtekN3cWkMG+AO
+        fIdE7+EQDIZXfXcwtNmXSBtt9VF8IBjNhsPwEVr1GsZgJvSF5zfQKldDH43BRgujATgA7yBNn+BCwOc0
+        aauPgeA2XhhlzSxWrtRO6Atu44VRFbbCK+hW2uqjGtzGC6N+2A1lVkBbffQHt+2i05muhIOwH7bBJjgG
+        nuJv0K201cdR0Ke+jeG5WAVVB7AQbsDkv9r/lrGMOeIAnHmZZe5WxhxzAE9gKmefyJhXHUBR/YDHcBxG
+        wf28Dl+hqJ46gIcQe9C+wDmYF85wXfw2Z2yHR/ATYmTMixqn5fE0fYYzMBziNol2/02e9JeQp+Z6wkNM
+        1nsBa2FG3ShF9M2H85C1HY06EswmRMMcGIe0vP4LHsDi8Hqq6M/yoWy3v30Vacyqfu7rPVgUXk8V/UNw
+        BNJ8qPTqSMMs2AdvoZOewzLoCWZtom8unAUPaycZYy9MpGceNDoNHrIsuXwnodMh7IEV8Ax+Q5aMZcxh
+        DS+Fhhh5wjdDU3Xjt8GXwhWIzQfGHNe4qFwJc8EWWALLwcLlvyRv5q0qnIj+pRqJaBeUuXR0K2OOOoAR
+        uAZTXY6NWS/HXr9Xw+QLyXrYA7ehzPZoqw996TO5kBhrDXS+rtOZl1RipK0+hoLbeGE07ZfSab+W532Y
+        mNdPgMWl0zaV+jDJKk6NfA5ZdaTUp5lnYB20fpz+zeNBPKfVE23ugj6Kn4FEGCfXLcuxszwFbQXJttDn
+        O/dhB+TsfaXyB37CnGHLR8MQAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnMaster.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnMaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 240</value>
+  </data>
+  <data name="btnMaster.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnMaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 60</value>
+  </data>
+  <data name="btnMaster.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnMaster.Text" xml:space="preserve">
+    <value> マスタ　　　</value>
+  </data>
+  <data name="btnMaster.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnMaster.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="btnMaster.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnMaster.Name" xml:space="preserve">
+    <value>btnMaster</value>
+  </data>
+  <data name="&gt;&gt;btnMaster.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuBar, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnMaster.Parent" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;btnMaster.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnKekkaKanri.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKekkaKanri.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 15.75pt</value>
+  </data>
+  <data name="btnKekkaKanri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAO5JREFUWEft
+        li0LwlAYRhe0LawbNKz4Y7TbTVaDIAhWo/4P/4DFJJjFJpgFP6JBkXkeuWMyDE69Y+A9cMp74X2eXRau
+        53DERFFUxjp2cWhJ7VZGycQmMKziAq9oC+1eYs3EJjAMcYVzHOGrL/hG7dRuZYQmNkFDczjFihn/DO00
+        u10BV8AVcAVcgWIX2KBtlFGwAgwC7OEebXNAZQVxuI9t3GFeKEuZvgq0UNdyw7xQljKbKrDFC77LEceY
+        fvFM8ITvosyZCmTl5V+smTnLwvqTAmfUw1Lvu2c101kWHgU6OMD0ldq2jw1zgY6/xfPulwWYwtE/N7EA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnKekkaKanri.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKekkaKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 180</value>
+  </data>
+  <data name="btnKekkaKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKekkaKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 60</value>
+  </data>
+  <data name="btnKekkaKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnKekkaKanri.Text" xml:space="preserve">
+    <value> 結果管理</value>
+  </data>
+  <data name="btnKekkaKanri.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnKekkaKanri.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaKanri.Name" xml:space="preserve">
+    <value>btnKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaKanri.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuBar, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaKanri.Parent" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaKanri.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnKentaiKanri.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKentaiKanri.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 15.75pt</value>
+  </data>
+  <data name="btnKentaiKanri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAohJREFUWEe9
+        19urDVEcwPHTIZdIzv3aKTlJiUfJ7QEJL26l+Ae8uyUhl8j9FrlGovBA5EUi8oQXJW9ePFLKg4g8bN+v
+        fnMa54zj7D0z+1ef9m6tmfVbM7NmrTUNZUelUmnGHnzAWbRHVX2ChP14D8Pf/qiqT5CwFcfwEQ/RE1X1
+        C5KOxyx/o6j+QfJGTMdd7EBTVNUnSDgGi+A4eIK+qCo3SDQRSzEXkzENTWiMQ/IHjXXiKj7hFrqjyjrf
+        grfw1hc/AGnU93wT9mMGjuA2eqN+EtZgPoofhDRqBzbjEDrQBjtxE+W+ciRowW7cwPr4n3TiMK6hnE5E
+        kgO4iG6MxQKkO+FduYyBMVFI0GA7vMLz6IpiyydgFfbBTnThCuzkwHG5goaS5D7nIQsLZeOwGHthJ3rg
+        G+IgbY3Daoto0MQ21hbFQ4K60ZiJXejFPDxF7QsRJ5vcRcWl9Z/J08Fxzg+n4SA9jo6oqi6ioRPwikZ0
+        G02GC3Af4B2bilFRPfLgJJPb++1oieJhw+OwE3a6M4qrD0+Gt30rmqN42PA4bInzciev9soLTe7t89mt
+        wHP8RFZY/gIr4Rix07mTn4Sz2BI8wg9kRZI8mXwKeean4FUsxAN8R1YkyVfjIOx07uRnwhzcwTdkRTr5
+        UdjpXMmdwzfgMZbBieMrsiJJ7hrvYLPDtSc3aMDp0kVjG87hC7IindzH9NdiVHPQyBTcw1q8xC8MjnRy
+        B9slFLPM0tD/OjA4uatbcRsNG4MbBzcTXln6EaSTO9Kvo9hdDg0me3aXzNnww+EN3sEPyuVwpJe3z6Nh
+        p1FnstfYCFevPviq+SFxH392uqUFCXwd1+EZ3ON/xiv4dpTwKdXQ8BtfRI1ZHekm/gAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="btnKentaiKanri.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKentaiKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 120</value>
+  </data>
+  <data name="btnKentaiKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKentaiKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 60</value>
+  </data>
+  <data name="btnKentaiKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnKentaiKanri.Text" xml:space="preserve">
+    <value> 検体管理</value>
+  </data>
+  <data name="btnKentaiKanri.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnKentaiKanri.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiKanri.Name" xml:space="preserve">
+    <value>btnKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiKanri.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuBar, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiKanri.Parent" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiKanri.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnSyukkaKanri.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSyukkaKanri.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 15.75pt</value>
+  </data>
+  <data name="btnSyukkaKanri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABCBJREFUWEfN
+        l29oTXEYxzf7x2bGYiVF/jRKTWmlNi+V5E8JkT/Dq3ljKxTLC2pRKHnhBVYkkWRhL/BCScQwCS2riYXW
+        1XaNbe7u3blnP5/nd37n3nPvzmWbbXnq2++c53l+z/P9Pec5v/M7aSMRpVS+ikYrQAO4A3aojo58Yx47
+        IXEuydaqgQFJ+gsog1/objGuVu3tucZ99ITEOcqyypVtXyRJtydxMn6q/v46FQotU62tOWb6yIXEmSoc
+        XkjiUwTv8iQKQugo9kIwk+uTSfbvKhI5rvr65mKfYMINXZiUrnp6ZhC4hmABMOAJHoVQK6jGr8D4Z4El
+        2C4At0I2Ph/RV7l+QxKcp4BKJrfoZPHEyQiBe2Ad/vq5M06iYivR3QS9QPz6wUuwFftkncRPMOZRti04
+        NoIIkMkW+GZGb3IvfoCzzC8BWSaWvCU7wRMQBooFCeH7VHUl9ok6qQg3GSRejFFeqT7tLOWLRj/SUHux
+        Twel3F8jSI+xJ0P8v2CvwbcIpJvYU9Ed4A15j91ZhBPjKrFLVXNztuNkWQcxdDAq0MH1YfTTNEMj3Et5
+        VzH5LpDV+BGxmPsO390gVm6uC4l7BJtUU/opBKl69LPSeGVmoajXSidIP85vca7EYYqJERN0Ut5d4Blw
+        ypsM2xa9lH89/jMYt2li8UfpS0C6N/68bVuaqB4yK3CMPzOE+3RQhM8hfD6AVM0awueNHhPvg34EguAB
+        CU8wel+9LnSncV4EMg0HLaqpKUv3j2WdIbB3H0iGxJLFnQcPQQoCRgnkmdWi+w4kgDTZJ5LsxzbV5I+J
+        JtLbW4JPHUjeKWX1DTTdUubO4Tohly8BHfTGjQyabj76c8ANKv3xmnE7ft4mk0aWTavT+CUScBfmlysV
+        AVdkTyf4cuy3qYD7AQqje8S4hZVVoH/FtWw4yckF/0bAFRUI5OGzkcTPGd2NyosItkbI7ANfPfrRIeAK
+        9gJWXYV/G5DeELSRdA+2fB7bAq5b0Y0NAVdiiQRcG3Vc/x8R6KZi54lbNN4EpE8egzXEnKRt40YgGn2K
+        Xj5kCVv5uBD4k/ydgJxwIxH5rmeYOSlluASImQlkt5QDrYeA93PsNI2c52rRF5q5vjIcAvp4Z9vHdGwn
+        Ryc5DkpuIZDqQPKZ7h30HF0ZCgHmFmCvBvEDibyWkktyeivNjd+RTPb+F4wbsCec9/9EQMdSahPzHgB3
+        URHKLmeIzWI3roMFo9+h1GFtWWXYsrWfDwFsOaAM38vAPb7JKboF7FHBoG81BwlBUh3LZVOpI+E8UOwh
+        UEwzz8bf+5wHsAVAjY5lzonDEial+jGRJNfNKG/PFXPt2uUQc0p1dw86xIxICDLUXzOxXaIa5TLHTB89
+        IWjqn1PpkXA49pMypkKS+O+5Q6ZCdMY8DElL+w2XaD/7Zigf2AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSyukkaKanri.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSyukkaKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 60</value>
+  </data>
+  <data name="btnSyukkaKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnSyukkaKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 60</value>
+  </data>
+  <data name="btnSyukkaKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSyukkaKanri.Text" xml:space="preserve">
+    <value> 出荷管理</value>
+  </data>
+  <data name="btnSyukkaKanri.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnSyukkaKanri.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaKanri.Name" xml:space="preserve">
+    <value>btnSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaKanri.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuBar, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaKanri.Parent" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaKanri.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnKokyakuKanri.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKokyakuKanri.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 15.75pt</value>
+  </data>
+  <data name="btnKokyakuKanri.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAjNJREFUWEfF
+        l71LHEEYhw/1uJN4okYSJSlSaKFoHxttTZFgBC3SpQhBsLGOYKFiYSWImNbCVokgKPkzxBSJYFQUQfPh
+        B0pQL89P3yPhvtyZ3eMeeOBudt7f7O3uzM7FXEin0xXYhO9xGfdMfX6Hj7HCukcLwQ04hsdYCB1Tn3or
+        Cw9hldiOa3iJ96E+66ia8FeDEF3WeTzBoKjvR3xkMX4QUI2vUffZFdX0YdLi3KFYv16/5BRdCX8VKG7F
+        b+iLalstzg0Kw1z+DP63gaJaHMZD9EW1yqi12OCoyIrLdgIpHLIQX1SrjJTFBoeiBPbiLvqyg8pIWKwb
+        FLbgV/RFtS0W5w7FjTiNP9EV1ai20eLcoTiOPfgdXVGNauMW5wcBD3ECf2BQ1HccGywmHAS5vJDUR33D
+        vYiyIfABDuBnvMBs1KZjg1hjZdFDeBK7cBSXTH1+jn7TrRiEakV8ic+w0poLQh89uHqJvUD3BSgDxdqC
+        6ZdpLl+htlt6sLQ25JwIbVXYhjP4C//gJn5Aty0aBXrypzD7yb9B7Q2+4CrqYZvDT7iBegCv8X/OcRGb
+        Lb446ogLeIZR8RtnsfjMoIPPnA/KAb7F/DOEA5pmb3AfS4U2KK8wd4NC41PUvcw3x6NC2Sv4xIa9gwb9
+        4+nALSw1GqMT//1n4Iv2f/0YZv8XFI2hsapt+NsT0OLRjdtYanLfknwp7y0QNGgKTmIppmCGIyy8MnIg
+        e/mNCi3LWilHsM6Gg1jsL0Ttell5T2LrAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnKokyakuKanri.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKokyakuKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnKokyakuKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKokyakuKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 60</value>
+  </data>
+  <data name="btnKokyakuKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnKokyakuKanri.Text" xml:space="preserve">
+    <value> 顧客管理</value>
+  </data>
+  <data name="btnKokyakuKanri.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="btnKokyakuKanri.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuKanri.Name" xml:space="preserve">
+    <value>btnKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuKanri.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuBar, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuKanri.Parent" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuKanri.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pnlMenu1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 39</value>
+  </data>
+  <data name="pnlMenu1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlMenu1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 794</value>
+  </data>
+  <data name="pnlMenu1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu1.Name" xml:space="preserve">
+    <value>pnlMenu1</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlMenu1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnKensaIraiRenkei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKensaIraiRenkei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKensaIraiRenkei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>549, 180</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKensaIraiRenkei.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Text" xml:space="preserve">
+    <value>検査依頼情報連携</value>
+  </data>
+  <data name="btnKensaIraiRenkei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKensaIraiRenkei.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKensaIraiRenkei.Name" xml:space="preserve">
+    <value>btnKensaIraiRenkei</value>
+  </data>
+  <data name="&gt;&gt;btnKensaIraiRenkei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKensaIraiRenkei.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKensaIraiRenkei.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnKentaiIDRenkei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKentaiIDRenkei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKentaiIDRenkei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 180</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKentaiIDRenkei.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Text" xml:space="preserve">
+    <value>検体ID連携</value>
+  </data>
+  <data name="btnKentaiIDRenkei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKentaiIDRenkei.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDRenkei.Name" xml:space="preserve">
+    <value>btnKentaiIDRenkei</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDRenkei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDRenkei.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDRenkei.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnKaninRenkei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKaninRenkei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnKaninRenkei.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKaninRenkei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKaninRenkei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKaninRenkei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 180</value>
+  </data>
+  <data name="btnKaninRenkei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKaninRenkei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKaninRenkei.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnKaninRenkei.Text" xml:space="preserve">
+    <value>会員情報連携</value>
+  </data>
+  <data name="btnKaninRenkei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKaninRenkei.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKaninRenkei.Name" xml:space="preserve">
+    <value>btnKaninRenkei</value>
+  </data>
+  <data name="&gt;&gt;btnKaninRenkei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKaninRenkei.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKaninRenkei.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 180</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Text" xml:space="preserve">
+    <value>顧客一覧出力</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKokyakuichiranSyutsuryoku.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuichiranSyutsuryoku.Name" xml:space="preserve">
+    <value>btnKokyakuichiranSyutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuichiranSyutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuichiranSyutsuryoku.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakuichiranSyutsuryoku.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 180</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Text" xml:space="preserve">
+    <value>顧客台帳出力</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKokyakudaichoSyutsuryoku.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakudaichoSyutsuryoku.Name" xml:space="preserve">
+    <value>btnKokyakudaichoSyutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakudaichoSyutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakudaichoSyutsuryoku.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKokyakudaichoSyutsuryoku.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnKaiinToroku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKaiinToroku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnKaiinToroku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKaiinToroku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKaiinToroku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKaiinToroku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 40</value>
+  </data>
+  <data name="btnKaiinToroku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKaiinToroku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKaiinToroku.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnKaiinToroku.Text" xml:space="preserve">
+    <value>会員登録・修正</value>
+  </data>
+  <data name="btnKaiinToroku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKaiinToroku.Name" xml:space="preserve">
+    <value>btnKaiinToroku</value>
+  </data>
+  <data name="&gt;&gt;btnKaiinToroku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKaiinToroku.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKaiinToroku.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnHojinToroku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnHojinToroku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Meiryo UI, 9.75pt</value>
+  </data>
+  <data name="btnHojinToroku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnHojinToroku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnHojinToroku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHojinToroku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 40</value>
+  </data>
+  <data name="btnHojinToroku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnHojinToroku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnHojinToroku.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnHojinToroku.Text" xml:space="preserve">
+    <value>法人登録・修正</value>
+  </data>
+  <data name="btnHojinToroku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnHojinToroku.Name" xml:space="preserve">
+    <value>btnHojinToroku</value>
+  </data>
+  <data name="&gt;&gt;btnHojinToroku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnHojinToroku.Parent" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;btnHojinToroku.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pnlKokyakuKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 39</value>
+  </data>
+  <data name="pnlKokyakuKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlKokyakuKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1499, 794</value>
+  </data>
+  <data name="pnlKokyakuKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="pnlKokyakuKanri.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlKokyakuKanri.Name" xml:space="preserve">
+    <value>pnlKokyakuKanri</value>
+  </data>
+  <data name="&gt;&gt;pnlKokyakuKanri.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlKokyakuKanri.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlKokyakuKanri.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnShukkaKanryo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnShukkaKanryo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnShukkaKanryo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnShukkaKanryo.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnShukkaKanryo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnShukkaKanryo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>418, 40</value>
+  </data>
+  <data name="btnShukkaKanryo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnShukkaKanryo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnShukkaKanryo.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnShukkaKanryo.Text" xml:space="preserve">
+    <value>出荷完了</value>
+  </data>
+  <data name="btnShukkaKanryo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnShukkaKanryo.Name" xml:space="preserve">
+    <value>btnShukkaKanryo</value>
+  </data>
+  <data name="&gt;&gt;btnShukkaKanryo.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnShukkaKanryo.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnShukkaKanryo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnIraishoHakko.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnIraishoHakko.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnIraishoHakko.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnIraishoHakko.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnIraishoHakko.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnIraishoHakko.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 40</value>
+  </data>
+  <data name="btnIraishoHakko.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnIraishoHakko.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnIraishoHakko.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnIraishoHakko.Text" xml:space="preserve">
+    <value>依頼書発行</value>
+  </data>
+  <data name="btnIraishoHakko.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnIraishoHakko.Name" xml:space="preserve">
+    <value>btnIraishoHakko</value>
+  </data>
+  <data name="&gt;&gt;btnIraishoHakko.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnIraishoHakko.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnIraishoHakko.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 40</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.Text" xml:space="preserve">
+    <value>送り状番号
+反映</value>
+  </data>
+  <data name="btnOkurijoBangoHannei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnOkurijoBangoHannei.Name" xml:space="preserve">
+    <value>btnOkurijoBangoHannei</value>
+  </data>
+  <data name="&gt;&gt;btnOkurijoBangoHannei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnOkurijoBangoHannei.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnOkurijoBangoHannei.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 180</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Text" xml:space="preserve">
+    <value>発送データ出力</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnHassoDataShutsuryoku.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnHassoDataShutsuryoku.Name" xml:space="preserve">
+    <value>btnHassoDataShutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnHassoDataShutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnHassoDataShutsuryoku.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnHassoDataShutsuryoku.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnJukenshaTorikomi.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnJukenshaTorikomi.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnJukenshaTorikomi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnJukenshaTorikomi.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnJukenshaTorikomi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnJukenshaTorikomi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 180</value>
+  </data>
+  <data name="btnJukenshaTorikomi.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnJukenshaTorikomi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnJukenshaTorikomi.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnJukenshaTorikomi.Text" xml:space="preserve">
+    <value>受験者情報
+取込</value>
+  </data>
+  <data name="btnJukenshaTorikomi.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnJukenshaTorikomi.Name" xml:space="preserve">
+    <value>btnJukenshaTorikomi</value>
+  </data>
+  <data name="&gt;&gt;btnJukenshaTorikomi.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnJukenshaTorikomi.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnJukenshaTorikomi.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnSyukkaShori.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSyukkaShori.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnSyukkaShori.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSyukkaShori.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnSyukkaShori.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSyukkaShori.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 40</value>
+  </data>
+  <data name="btnSyukkaShori.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnSyukkaShori.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnSyukkaShori.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSyukkaShori.Text" xml:space="preserve">
+    <value>出荷処理
+</value>
+  </data>
+  <data name="btnSyukkaShori.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaShori.Name" xml:space="preserve">
+    <value>btnSyukkaShori</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaShori.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaShori.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnSyukkaShori.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnChumonRenkei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnChumonRenkei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnChumonRenkei.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnChumonRenkei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnChumonRenkei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnChumonRenkei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 180</value>
+  </data>
+  <data name="btnChumonRenkei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnChumonRenkei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnChumonRenkei.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnChumonRenkei.Text" xml:space="preserve">
+    <value>注文情報連携</value>
+  </data>
+  <data name="btnChumonRenkei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnChumonRenkei.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnChumonRenkei.Name" xml:space="preserve">
+    <value>btnChumonRenkei</value>
+  </data>
+  <data name="&gt;&gt;btnChumonRenkei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnChumonRenkei.Parent" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnChumonRenkei.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pnlSyukkaKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 39</value>
+  </data>
+  <data name="pnlSyukkaKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlSyukkaKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1463, 794</value>
+  </data>
+  <data name="pnlSyukkaKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="pnlSyukkaKanri.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlSyukkaKanri.Name" xml:space="preserve">
+    <value>pnlSyukkaKanri</value>
+  </data>
+  <data name="&gt;&gt;pnlSyukkaKanri.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlSyukkaKanri.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlSyukkaKanri.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>549, 181</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.Text" xml:space="preserve">
+    <value>不備一覧出力</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnHubiIchiranSyutsuryoku.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnHubiIchiranSyutsuryoku.Name" xml:space="preserve">
+    <value>btnHubiIchiranSyutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnHubiIchiranSyutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnHubiIchiranSyutsuryoku.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnHubiIchiranSyutsuryoku.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 180</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.Text" xml:space="preserve">
+    <value>受付台帳出力</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnUketsukeDaichoShutsuryoku.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnUketsukeDaichoShutsuryoku.Name" xml:space="preserve">
+    <value>btnUketsukeDaichoShutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnUketsukeDaichoShutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnUketsukeDaichoShutsuryoku.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnUketsukeDaichoShutsuryoku.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 181</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.Text" xml:space="preserve">
+    <value>検体状況確認</value>
+  </data>
+  <data name="btnKentaiJokyoKakunin.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJokyoKakunin.Name" xml:space="preserve">
+    <value>btnKentaiJokyoKakunin</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJokyoKakunin.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJokyoKakunin.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJokyoKakunin.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnKentaiIDShogo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKentaiIDShogo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKentaiIDShogo.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKentaiIDShogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKentaiIDShogo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 181</value>
+  </data>
+  <data name="btnKentaiIDShogo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKentaiIDShogo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKentaiIDShogo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnKentaiIDShogo.Text" xml:space="preserve">
+    <value>検体ID照合</value>
+  </data>
+  <data name="btnKentaiIDShogo.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKentaiIDShogo.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDShogo.Name" xml:space="preserve">
+    <value>btnKentaiIDShogo</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDShogo.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDShogo.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiIDShogo.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 181</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.Text" xml:space="preserve">
+    <value>検査依頼用
+シール出力</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKensairaiSyutsuryoku.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKensairaiSyutsuryoku.Name" xml:space="preserve">
+    <value>btnKensairaiSyutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnKensairaiSyutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKensairaiSyutsuryoku.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKensairaiSyutsuryoku.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnKentaiJohoToroku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKentaiJohoToroku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnKentaiJohoToroku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKentaiJohoToroku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKentaiJohoToroku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKentaiJohoToroku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 40</value>
+  </data>
+  <data name="btnKentaiJohoToroku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKentaiJohoToroku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKentaiJohoToroku.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnKentaiJohoToroku.Text" xml:space="preserve">
+    <value>検体情報
+登録・修正
+</value>
+  </data>
+  <data name="btnKentaiJohoToroku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJohoToroku.Name" xml:space="preserve">
+    <value>btnKentaiJohoToroku</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJohoToroku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJohoToroku.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiJohoToroku.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnKentaiUketsuke.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKentaiUketsuke.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKentaiUketsuke.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKentaiUketsuke.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKentaiUketsuke.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKentaiUketsuke.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 40</value>
+  </data>
+  <data name="btnKentaiUketsuke.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKentaiUketsuke.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKentaiUketsuke.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnKentaiUketsuke.Text" xml:space="preserve">
+    <value>検体受付</value>
+  </data>
+  <data name="btnKentaiUketsuke.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiUketsuke.Name" xml:space="preserve">
+    <value>btnKentaiUketsuke</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiUketsuke.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiUketsuke.Parent" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKentaiUketsuke.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pnlKentaiKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 39</value>
+  </data>
+  <data name="pnlKentaiKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlKentaiKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1463, 794</value>
+  </data>
+  <data name="pnlKentaiKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="pnlKentaiKanri.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlKentaiKanri.Name" xml:space="preserve">
+    <value>pnlKentaiKanri</value>
+  </data>
+  <data name="&gt;&gt;pnlKentaiKanri.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlKentaiKanri.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlKentaiKanri.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnUriageRenkei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnUriageRenkei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnUriageRenkei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnUriageRenkei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUriageRenkei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>418, 192</value>
+  </data>
+  <data name="btnUriageRenkei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnUriageRenkei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnUriageRenkei.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnUriageRenkei.Text" xml:space="preserve">
+    <value>売上連携</value>
+  </data>
+  <data name="btnUriageRenkei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnUriageRenkei.Name" xml:space="preserve">
+    <value>btnUriageRenkei</value>
+  </data>
+  <data name="&gt;&gt;btnUriageRenkei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnUriageRenkei.Parent" xml:space="preserve">
+    <value>pnlKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnUriageRenkei.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 192</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.Text" xml:space="preserve">
+    <value>検査結果情報連携</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKensaKekkaRenkei.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaRenkei.Name" xml:space="preserve">
+    <value>btnKensaKekkaRenkei</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaRenkei.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaRenkei.Parent" xml:space="preserve">
+    <value>pnlKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaRenkei.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 192</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.Text" xml:space="preserve">
+    <value>検査結果データ出力</value>
+  </data>
+  <data name="btnKensaKekkaDataShutsuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaDataShutsuryoku.Name" xml:space="preserve">
+    <value>btnKensaKekkaDataShutsuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaDataShutsuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaDataShutsuryoku.Parent" xml:space="preserve">
+    <value>pnlKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKensaKekkaDataShutsuryoku.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnKekkaNyuryoku.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKekkaNyuryoku.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnKekkaNyuryoku.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA0JJREFUaEPt
+        mU+ITVEcxx9jzBAyZoyZkWkyk4UNC6Uk+RMb2bBSNpYWrJGFjdlQIqFEiZUoKwt/FqykbCgpkpAi//9F
+        /jyfr373zfXmvHfvdc89773yrU+9d+/58/3ed+4995xX+leVy+UpsBhmwUZ4Bj70Cc7Daui07vyKhrth
+        B6yHHvAZQPoIp6DPuvQnGpX5UbgHW6CIANIDGLFu/YgGI/Nv4Dm0TgAai5uXWicADVWbl1ojAI24zEvN
+        H4AGapmXmjsAleuZl5o3ABWTzEvNGYBKacxLzReACmnNS0UGyD4TUziL+W9wDYZhKvgM8Bb2Q49ZSxaF
+        22EIlsDSFCyCDqs7A7bDC8grvcidhsqV5/M0WAWD0GaH/YlG++EsqPM8+gIXYK41rbZ74Si8ghuwHCbb
+        6TFxUK/GurIrM7AWdOWvgDrPI5d5Del9EA1pDVt3CA6MgO76RugznIMBs/NHfNc6Yy/E70l3CL40KoCG
+        3RnoNyvy0geHjYXgCnEVBq1KwwLoUXkS5piNyLwenzoXPUqrQ7yDgzDbqjUkwAc4Br1mIW7+IejeEvIU
+        D/EIDsDfj1gOhAzwHg5BLfNbQfOL65fQxNll1cbEwVABxk1SfK5nPlIUwj0zcyJEAI1hPRa7rVs/5iVO
+        Fh3gNWgMV35+PvsxL1GgyADFmpcoVFSA4s1LFCwiQBjzEoV9BwhnXqKCzwBhzUtU8hUgvHmJij4CeDPP
+        Z72JumddlyjoI8BjWAaTrM085nUhbkG6Rb0KQp4AX+EyzLP28prXrC0/wQLoBe0IaAk4EfTidQd+goxq
+        EZLFvBQ0wEvQHx5a4Gt5uglq7VKkMS8FDfAEtEbugC7YDVqIVyuteSlYgO9wE4asLY1/bY3Eh4yUxbwU
+        LEBlXQsTYD4okILp5r4Nx0GPxenWZZJ5KVgADZVdoKHTCStgD2yGBdBu3VTEsSTzUrAAT2EDpPpLlHJp
+        zEtBAvyC+zBsTY0T5zSsZsIa2AkXofr+cClIANeOWhsMgDZ8tYNwHbQW1pyQRUEC/ADNthrz2+AE3AVt
+        PuVVkABF6n+ARitTAF97/L4kH/JT2fStKwpqAloHlyDvXn9eqX/5kJ+EuaVU+g3I7b3Hz3QTGwAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="btnKekkaNyuryoku.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKekkaNyuryoku.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKekkaNyuryoku.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 41</value>
+  </data>
+  <data name="btnKekkaNyuryoku.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKekkaNyuryoku.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKekkaNyuryoku.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnKekkaNyuryoku.Text" xml:space="preserve">
+    <value>検査結果
+入力・修正</value>
+  </data>
+  <data name="btnKekkaNyuryoku.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaNyuryoku.Name" xml:space="preserve">
+    <value>btnKekkaNyuryoku</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaNyuryoku.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaNyuryoku.Parent" xml:space="preserve">
+    <value>pnlKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaNyuryoku.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 192</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 96</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.Text" xml:space="preserve">
+    <value>結果データ取込処理</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnKekkaDataTorikomi.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaDataTorikomi.Name" xml:space="preserve">
+    <value>btnKekkaDataTorikomi</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaDataTorikomi.Type" xml:space="preserve">
+    <value>ATDS.Win.App.MSEMenuButton, MES, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaDataTorikomi.Parent" xml:space="preserve">
+    <value>pnlKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;btnKekkaDataTorikomi.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pnlKekkaKanri.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 39</value>
+  </data>
+  <data name="pnlKekkaKanri.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnlKekkaKanri.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1463, 794</value>
+  </data>
+  <data name="pnlKekkaKanri.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="pnlKekkaKanri.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pnlKekkaKanri.Name" xml:space="preserve">
+    <value>pnlKekkaKanri</value>
+  </data>
+  <data name="&gt;&gt;pnlKekkaKanri.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlKekkaKanri.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pnlKekkaKanri.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1184, 561</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>郵送検査システム</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

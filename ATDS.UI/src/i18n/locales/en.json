@@ -1,0 +1,167 @@
+
+{
+  "appName": "ATDS Management System",
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "resetPassword": "Reset Password",
+    "verifyEmail": "Verify Email",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "email": "Email",
+    "rememberMe": "Remember Me",
+    "forgotPassword": "Forgot Password?",
+    "loginFailed": "Login failed",
+    "loginSuccess": "Login successful",
+    "logoutSuccess": "Logout successful",
+    "logoutFailed": "Logout failed"
+  },
+  "common": {
+    "advancedFilter": "Advanced Filters",
+    "quickFilters": "Quick Filters",
+    "clearFilters": "Clear Filters",
+    "sort": "Sort",
+    "availableFields": "Available Fields",  
+    "activeSorts": "Active Sorts",
+    "search": "Search",
+    "filter": "Filter",
+    "apply": "Apply",
+    "sortApplied": "Sort Apply",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "update": "Update",
+    "actions": "Actions",
+    "back": "Back",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None",
+    "rowsPerPage": "Rows per page",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "notifications": "Notifications",
+    "reset": "Reset",
+    "all": "All",
+    "backToHome": "Back to home",
+    "notFound": "The page you are looking for does not exist.",
+    "searchColumns": "Search columns",
+    "columns": "Columns ",
+    "noColumnsFound": "No columns found",
+    "show": "Show",
+    "data": "data"
+  },
+  "users": {
+    "title": "User Management",
+    "create": "Create",
+    "roleAndStatus": "Role and Status",
+    "edit": "Edit User",
+    "additionalSettings": "Additional Settings",  
+    "basicInformation": "Basic Information",
+    "deleteTitle": "Delete User",
+    "deleteMultipleTitle": "Delete Users",
+    "confirmDelete": "Are you sure you want to delete this user?",
+    "confirmDeleteMultiple": "Are you sure you want to delete {{count}} selected users?",
+    "deleteSuccess": "User has been deleted successfully",
+    "deleteMultipleSuccess": "Selected users have been deleted successfully",
+    "updateSuccess": "User has been updated successfully",
+    "createSuccess": "User has been created successfully",
+    "updateError": "Failed to update user",
+    "createError": "Failed to create user",
+    "noData": "No users found",
+    "search": "Search users...",
+    "deleteSelected": "Delete Selected {{count}}",
+    "passwordHint": "Leave empty to keep current password",
+    "filters": {
+      "status": "Status", 
+      "role": "Role"
+    },
+    "fields": {
+      "username": "Username",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "password": "Password",
+      "newPassword": "New Password",
+      "createdAt": "Created At",
+      "createdFrom": "Created From",
+      "createdTo": "Created To",
+      "yukoFlag": "Yuko Flag"
+    },
+    "roles": {
+      "admin": "Administrator",
+      "manager": "Manager",
+      "user": "User"
+    },
+    "statuses": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "pending": "Pending"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "users": "User Management",
+    "products": "Product Management",
+    "userList": "Users",
+    "productList": "Product List",
+    "categories": "Categories",
+    "administrators": "Administrators",
+    "roles": "Roles"
+  },
+  "placeholders": {
+    "username": "Enter username",
+    "email": "Enter email",
+    "password": "Enter password",
+    "newPassword": "Enter new password" 
+  },
+  "filters": {
+    "title": "Advanced Filters",
+    "filter": "Filter",
+    "addFilter": "Add Filter",
+    "activeFilters": "Active Filters",
+    "clearAll": "Clear All",
+    "selectField": "Select Field",
+    "selectValues": "Select Values",
+    "operator": "Operator",
+    "enterValue": "Enter Value",
+    "apply": "Apply Filters",
+    "change": "Change",
+    "operators": {
+      "contains": "Contains",
+      "equals": "Equals",
+      "startsWith": "Starts With",
+      "endsWith": "Ends With",
+      "greaterThan": "Greater Than",
+      "lessThan": "Less Than",
+      "greaterThanOrEqual": "Greater Than or Equal",
+      "lessThanOrEqual": "Less Than or Equal",
+      "on": "On",
+      "after": "After",
+      "before": "Before",
+      "between": "Between",
+      "in": "In"
+    }
+  },
+  "errors": {
+    "fetchFailed": "Failed to fetch data",
+    "deleteFailed": "Failed to delete",
+    "insufficientPermissions": "Access denied.",
+    "forbidden": "Access forbidden."
+  },
+  "breadcrumb": {
+    "dashboard": "Dashboard",
+    "users": "Users"
+  },
+  "validation": {
+    "emailInvalid": "Email is invalid",
+    "passwordMin": "Password must be at least 8 characters long",
+    "passwordUppercase": "Password must contain at least one uppercase letter",
+    "passwordLowercase": "Password must contain at least one lowercase letter",
+    "passwordNumber": "Password must contain at least one number",
+    "passwordSpecial": "Password must contain at least one special character",
+    "usernameMin": "Username must be at least 8 characters long"
+  }
+}

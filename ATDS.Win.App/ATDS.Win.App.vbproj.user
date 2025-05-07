@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Control\DataGridViewEx.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\edtAddress.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\edtPostal.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEAddress.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSECheckBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEComboBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEComboBoxNameKbn.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEComboBoxStatus.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEDataGrid.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEDate.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEEdit.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSELabel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEMenuBar.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEMenuButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSENumber.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEPostal.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSEPref.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSERadioButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Control\MSETime.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Form\%40%40%40Table.DisplayName%40%40%40Entry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\%40%40%40Table.DisplayName%40%40%40Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\Common\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\Common\Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\PermissionEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\PermissionScreenEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\PermissionScreenSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\PermissionSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\RoleEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\RolePermissionEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\RolePermissionSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\RoleSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ScreenEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\ScreenSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\UserEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\UserSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form\View\%40%40%40Define.DisplayName%40%40%40Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+</Project>

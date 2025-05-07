@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="BaseButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseCombo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Grid\BaseDataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseDate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseNumber.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="BaseTime.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Grid\DataGridViewBaseNumberEditingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="PostalSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
