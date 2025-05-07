@@ -121,6 +121,15 @@ builder.Services.AddMvc(mvcOpts =>
     mvcOpts.Filters.Add(typeof(AutoLogAttribute));
 }).AddControllersAsServices();
 
+//--- CORS
+builder.Services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin()                  // Allow any origin (uses *)
+           .AllowAnyMethod()                  // Allow all HTTP methods
+           .AllowAnyHeader();                 // Allow all headers
+                                              // Note: Cannot use AllowCredentials() with AllowAnyOrigin()
+}));
+
 //---Log
 builder.Host.ConfigureDefaults(args).ConfigureLogging((hostingContext, logging) =>
 {
@@ -136,6 +145,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("MyPolicy");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
