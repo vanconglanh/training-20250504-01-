@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="LabelColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">165, 0, 130</Value>
+    </Setting>
+    <Setting Name="ButtonColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">235, 183, 63</Value>
+    </Setting>
+    <Setting Name="ButtonFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Meiryo UI, 11.25pt, style=Bold</Value>
+    </Setting>
+    <Setting Name="EditFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Meiryo UI, 10pt</Value>
+    </Setting>
+    <Setting Name="LabelFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Meiryo UI, 11.25pt, style=Bold</Value>
+    </Setting>
+    <Setting Name="MenuButtonFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Meiryo UI, 10pt</Value>
+    </Setting>
+    <Setting Name="MenuButtonColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">235, 183, 63</Value>
+    </Setting>
+    <Setting Name="MenuBarColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">165, 0, 130</Value>
+    </Setting>
+    <Setting Name="MenuBarFont" Type="System.Drawing.Font" Scope="Application">
+      <Value Profile="(Default)">Meiryo UI, 16pt</Value>
+    </Setting>
+    <Setting Name="MenuBarColor_Select" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">198, 0, 156</Value>
+    </Setting>
+    <Setting Name="LoginUserSave" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="LoginUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Postal" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Postal\KEN_ALL.csv</Value>
+    </Setting>
+    <Setting Name="SCREEN_IRAISHO_HAKKO_COMMENT1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">〇左のQRコードからマイページにアクセスし、検体IDの登録を行ってください。</Value>
+    </Setting>
+    <Setting Name="SCREEN_IRAISHO_HAKKO_COMMENT2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">〇検体ID登録後、希望される検査項目・問診について回答をお願いいたします。</Value>
+    </Setting>
+    <Setting Name="LastImportOkuriPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastOkuriType" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="LastShukaSearchCSVFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastOkurijoBangoHanneiCSVFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastImportJukenshaPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LastUriageRenkeiCSVFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
