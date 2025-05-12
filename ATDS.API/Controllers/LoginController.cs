@@ -64,7 +64,7 @@ namespace ATDS.API.Controllers
         {
             //Validate the User Credentials
             UserFilter filter = new UserFilter();
-            filter.UserName = login.UserName;
+            filter.Username = login.Username;
             filter.Password = login.Password;
 
             var user = _userSearchBusiness.GetLoginInfo(filter);
@@ -75,18 +75,18 @@ namespace ATDS.API.Controllers
         private IEnumerable<Claim> GetTockenClaims(UserLoginInfo userLoginInfo)
         {
             // Serialize permission list to JSON
-            var permissionJson = JsonSerializer.Serialize(userLoginInfo.ListPermissons);
+            var permissionJson = JsonSerializer.Serialize(userLoginInfo.Permissions);
             return new List<Claim>
             {
                 new Claim(ClaimConstant.UserId, userLoginInfo.Id.ToString()),
-                new Claim(ClaimConstant.UserName, userLoginInfo.UserName),
+                new Claim(ClaimConstant.Username, userLoginInfo.Username),
                 new Claim(ClaimConstant.Email, userLoginInfo.Email),
                 new Claim(ClaimConstant.Language, userLoginInfo.Language),
                 new Claim(ClaimConstant.RoleId, userLoginInfo.RoleId.ToString()),
                 new Claim(ClaimConstant.RoleName, ""),
                 new Claim(ClaimConstant.CreatedAt, userLoginInfo.CreatedAt.ToString()),
                 new Claim(ClaimConstant.CreatedAt, userLoginInfo.UpdatedAt.ToString()),
-                new Claim(ClaimConstant.PermissonActions, permissionJson),
+                new Claim(ClaimConstant.PermissionActions, permissionJson),
                 //More custom claims
             };
         }

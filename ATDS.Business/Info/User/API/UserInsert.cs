@@ -22,8 +22,8 @@ namespace ATDS.Business.Info
         //Email
         public string Email  { get; set; } = "";
 
-        //UserName
-        public string UserName  { get; set; } = "";
+        //Username
+        public string Username { get; set; } = "";
 
         //Language
         public string? Language  { get; set; } = "";
@@ -44,10 +44,16 @@ namespace ATDS.Business.Info
         public DateTime? UpdatedAt  { get; set; } = null;
 
         //YukoFlag
-        public string? YukoFlag  { get; set; } = "";
+        public int YukoFlag  { get; set; } = 0;
 
         //CreatedUser
         public int? CreatedUser  { get; set; } = 0;
+
+        //LastUpdateUser
+        public int? LastUpdateUser  { get; set; } = 0;
+
+        //LastUpdateProgram
+        public string? LastUpdateProgram  { get; set; } = "";
 
         //Foreign Table
     }

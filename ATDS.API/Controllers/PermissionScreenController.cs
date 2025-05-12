@@ -40,13 +40,30 @@ namespace ATDS.API.Controllers
         // GET: api/<PermissionScreenController>
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] PermissionScreenFilter filter)
         {
-            //_multiLanguageService.GetResource("aaa");
-            PermissionScreenFilter filter = new PermissionScreenFilter();
-            filter.YukoFlag = YUKO_FLAG.ENABLED.ToString();
-            List<PermissionScreenItemInfo> result = _permissionScreenSearchBusiness.Search(filter);            
-            return new PagingResult<PermissionScreenItemInfo>(result, result.Count, 1, filter.PageSize);
+            filter.YukoFlag = filter.YukoFlag ?? (int)YUKO_FLAG.ENABLED;
+
+            bool hasPaging = filter.Page > 0 && filter.Size > 0;
+
+            if (hasPaging)
+            {
+                var pagedResult = _permissionScreenSearchBusiness.SearchPage(filter);
+                return new PagingResult<PermissionScreenItemInfo>(
+                    pagedResult,
+                    pagedResult.TotalRecord,
+                    filter.Page,
+                    filter.Size
+                );
+            }
+
+            var fullList = _permissionScreenSearchBusiness.Search(filter);
+            return new PagingResult<PermissionScreenItemInfo>(
+                fullList,
+                fullList.Count,
+                1,                
+                fullList.Count  
+            );
         }
 
         // GET: api/<PermissionScreenController>
@@ -55,17 +72,16 @@ namespace ATDS.API.Controllers
         public async Task<IActionResult> GetPage([FromQuery] PermissionScreenFilter filter)
         {
             PaginatedList<PermissionScreenItemInfo> result = _permissionScreenSearchBusiness.SearchPage(filter);
-            return new PagingResult<PermissionScreenItemInfo>(result, result.TotalRecord, filter.PageIndex, filter.PageSize);
+            return new PagingResult<PermissionScreenItemInfo>(result, result.TotalRecord, filter.Page, filter.Size);
         }
 
         // GET api/<PermissionScreenController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int piId)
+        public async Task<IActionResult> Get(int id)
         {
             PermissionScreenFilter filter = new PermissionScreenFilter();
-            filter.Id = piId;
-
-            PermissionScreenItemInfo permissionScreenItemInfo =  _permissionScreenSearchBusiness.SearchByKey(piId);
+            filter.Id = id;
+            PermissionScreenItemInfo permissionScreenItemInfo =  _permissionScreenSearchBusiness.SearchByKey(id);
             var result = await ValidateDetail(permissionScreenItemInfo);
 
             if (result != null)
@@ -84,10 +100,10 @@ namespace ATDS.API.Controllers
                 return BadRequest(result);
 
             //TODO
-            string userName  = string.Empty;
+            string username  = string.Empty;
             string deviceID  = string.Empty;
 
-            ReturnInfo insertResultInfo = _permissionScreenEntryBusiness.Add(insertInfo, userName, deviceID);
+            ReturnInfo insertResultInfo = _permissionScreenEntryBusiness.Add(insertInfo, username, deviceID);
 
             return new DataResult<string>(insertResultInfo.Code.ToString());
         }
@@ -102,25 +118,25 @@ namespace ATDS.API.Controllers
                 return BadRequest(result);
 
             //Set user infomation
-            string userName = string.Empty;
+            string username = string.Empty;
             string deviceID = string.Empty;
 
-            ReturnInfo updateResultInfo = _permissionScreenEntryBusiness.Update(updateInfo, userName, deviceID);
+            ReturnInfo updateResultInfo = _permissionScreenEntryBusiness.Update(updateInfo, username, deviceID);
 
             return Ok(updateResultInfo);
         }
 
         // DELETE api/<PermissionScreenController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int piId)
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await ValidateDelete(piId);
+            var result = await ValidateDelete(id);
             if (result != null)
                 return BadRequest(result);
 
-            string userName = string.Empty;
+            string username = string.Empty;
             string deviceID = string.Empty;
-            _permissionScreenEntryBusiness.Delete(piId, userName, deviceID);
+            _permissionScreenEntryBusiness.Delete(id, username, deviceID);
 
             return Ok();
         }
@@ -133,7 +149,7 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "PermissionScreen"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message:  string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "PermissionScreen"), 
                                     statusCode: (int)ResultCode.Success);
 
@@ -168,21 +184,21 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "PermissionScreen"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "PermissionScreen"),
                                     statusCode: (int)ResultCode.Success);
 
             return null;
         }
 
-        private async Task<ErrorResult> ValidateDelete(int piId)
+        private async Task<ErrorResult> ValidateDelete(int id)
         {
-            var entity = _permissionScreenSearchBusiness.SearchByKey(piId);
+            var entity = _permissionScreenSearchBusiness.SearchByKey(id);
 
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "PermissionScreen"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "PermissionScreen"),
                                     statusCode: (int)ResultCode.Success);
 

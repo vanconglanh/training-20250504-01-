@@ -103,10 +103,10 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="Where"></param>
         /// <param name="Order"></param>
-        /// <param name="iPageIndex"></param>
+        /// <param name="iPage"></param>
         /// <param name="iRecordOfPage"></param>
         /// <returns></returns>
-        public string sqlBaseSetSelectPage(string Where, string Order, int iPageIndex, int iRecordOfPage)
+        public string sqlBaseSetSelectPage(string Where, string Order, int iPage, int iRecordOfPage)
         {
             System.Text.StringBuilder sql = new System.Text.StringBuilder();
 
@@ -139,7 +139,7 @@ namespace ATDS.DataAccess
                     sql.Append(Order);                                                                        //   並び順(ﾕｰｻﾞｰ条件)
                 }
                 // Get Record of page
-                sql.Append(" OFFSET " + (iPageIndex -1) * iRecordOfPage + " ROWS FETCH NEXT "+ iRecordOfPage + " ROWS ONLY ");
+                sql.Append(" LIMIT " + iRecordOfPage + " OFFSET " + (iPage - 1) * iRecordOfPage);
 
                 return sql.ToString();
             }
@@ -278,8 +278,8 @@ namespace ATDS.DataAccess
                                             string where, 
                                             List<IDbDataParameter> lstParameter, 
                                             string order,
-                                            int iPageIndex = 1,
-                                            int iPageSize = 20)
+                                            int iPage = 1,
+                                            int iSize = 20)
         {
             string sql = "";
             IDataReader Sdr;
@@ -299,7 +299,7 @@ namespace ATDS.DataAccess
                 if (iTotalRecord > 0)
                 {
                     //--- SQL設定
-                    sql = sqlBaseSetSelectPage(where, order, iPageIndex, iPageSize);
+                    sql = sqlBaseSetSelectPage(where, order, iPage, iSize);
 
                     //--- 情報取得                    
                     Sdr = con.SelectSQLWithParams(sql, lstParameter.ToList());
@@ -314,7 +314,7 @@ namespace ATDS.DataAccess
                     }
                 }
 
-                return new PaginatedList<VPermissionEntity>(lstVPermissionEntity, iTotalRecord, iPageIndex, iPageSize);
+                return new PaginatedList<VPermissionEntity>(lstVPermissionEntity, iTotalRecord, iPage, iSize);
 
             }
             catch (Exception)

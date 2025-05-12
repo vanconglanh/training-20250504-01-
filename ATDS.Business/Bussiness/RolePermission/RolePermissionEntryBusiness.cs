@@ -14,7 +14,7 @@ namespace ATDS.Business
 {
     public class RolePermissionEntryBusiness
     {
-        public RolePermissionUIInfo GetData(int piRoleId, int piPermissionScreenId)
+        public RolePermissionUIInfo GetData(int piId)
         {
             MySQLServerHelper con = new MySQLServerHelper(GlobalParameter.ConnectionString);
             RolePermissionData da = new RolePermissionData();
@@ -27,7 +27,7 @@ namespace ATDS.Business
                 con.Open();
 
                 // --- Get data
-                cls = da.GetData(con ,piRoleId,piPermissionScreenId);
+                cls = da.GetData(con ,piId);
 
                 // --- Get foreign key table
                 // TODO  
@@ -243,7 +243,7 @@ namespace ATDS.Business
             return ret;
         }
 
-        public ReturnInfo Delete(int piRoleId, int piPermissionScreenId, string vstrUpdateUser, string vstrUpdateProgram)
+        public ReturnInfo Delete(int piId, string vstrUpdateUser, string vstrUpdateProgram)
         {
             MySQLServerHelper con = new MySQLServerHelper(GlobalParameter.ConnectionString);
             RolePermissionData da = new RolePermissionData();
@@ -259,7 +259,7 @@ namespace ATDS.Business
                 con.BeginTrans();
 
                 // --- Delete data(RolePermission)
-                ret = da.Delete(con ,piRoleId,piPermissionScreenId, vstrUpdateUser, vstrUpdateProgram);
+                ret = da.Delete(con ,piId, vstrUpdateUser, vstrUpdateProgram);
 
                 // --- Delete & Insert List (RolePermissionMeisai)
                 //daRolePermissionMeisai.DeleteByForeignKey(Con, pstrChumonId, vstrUpdateUser, vstrUpdateProgram);

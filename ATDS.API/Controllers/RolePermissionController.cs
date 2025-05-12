@@ -40,13 +40,30 @@ namespace ATDS.API.Controllers
         // GET: api/<RolePermissionController>
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] RolePermissionFilter filter)
         {
-            //_multiLanguageService.GetResource("aaa");
-            RolePermissionFilter filter = new RolePermissionFilter();
-            filter.YukoFlag = YUKO_FLAG.ENABLED.ToString();
-            List<RolePermissionItemInfo> result = _rolePermissionSearchBusiness.Search(filter);            
-            return new PagingResult<RolePermissionItemInfo>(result, result.Count, 1, filter.PageSize);
+            filter.YukoFlag = filter.YukoFlag ?? (int)YUKO_FLAG.ENABLED;
+
+            bool hasPaging = filter.Page > 0 && filter.Size > 0;
+
+            if (hasPaging)
+            {
+                var pagedResult = _rolePermissionSearchBusiness.SearchPage(filter);
+                return new PagingResult<RolePermissionItemInfo>(
+                    pagedResult,
+                    pagedResult.TotalRecord,
+                    filter.Page,
+                    filter.Size
+                );
+            }
+
+            var fullList = _rolePermissionSearchBusiness.Search(filter);
+            return new PagingResult<RolePermissionItemInfo>(
+                fullList,
+                fullList.Count,
+                1,                
+                fullList.Count  
+            );
         }
 
         // GET: api/<RolePermissionController>
@@ -55,18 +72,16 @@ namespace ATDS.API.Controllers
         public async Task<IActionResult> GetPage([FromQuery] RolePermissionFilter filter)
         {
             PaginatedList<RolePermissionItemInfo> result = _rolePermissionSearchBusiness.SearchPage(filter);
-            return new PagingResult<RolePermissionItemInfo>(result, result.TotalRecord, filter.PageIndex, filter.PageSize);
+            return new PagingResult<RolePermissionItemInfo>(result, result.TotalRecord, filter.Page, filter.Size);
         }
 
         // GET api/<RolePermissionController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int piRoleId, int piPermissionScreenId)
+        public async Task<IActionResult> Get(int id)
         {
             RolePermissionFilter filter = new RolePermissionFilter();
-            filter.RoleId = piRoleId;
-            filter.PermissionScreenId = piPermissionScreenId;
-
-            RolePermissionItemInfo rolePermissionItemInfo =  _rolePermissionSearchBusiness.SearchByKey(piRoleId,piPermissionScreenId);
+            filter.Id = id;
+            RolePermissionItemInfo rolePermissionItemInfo =  _rolePermissionSearchBusiness.SearchByKey(id);
             var result = await ValidateDetail(rolePermissionItemInfo);
 
             if (result != null)
@@ -85,10 +100,10 @@ namespace ATDS.API.Controllers
                 return BadRequest(result);
 
             //TODO
-            string userName  = string.Empty;
+            string username  = string.Empty;
             string deviceID  = string.Empty;
 
-            ReturnInfo insertResultInfo = _rolePermissionEntryBusiness.Add(insertInfo, userName, deviceID);
+            ReturnInfo insertResultInfo = _rolePermissionEntryBusiness.Add(insertInfo, username, deviceID);
 
             return new DataResult<string>(insertResultInfo.Code.ToString());
         }
@@ -103,25 +118,25 @@ namespace ATDS.API.Controllers
                 return BadRequest(result);
 
             //Set user infomation
-            string userName = string.Empty;
+            string username = string.Empty;
             string deviceID = string.Empty;
 
-            ReturnInfo updateResultInfo = _rolePermissionEntryBusiness.Update(updateInfo, userName, deviceID);
+            ReturnInfo updateResultInfo = _rolePermissionEntryBusiness.Update(updateInfo, username, deviceID);
 
             return Ok(updateResultInfo);
         }
 
         // DELETE api/<RolePermissionController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int piRoleId, int piPermissionScreenId)
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await ValidateDelete(piRoleId,piPermissionScreenId);
+            var result = await ValidateDelete(id);
             if (result != null)
                 return BadRequest(result);
 
-            string userName = string.Empty;
+            string username = string.Empty;
             string deviceID = string.Empty;
-            _rolePermissionEntryBusiness.Delete(piRoleId,piPermissionScreenId, userName, deviceID);
+            _rolePermissionEntryBusiness.Delete(id, username, deviceID);
 
             return Ok();
         }
@@ -134,7 +149,7 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "RolePermission"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message:  string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "RolePermission"), 
                                     statusCode: (int)ResultCode.Success);
 
@@ -165,25 +180,25 @@ namespace ATDS.API.Controllers
             //}
 
 
-            var entity = _rolePermissionSearchBusiness.SearchByKey(input.RoleId,input.PermissionScreenId);
+            var entity = _rolePermissionSearchBusiness.SearchByKey(input.Id);
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "RolePermission"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "RolePermission"),
                                     statusCode: (int)ResultCode.Success);
 
             return null;
         }
 
-        private async Task<ErrorResult> ValidateDelete(int piRoleId, int piPermissionScreenId)
+        private async Task<ErrorResult> ValidateDelete(int id)
         {
-            var entity = _rolePermissionSearchBusiness.SearchByKey(piRoleId,piPermissionScreenId);
+            var entity = _rolePermissionSearchBusiness.SearchByKey(id);
 
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "RolePermission"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "RolePermission"),
                                     statusCode: (int)ResultCode.Success);
 

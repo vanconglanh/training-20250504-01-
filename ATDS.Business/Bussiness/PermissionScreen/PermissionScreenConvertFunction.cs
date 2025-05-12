@@ -252,6 +252,8 @@ namespace ATDS.Business
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
                     withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
+                    withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
+                    withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
                 }
             }
             catch (Exception ex)

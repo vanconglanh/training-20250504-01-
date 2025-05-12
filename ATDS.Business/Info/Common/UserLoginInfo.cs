@@ -26,7 +26,7 @@ namespace ATDS.Business.Info
                 this.Code = userInfo.Code;
                 this.Name = userInfo.Name;
                 this.Email = userInfo.Email;
-                this.UserName = userInfo.UserName;
+                this.Username = userInfo.Username;
                 this.Language = userInfo.Language;
                 this.Password = userInfo.Password;
                 this.PasswordHash = userInfo.PasswordHash;
@@ -42,6 +42,6 @@ namespace ATDS.Business.Info
         /// <summary>
         /// ユーザーが持つ権限の一覧
         /// </summary>
-        public List<UserPermissonAction> ListPermissons { get; set; } = new List<UserPermissonAction>();
+        public List<UserPermissonAction> Permissions { get; set; } = new List<UserPermissonAction>();
     }
 }

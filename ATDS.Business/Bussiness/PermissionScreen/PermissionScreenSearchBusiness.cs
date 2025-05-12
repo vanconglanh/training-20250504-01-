@@ -204,18 +204,18 @@ namespace ATDS.Business
                 var whereCondition = PermissionScreenConvertFunction.ConvertFilterToWhereCondition(filter);
                 var lstParameter = PermissionScreenConvertFunction.ConvertFilterToParamsCondition(filter);
                 var order = filter.OrderBy;
-                var iCurrentPage = filter.PageIndex;
-                var iPageSize = filter.PageSize;
+                var iCurrentPage = filter.Page;
+                var iSize = filter.Size;
 
                 // --- Search data
-                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iPageSize);
+                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iSize);
 
                 // --- Convert data
                 foreach (PermissionScreenEntity row in lst)
                     // Convert data
                     lstRet.Add(PermissionScreenConvertFunction.ConvertToPermissionScreenItemInfo(row));
 
-                lstResult = new PaginatedList<PermissionScreenItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iPageSize);
+                lstResult = new PaginatedList<PermissionScreenItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iSize);
             }
             catch (Exception)
             {

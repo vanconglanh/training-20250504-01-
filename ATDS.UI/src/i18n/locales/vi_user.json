@@ -1,0 +1,19 @@
+﻿
+{  
+  "users": {
+        "id": "Id",
+    "code": "Code",
+    "name": "Name",
+    "email": "Email",
+    "username": "Username",
+    "language": "Language",
+    "password": "Password",
+    "passwordHash": "PasswordHash",
+    "roleId": "RoleId",
+    "createdAt": "CreatedAt",
+    "updatedAt": "UpdatedAt",
+    "yukoFlag": "YukoFlag",
+    "createdUser": "CreatedUser",
+    "lastUpdateUser": "LastUpdateUser",
+    "lastUpdateProgram": "LastUpdateProgram"
+}

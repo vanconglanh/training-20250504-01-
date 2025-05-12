@@ -20,8 +20,8 @@ namespace ATDS.DataAccess.Entity
         //Email
         public string Email = "";
 
-        //UserName
-        public string UserName = "";
+        //Username
+        public string Username = "";
 
         //Language
         public string? Language = "";
@@ -42,10 +42,16 @@ namespace ATDS.DataAccess.Entity
         public DateTime? UpdatedAt = null;
 
         //YukoFlag
-        public string? YukoFlag = "";
+        public int YukoFlag = 0;
 
         //CreatedUser
         public int? CreatedUser = 0;
+
+        //LastUpdateUser
+        public int? LastUpdateUser = 0;
+
+        //LastUpdateProgram
+        public string? LastUpdateProgram = "";
 
 
         //Foreign Table

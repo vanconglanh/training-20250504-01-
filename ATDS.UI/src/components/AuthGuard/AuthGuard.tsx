@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
+import authApi from '@/apis/auth.api';
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
-import { setProfile, setLoading, setAuth } from '@/store/slices/AuthSlice';
-import authApi from '@/apis/authApi';
-import { useSnackbar } from 'notistack';
+import authService from '@/services/auth.service';
+import { setAuth, setLoading, setProfile } from '@/store/slices/auth.slice';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import authService from '@/services/authService';
+import { Navigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -14,7 +14,6 @@ interface AuthGuardProps {
 const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
   const dispatch = useAppDispatch();
   const location = useLocation();
-  const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation();
   const { isAuthenticated, loading, profile } = useAppSelector((state) => state.auth);
 
@@ -30,7 +29,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
           dispatch(setAuth({ token: token, refreshToken: refreshToken }));
         } catch (error) {
           console.error('Failed to fetch profile:', error);
-          enqueueSnackbar(t('errors.sessionExpired'), { variant: 'error' });
+          toast.error(t('errors.sessionExpired'));
           // Clear invalid token
           localStorage.removeItem('token');
           localStorage.removeItem('refreshToken');
@@ -41,7 +40,7 @@ const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
     };
 
     initAuth();
-  }, [dispatch, profile, enqueueSnackbar, t]);
+  }, [dispatch, profile, t]);
 
   // Show loading state while checking authentication
   if (loading || (!isAuthenticated && localStorage.getItem('token'))) {

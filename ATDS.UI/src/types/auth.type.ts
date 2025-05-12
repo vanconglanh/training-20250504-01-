@@ -2,7 +2,7 @@ import { PermissionAction } from "@/config/enum/PermissionAction";
 
 export interface Profile {
   userId: number;
-  userName: string;
+  username: string;
   password: string;
   language: string;
   email: string;

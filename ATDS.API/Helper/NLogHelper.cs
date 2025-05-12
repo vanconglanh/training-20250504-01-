@@ -21,7 +21,7 @@ namespace ATDS.API.Helpers
             {
                 LogHelper.logger.LogInformation(String.Format(outputFormat,
                                             strProcessID,
-                                            claimsIdentity.FindFirst(ClaimConstant.UserName),
+                                            claimsIdentity.FindFirst(ClaimConstant.Username),
                                             claimsIdentity.FindFirst(ClaimConstant.Email)));
 
             }
@@ -37,7 +37,7 @@ namespace ATDS.API.Helpers
                                                           context.HttpContext.Request.Path,
                                                           context.HttpContext.Request.Method,
                                                           context.HttpContext.Request.QueryString,
-                                                          claimsIdentity.FindFirst(ClaimConstant.UserName)));
+                                                          claimsIdentity.FindFirst(ClaimConstant.Username)));
 
 
         }
@@ -49,7 +49,7 @@ namespace ATDS.API.Helpers
             string outputFormat = "ProcessID: {0} | PatientId: {1}  | Processed Time: {2}  --- Responese Info: {3}";
             LogHelper.logger.LogInformation(String.Format(outputFormat,
                                        strProcessID,
-                                       claimsIdentity.FindFirst(ClaimConstant.UserName),
+                                       claimsIdentity.FindFirst(ClaimConstant.Username),
                                        strResponseTime,
                                        JsonConvert.SerializeObject(result).ToString()));
         }

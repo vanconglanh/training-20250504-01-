@@ -2,8 +2,7 @@ import { useForm, UseFormProps, FieldPath, FieldValues } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
-import { useSnackbar } from 'notistack';
-
+import { toast } from 'react-toastify';
 /**
  * A custom hook that combines react-hook-form with zod validation
  * @param schema The zod schema to validate against
@@ -19,7 +18,6 @@ export function useZodForm<
   options?: Omit<UseFormProps<TFieldValues, TContext>, 'resolver'>
 ) {
   const { t } = useTranslation();
-  const { enqueueSnackbar } = useSnackbar();
 
   const form = useForm<TFieldValues, TContext>({
     ...options,
@@ -42,9 +40,9 @@ export function useZodForm<
           const errorMessage = errors[firstFieldWithError]?.message as string;
           
           if (errorMessage) {
-            enqueueSnackbar(t(errorMessage) || errorMessage, { variant: 'error' });
+            toast.error(t(errorMessage) || errorMessage);
           } else {
-            enqueueSnackbar(t('errors.invalidForm'), { variant: 'error' });
+            toast.error(t('errors.invalidForm'));
           }
         }
         

@@ -19,6 +19,7 @@
   },
   "common": {
     "advancedFilter": "Advanced Filters",
+    "loading": "Loading...",
     "quickFilters": "Quick Filters",
     "clearFilters": "Clear Filters",
     "sort": "Sort",
@@ -81,6 +82,9 @@
     "fields": {
       "username": "Username",
       "email": "Email",
+      "name": "Name",
+      "language": "Language",
+      "code": "Code",
       "role": "Role",
       "status": "Status",
       "password": "Password",

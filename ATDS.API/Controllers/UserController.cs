@@ -40,13 +40,30 @@ namespace ATDS.API.Controllers
         // GET: api/<UserController>
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] UserFilter filter)
         {
-            //_multiLanguageService.GetResource("aaa");
-            UserFilter filter = new UserFilter();
-            filter.YukoFlag = YUKO_FLAG.ENABLED.ToString();
-            List<UserItemInfo> result = _userSearchBusiness.Search(filter);            
-            return new PagingResult<UserItemInfo>(result, result.Count, 1, filter.PageSize);
+            filter.YukoFlag = filter.YukoFlag ?? (int)YUKO_FLAG.ENABLED;
+
+            bool hasPaging = filter.Page > 0 && filter.Size > 0;
+
+            if (hasPaging)
+            {
+                var pagedResult = _userSearchBusiness.SearchPage(filter);
+                return new PagingResult<UserItemInfo>(
+                    pagedResult,
+                    pagedResult.TotalRecord,
+                    filter.Page,
+                    filter.Size
+                );
+            }
+
+            var fullList = _userSearchBusiness.Search(filter);
+            return new PagingResult<UserItemInfo>(
+                fullList,
+                fullList.Count,
+                1,                
+                fullList.Count  
+            );
         }
 
         // GET: api/<UserController>
@@ -55,17 +72,16 @@ namespace ATDS.API.Controllers
         public async Task<IActionResult> GetPage([FromQuery] UserFilter filter)
         {
             PaginatedList<UserItemInfo> result = _userSearchBusiness.SearchPage(filter);
-            return new PagingResult<UserItemInfo>(result, result.TotalRecord, filter.PageIndex, filter.PageSize);
+            return new PagingResult<UserItemInfo>(result, result.TotalRecord, filter.Page, filter.Size);
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int piId)
+        public async Task<IActionResult> Get(int id)
         {
             UserFilter filter = new UserFilter();
-            filter.Id = piId;
-
-            UserItemInfo userItemInfo =  _userSearchBusiness.SearchByKey(piId);
+            filter.Id = id;
+            UserItemInfo userItemInfo =  _userSearchBusiness.SearchByKey(id);
             var result = await ValidateDetail(userItemInfo);
 
             if (result != null)
@@ -84,10 +100,10 @@ namespace ATDS.API.Controllers
                 return BadRequest(result);
 
             //TODO
-            string userName  = string.Empty;
+            string username  = string.Empty;
             string deviceID  = string.Empty;
 
-            ReturnInfo insertResultInfo = _userEntryBusiness.Add(insertInfo, userName, deviceID);
+            ReturnInfo insertResultInfo = _userEntryBusiness.Add(insertInfo, username, deviceID);
 
             return new DataResult<string>(insertResultInfo.Code.ToString());
         }
@@ -102,25 +118,25 @@ namespace ATDS.API.Controllers
                 return BadRequest(result);
 
             //Set user infomation
-            string userName = string.Empty;
+            string username = string.Empty;
             string deviceID = string.Empty;
 
-            ReturnInfo updateResultInfo = _userEntryBusiness.Update(updateInfo, userName, deviceID);
+            ReturnInfo updateResultInfo = _userEntryBusiness.Update(updateInfo, username, deviceID);
 
             return Ok(updateResultInfo);
         }
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int piId)
+        public async Task<IActionResult> Delete(int id)
         {
-            var result = await ValidateDelete(piId);
+            var result = await ValidateDelete(id);
             if (result != null)
                 return BadRequest(result);
 
-            string userName = string.Empty;
+            string username = string.Empty;
             string deviceID = string.Empty;
-            _userEntryBusiness.Delete(piId, userName, deviceID);
+            _userEntryBusiness.Delete(id, username, deviceID);
 
             return Ok();
         }
@@ -133,7 +149,7 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "User"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message:  string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "User"), 
                                     statusCode: (int)ResultCode.Success);
 
@@ -168,21 +184,21 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "User"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "User"),
                                     statusCode: (int)ResultCode.Success);
 
             return null;
         }
 
-        private async Task<ErrorResult> ValidateDelete(int piId)
+        private async Task<ErrorResult> ValidateDelete(int id)
         {
-            var entity = _userSearchBusiness.SearchByKey(piId);
+            var entity = _userSearchBusiness.SearchByKey(id);
 
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "User"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == YUKO_FLAG.DISABLED.ToString())
+            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "User"),
                                     statusCode: (int)ResultCode.Success);
 

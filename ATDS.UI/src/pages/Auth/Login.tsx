@@ -1,5 +1,5 @@
 import { useAuth } from '@/hooks/useAuth';
-import { loginSchema } from '@/utils/validation/authScheme';
+import { loginSchema } from '@/utils/validation/auth.scheme';
 import { zodResolver } from '@hookform/resolvers/zod';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Visibility from '@mui/icons-material/Visibility';

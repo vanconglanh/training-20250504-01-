@@ -1,22 +1,24 @@
+import { Role } from '@/config/enum/Role';
+import { useZodForm } from '@/hooks/useZodForm';
+import userService from '@/services/user.service.ts';
+import { FormField } from '@/types/common.type';
+import { UserFormValues } from '@/types/user.type';
+import { userEditSchema, userSchema } from '@/utils/validation/user.scheme';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import BadgeIcon from '@mui/icons-material/Badge';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import EmailIcon from '@mui/icons-material/Email';
+import LanguageIcon from '@mui/icons-material/Language';
 import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import SaveIcon from '@mui/icons-material/Save';
-import ToggleOnIcon from '@mui/icons-material/ToggleOn';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import {
   Box,
   Button,
   Card,
   CardContent,
-  Checkbox,
   CircularProgress,
   Divider,
   FormControl,
-  FormControlLabel,
-  FormHelperText,
   InputAdornment,
   InputLabel,
   MenuItem,
@@ -25,48 +27,234 @@ import {
   Typography
 } from '@mui/material';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useSnackbar } from 'notistack';
 import React, { useEffect } from 'react';
-import { Controller } from 'react-hook-form';
+import { Control, Controller, FieldErrors } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
-import { useZodForm } from '@/hooks/useZodForm';
-import userService from '@/services/userService';
-import { UserFormValues } from '@/types/user.type';
-import { userEditSchema, userSchema } from '@/utils/validation/userScheme';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
+const userFields: FormField<UserFormValues>[] = [
+  {
+    name: 'username',
+    label: 'users.fields.username',
+    type: 'text',
+    required: true,
+    icon: <PersonIcon color="action" />,
+    placeholder: 'users.placeholders.username'
+  },
+  {
+    name: 'name',
+    label: 'users.fields.name',
+    type: 'text',
+    required: true,
+    icon: <PersonIcon color="action" />,
+    placeholder: 'users.placeholders.name'
+  },
+  {
+    name: 'email',
+    label: 'users.fields.email',
+    type: 'email',
+    required: true,
+    icon: <EmailIcon color="action" />,
+    placeholder: 'users.placeholders.email'
+  },
+  {
+    name: 'password',
+    label: 'users.fields.password',
+    type: 'password',
+    required: true,
+    icon: <LockIcon color="action" />,
+    placeholder: 'users.placeholders.password'
+  },
+  {
+    name: 'language',
+    label: 'users.fields.language',
+    type: 'select',
+    required: true,
+    icon: <LanguageIcon color="action" />,
+    options: [
+      { value: 'en', label: 'English' },
+      { value: 'vi', label: 'Tiếng Việt' }
+    ]
+  },
+  {
+    name: 'roleId',
+    label: 'users.fields.role',
+    type: 'select',
+    required: true,
+    icon: <VerifiedUserIcon color="action" />,
+    options: [
+      { value: Role.ADMIN, label: 'users.roles.admin' },
+      { value: Role.MANAGER, label: 'users.roles.manager' },
+      { value: Role.USER, label: 'users.roles.user' }
+    ]
+  },
+  {
+    name: 'yukoFlag',
+    label: 'users.fields.status',
+    type: 'select',
+    required: true,
+    options: [
+      { value: 'true', label: 'users.statuses.active' },
+      { value: 'false', label: 'users.statuses.inactive' }
+    ]
+  }
+];
+
+const FormFieldRenderer: React.FC<{
+  field: FormField<UserFormValues>;
+  control: Control<UserFormValues>;
+  errors: FieldErrors<UserFormValues>;
+  isViewMode: boolean;
+}> = ({ field, control, errors, isViewMode }) => {
+  const { t } = useTranslation();
+
+  const renderField = () => {
+    switch (field.type) {
+      case 'select':
+        return (
+          <Controller
+            name={field.name}
+            control={control}
+            render={({ field: { value, onChange, ...fieldProps } }) => (
+              <FormControl fullWidth error={!!errors[field.name]}>
+                <InputLabel>{t(field.label)}</InputLabel>
+                <Select
+                  {...fieldProps}
+                  value={field.name === 'yukoFlag' ? String(value) : value}
+                  label={t(field.label)}
+                  onChange={(e) => {
+                    if (field.name === 'yukoFlag') {
+                      onChange(e.target.value === 'true');
+                    } else {
+                      onChange(e.target.value);
+                    }
+                  }}
+                  startAdornment={
+                    field.icon && (
+                      <InputAdornment position="start">
+                        {field.icon}
+                      </InputAdornment>
+                    )
+                  }
+                  disabled={isViewMode || field.disabled}
+                >
+                  {field.options?.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {t(option.label)}
+                    </MenuItem>
+                  ))}
+                </Select>
+                {errors[field.name] && (
+                  <Typography color="error" variant="caption">
+                    {errors[field.name]?.message}
+                  </Typography>
+                )}
+              </FormControl>
+            )}
+          />
+        );
+
+      default:
+        return (
+          <Controller
+            name={field.name}
+            control={control}
+            render={({ field: { value, onChange, ...fieldProps } }) => (
+              <TextField
+                {...fieldProps}
+                type={field.type}
+                label={t(field.label)}
+                value={value || ''}
+                onChange={onChange}
+                fullWidth
+                multiline={field.multiline}
+                rows={field.rows}
+                error={!!errors[field.name]}
+                helperText={errors[field.name]?.message}
+                placeholder={field.placeholder ? t(field.placeholder) : undefined}
+                InputProps={{
+                  startAdornment: field.icon && (
+                    <InputAdornment position="start">
+                      {field.icon}
+                    </InputAdornment>
+                  ),
+                  endAdornment: field.endAdornment
+                }}
+                disabled={isViewMode || field.disabled}
+              />
+            )}
+          />
+        );
+    }
+  };
+
+  return (
+    <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', md: 'calc(33.33% - 1rem)' } }}>
+      {renderField()}
+    </Box>
+  );
+};
 
 const UpdateOrInsertUser: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
-  const { enqueueSnackbar } = useSnackbar();
   const queryClient = useQueryClient();
   const isEditMode = Boolean(id);
   const isViewMode = location.pathname.includes('/view/');
+
+  // Get current page from localStorage or default to 1
+  const currentPage = Number(localStorage.getItem('usersCurrentPage')) || 1;
+
+  // Handle browser back button
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = '';
+    };
+
+    const handlePopState = () => {
+      navigate(`/dashboard/users?page=${currentPage}`, {
+        replace: true,
+        state: { forceReload: true }
+      });
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [navigate, currentPage]);
 
   // Form setup with react-hook-form and zod
   const { 
     control, 
     handleSubmitWithErrorMessage, 
     reset, 
-    formState: { errors, isSubmitting, isValid } 
+    formState: { errors, isSubmitting } 
   } = useZodForm(
     isEditMode ? userEditSchema : userSchema,
     {
       defaultValues: {
-        username: '',
-        email: '',
-        password: '',
-        role: 'user',
-        status: 'active',
+        username: 'chuongdinh',
+        name: 'Van Cong Lanh',
+        email: 'chuongdinh2202@gmail.com',
+        password: '123@456Aa',
+        language: 'en',
+        roleId: 1,
         yukoFlag: true
       },
-      mode: 'onChange'
+      mode: 'onChange',
+      reValidateMode: 'onChange'
     }
   );
 
+  
   // Query to fetch user data in edit mode
   const { data: userData, isLoading } = useQuery({
     queryKey: ['user', id],
@@ -82,10 +270,11 @@ const UpdateOrInsertUser: React.FC = () => {
     if (userData) {
       reset({
         username: userData.username,
+        name: userData.name,
         email: userData.email,
         password: '', // Don't populate password
-        role: userData.role,
-        status: userData.status,
+        language: userData.language,
+        roleId: userData.roleId,
         yukoFlag: userData.yukoFlag
       });
     }
@@ -101,38 +290,71 @@ const UpdateOrInsertUser: React.FC = () => {
       }
     },
     onSuccess: () => {
-      // Invalidate and refetch users query
-      queryClient.invalidateQueries({ queryKey: ['users'] });
-      
-      enqueueSnackbar(
-        t(isEditMode ? 'users.updateSuccess' : 'users.createSuccess'), 
-        { variant: 'success' }
-      );
-      navigate('/dashboard/users');
+      // Invalidate and refetch users query with exact page
+      queryClient.invalidateQueries({ 
+        queryKey: ['users'],
+        refetchType: 'all'
+      });
+      toast.success(t(isEditMode ? 'users.updateSuccess' : 'users.createSuccess'));
+      // Navigate back with the stored page number and force reload
+      navigate(`/dashboard/users?page=${currentPage}`, { 
+        replace: true,
+        state: { forceReload: true }
+      });
     },
     onError: (error) => {
-      enqueueSnackbar(
-        t(isEditMode ? 'users.updateError' : 'users.createError'), 
-        { variant: 'error' }
-      );
+      toast.error(t(isEditMode ? 'users.updateError' : 'users.createError'));
       console.error('Mutation error:', error);
     }
   });
 
   // Form submission handler
-  const onSubmit = (data: UserFormValues) => {
-    // If editing and password is empty, remove it
-    if (isEditMode && !data.password) {
-      const { password, ...restData } = data;
-      return mutation.mutate(restData);
+  const onSubmit = async (data: UserFormValues) => {
+    try {
+      // Ensure roleId is a number
+      const formData = {
+        ...data,
+        roleId: Number(data.roleId)
+      };
+      
+      // If editing and password is empty, remove it
+      if (isEditMode && !formData.password) {
+        const { password, ...restData } = formData;
+        await mutation.mutateAsync(restData as UserFormValues);
+      } else {
+        await mutation.mutateAsync(formData);
+      }
+      // Show success toast after successful mutation
+    } catch (error) {
+      // Error is already handled in mutation's onError
+      console.error('Form submission error:', error);
     }
-    return mutation.mutate(data);
   };
 
   // Navigate back to user list
   const handleBack = () => {
-    navigate('/dashboard/users');
+    navigate(`/dashboard/users?page=${currentPage}`, { 
+      replace: true,
+      state: { forceReload: true }
+    });
   };
+
+
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+        event.preventDefault();
+        navigate(`/dashboard/users?page=${currentPage}`, { 
+            replace: true,
+            state: { forceReload: true }
+          });
+    };
+
+    window.addEventListener('popstate', (e) => handlePopState(e));
+
+    return () => {
+      window.removeEventListener('popstate', (e) => handlePopState(e));
+    };
+  }, []);
 
 
   // Display loading state while fetching user data
@@ -179,263 +401,46 @@ const UpdateOrInsertUser: React.FC = () => {
                 </Typography>
                 <Divider sx={{ mb: 3 }} />
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-                  <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', md: 'calc(50% - 1.5rem)' } }}>
-                    <Controller
-                      name="username"
+                  {userFields.map((field) => (
+                    <FormFieldRenderer
+                      key={field.name}
+                      field={field}
                       control={control}
-                      render={({ field }) => (
-                        <TextField
-                          {...field}
-                          label={t('users.fields.username')}
-                          fullWidth
-                          error={!!errors.username}
-                          helperText={errors.username?.message}
-                          InputProps={{
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <PersonIcon color="action" />
-                              </InputAdornment>
-                            ),
-                          }}
-                          sx={{
-                            '& .MuiOutlinedInput-root': {
-                              borderRadius: 1
-                            }
-                          }}
-                          disabled={isViewMode}
-                        />
-                      )}
+                      errors={errors}
+                      isViewMode={isViewMode}
                     />
-                  </Box>
-
-                  <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', md: 'calc(50% - 1.5rem)' } }}>
-                    <Controller
-                      name="email"
-                      control={control}
-                      render={({ field }) => (
-                        <TextField
-                          {...field}
-                          label={t('users.fields.email')}
-                          fullWidth
-                          error={!!errors.email}
-                          helperText={errors.email?.message}
-                          InputProps={{
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <EmailIcon color="action" />
-                              </InputAdornment>
-                            ),
-                          }}
-                          sx={{
-                            '& .MuiOutlinedInput-root': {
-                              borderRadius: 1
-                            }
-                          }}
-                          disabled={isViewMode}
-                        />
-                      )}
-                    />
-                  </Box>
-
-                  <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', md: 'calc(50% - 1.5rem)' } }}>
-                    <Controller
-                      name="password"
-                      control={control}
-                      render={({ field }) => (
-                        <TextField
-                          {...field}
-                          type="password"
-                          label={t(isEditMode ? 'users.fields.newPassword' : 'users.fields.password')}
-                          fullWidth
-                          error={!!errors.password}
-                          helperText={
-                            errors.password?.message || 
-                            (isEditMode && !isViewMode ? t('users.passwordHint') : '')
-                          }
-                          InputProps={{
-                            startAdornment: (
-                              <InputAdornment position="start">
-                                <LockIcon color="action" />
-                              </InputAdornment>
-                            ),
-                          }}
-                          sx={{
-                            '& .MuiOutlinedInput-root': {
-                              borderRadius: 1
-                            }
-                          }}
-                          disabled={isViewMode}
-                        />
-                      )}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
-
-            {/* Role and Status Section */}
-            <Card 
-              elevation={0}
-              sx={{ 
-                border: '1px solid',
-                borderColor: 'divider',
-                borderRadius: 2,
-                overflow: 'hidden'
-              }}
-            >
-              <CardContent sx={{ p: 3 }}>
-                <Typography variant="subtitle1" sx={{ mb: 2, color: 'text.primary' }}>
-                  {t('users.roleAndStatus')}
-                </Typography>
-                <Divider sx={{ mb: 3 }} />
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
-                  <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', md: 'calc(50% - 1.5rem)' } }}>
-                    <Controller
-                      name="role"
-                      control={control}
-                      render={({ field }) => (
-                        <FormControl fullWidth error={!!errors.role}>
-                          <InputLabel id="role-label">{t('users.fields.role')}</InputLabel>
-                          <Select
-                            {...field}
-                            labelId="role-label"
-                            label={t('users.fields.role')}
-                            startAdornment={
-                              <InputAdornment position="start">
-                                <BadgeIcon color="action" />
-                              </InputAdornment>
-                            }
-                            sx={{
-                              borderRadius: 1,
-                              '& .MuiOutlinedInput-notchedOutline': {
-                                borderColor: errors.role ? 'error.main' : 'divider'
-                              }
-                            }}
-                            disabled={isViewMode}
-                          >
-                            <MenuItem value="admin">{t('users.roles.admin')}</MenuItem>
-                            <MenuItem value="manager">{t('users.roles.manager')}</MenuItem>
-                            <MenuItem value="user">{t('users.roles.user')}</MenuItem>
-                          </Select>
-                          {errors.role && (
-                            <FormHelperText>{errors.role.message}</FormHelperText>
-                          )}
-                        </FormControl>
-                      )}
-                    />
-                  </Box>
-
-                  <Box sx={{ flexGrow: 1, minWidth: { xs: '100%', md: 'calc(50% - 1.5rem)' } }}>
-                    <Controller
-                      name="status"
-                      control={control}
-                      render={({ field }) => (
-                        <FormControl fullWidth error={!!errors.status}>
-                          <InputLabel id="status-label">{t('users.fields.status')}</InputLabel>
-                          <Select
-                            {...field}
-                            labelId="status-label"
-                            label={t('users.fields.status')}
-                            startAdornment={
-                              <InputAdornment position="start">
-                                <ToggleOnIcon color="action" />
-                              </InputAdornment>
-                            }
-                            sx={{
-                              borderRadius: 1,
-                              '& .MuiOutlinedInput-notchedOutline': {
-                                borderColor: errors.status ? 'error.main' : 'divider'
-                              }
-                            }}
-                            disabled={isViewMode}
-                          >
-                            <MenuItem value="active">{t('users.statuses.active')}</MenuItem>
-                            <MenuItem value="inactive">{t('users.statuses.inactive')}</MenuItem>
-                            <MenuItem value="pending">{t('users.statuses.pending')}</MenuItem>
-                          </Select>
-                          {errors.status && (
-                            <FormHelperText>{errors.status.message}</FormHelperText>
-                          )}
-                        </FormControl>
-                      )}
-                    />
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
-
-            {/* Additional Settings */}
-            <Card 
-              elevation={0}
-              sx={{ 
-                border: '1px solid',
-                borderColor: 'divider',
-                borderRadius: 2,
-                overflow: 'hidden'
-              }}
-            >
-              <CardContent sx={{ p: 3 }}>
-                <Typography variant="subtitle1" sx={{ mb: 2, color: 'text.primary' }}>
-                  {t('users.additionalSettings')}
-                </Typography>
-                <Divider sx={{ mb: 3 }} />
-                <Box>
-                  <Controller
-                    name="yukoFlag"
-                    control={control}
-                    render={({ field }) => (
-                      <FormControlLabel
-                        control={
-                          <Checkbox
-                            checked={field.value}
-                            onChange={(e) => field.onChange(e.target.checked)}
-                            icon={<CheckCircleIcon />}
-                            checkedIcon={<CheckCircleIcon color="primary" />}
-                          />
-                        }
-                        label={t('users.fields.yukoFlag')}
-                        sx={{
-                          '& .MuiFormControlLabel-label': {
-                            color: 'text.primary'
-                          }
-                        }}
-                        disabled={isViewMode}
-                      />
-                    )}
-                  />
+                  ))}
                 </Box>
               </CardContent>
             </Card>
 
             {/* Submit Button */}
-           {
-              !isViewMode &&
-                  <Box 
+            {!isViewMode && (
+              <Box 
+                sx={{ 
+                  display: 'flex', 
+                  justifyContent: 'flex-end', 
+                  mt: 2,
+                  pt: 2,
+                  borderTop: '1px solid',
+                  borderColor: 'divider'
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  type="submit"
+                  startIcon={isSubmitting ? <CircularProgress size={20} /> : <SaveIcon />}
                   sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'flex-end', 
-                    mt: 2,
-                    pt: 2,
-                    borderTop: '1px solid',
-                    borderColor: 'divider'
+                    borderRadius: 1,
+                    px: 3,
+                    minWidth: 120
                   }}
                 >
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    disabled={isSubmitting || !isValid || isViewMode}
-                    startIcon={isSubmitting ? <CircularProgress size={20} /> : <SaveIcon />}
-                    sx={{ 
-                      borderRadius: 1,
-                      px: 3,
-                      minWidth: 120
-                    }}
-                  >
-                    {t(isEditMode ? 'common.update' : 'common.save')}
-                  </Button>
-                </Box>
-           }
+                  {t(isEditMode ? 'common.update' : 'common.save')}
+                </Button>
+              </Box>
+            )}
           </Box>
         </form>
       </CardContent>

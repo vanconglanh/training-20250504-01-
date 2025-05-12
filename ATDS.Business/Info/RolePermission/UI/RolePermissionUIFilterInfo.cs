@@ -9,6 +9,9 @@ namespace ATDS.Business.Info
 {
     public class RolePermissionUIFilterInfo : BaseFilterInfo
     {
+        //Id
+        public int? Id { get; set; } = null;
+
         //RoleId
         public int? RoleId { get; set; } = null;
 
@@ -25,7 +28,7 @@ namespace ATDS.Business.Info
         public DateTime? UpdatedAt { get; set; } = null;
 
         //YukoFlag
-        public string? YukoFlag { get; set; } = null;
+        public int? YukoFlag { get; set; } = null;
 
         //CreatedUser
         public int? CreatedUser { get; set; } = null;

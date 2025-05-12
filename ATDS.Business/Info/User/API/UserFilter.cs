@@ -23,8 +23,8 @@ namespace ATDS.Business.Info
         //Email
         public string? Email { get; set; } = null;
 
-        //UserName
-        public string? UserName { get; set; } = null;
+        //Username
+        public string? Username { get; set; } = null;
 
         //Language
         public string? Language { get; set; } = null;
@@ -45,7 +45,7 @@ namespace ATDS.Business.Info
         public DateTime? UpdatedAt { get; set; } = null;
 
         //YukoFlag
-        public string? YukoFlag { get; set; } = null;
+        public int? YukoFlag { get; set; } = null;
 
         //CreatedUser
         public int? CreatedUser { get; set; } = null;

@@ -1,0 +1,13 @@
+﻿
+{  
+  "permissions": {
+        "id": "Id",
+    "code": "Code",
+    "name": "Name",
+    "createdAt": "CreatedAt",
+    "updatedAt": "UpdatedAt",
+    "yukoFlag": "YukoFlag",
+    "createdUser": "CreatedUser",
+    "lastUpdateUser": "LastUpdateUser",
+    "lastUpdateProgram": "LastUpdateProgram"
+}

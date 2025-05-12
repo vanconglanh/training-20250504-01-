@@ -11,7 +11,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
-import { setLanguage } from '@/store/slices/UISlice';
+import { setLanguage } from '@/store/slices/ui.slice.ts';
 
 
 const languages = [

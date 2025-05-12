@@ -8,6 +8,9 @@ namespace ATDS.Business.Info
 {
     public class RolePermissionItemInfo : BaseInfo
     {
+        //Id
+        public int Id = 0;
+
         //RoleId
         public int RoleId = 0;
 
@@ -24,10 +27,16 @@ namespace ATDS.Business.Info
         public DateTime? UpdatedAt = null;
 
         //YukoFlag
-        public string? YukoFlag = "";
+        public int? YukoFlag = 0;
 
         //CreatedUser
         public int? CreatedUser = 0;
+
+        //LastUpdateUser
+        public int? LastUpdateUser = 0;
+
+        //LastUpdateProgram
+        public string? LastUpdateProgram = "";
 
 
     }

@@ -44,9 +44,11 @@ var builder = WebApplication.CreateBuilder(args);
 //--- Json
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {
-    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+    options.SerializerSettings.ContractResolver = new DefaultContractResolver
+    {
+        NamingStrategy = new CamelCaseNamingStrategy()
+    };
 });
-
 //--- Add for get httpContext
 builder.Services.AddHttpContextAccessor();
 
@@ -75,9 +77,9 @@ builder.Services.AddAuthentication(options =>
 });
 
 //--- Email and SMS
-//AddSingleton: Services ch? ???c t?o 1 l?n duy nh?t
-//Scoped:  T?o m?t th? hi?n m?i cho t?t c? c?c scope (M?i request l? m?t scope). Trong scope th? service ???c d?ng l?i
-//Transitent: M?t th? hi?n m?i lu?n ???c t?o, m?i khi ???c y?u c?u.
+// AddSingleton: The service is created only once and shared throughout the application lifetime.
+// Scoped: A new instance is created for each scope (typically per HTTP request). Within the same request, the same instance is reused.
+// Transient: A new instance is created every time the service is requested.
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection(nameof(EmailSettings)));
 var smsSetting = builder.Configuration.GetSection(nameof(SmsSettings));
 SmsSettings smsSettings = new SmsSettings();
@@ -121,15 +123,6 @@ builder.Services.AddMvc(mvcOpts =>
     mvcOpts.Filters.Add(typeof(AutoLogAttribute));
 }).AddControllersAsServices();
 
-//--- CORS
-builder.Services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
-{
-    builder.AllowAnyOrigin()                  // Allow any origin (uses *)
-           .AllowAnyMethod()                  // Allow all HTTP methods
-           .AllowAnyHeader();                 // Allow all headers
-                                              // Note: Cannot use AllowCredentials() with AllowAnyOrigin()
-}));
-
 //---Log
 builder.Host.ConfigureDefaults(args).ConfigureLogging((hostingContext, logging) =>
 {
@@ -140,12 +133,19 @@ builder.Host.ConfigureDefaults(args).ConfigureLogging((hostingContext, logging) 
     logging.AddNLog();
 });
 
+//--- CORS
+builder.Services.AddCors(options => options.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin()                  // Allow any origin (uses *)
+           .AllowAnyMethod()                  // Allow all HTTP methods
+           .AllowAnyHeader();                 // Allow all headers
+                                              // Note: Cannot use AllowCredentials() with AllowAnyOrigin()
+}));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("MyPolicy");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -168,6 +168,7 @@ app.UseRequestLocalization(new RequestLocalizationOptions
     SupportedUICultures = supportedCultures
 });
 //-----------------------
+app.UseCors("MyPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
 

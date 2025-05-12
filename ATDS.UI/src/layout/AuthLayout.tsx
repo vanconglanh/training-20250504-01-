@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
-import authService from '../services/authService';
+import authService from '../services/auth.service';
 
 const AuthLayout: React.FC = () => {
   // If user is already authenticated, redirect to dashboard

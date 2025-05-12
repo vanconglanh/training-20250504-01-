@@ -1,0 +1,14 @@
+﻿
+{  
+  "permissionScreens": {
+        "id": "Id",
+    "permissionId": "PermissionId",
+    "screenId": "ScreenId",
+    "code": "Code",
+    "createdAt": "CreatedAt",
+    "updatedAt": "UpdatedAt",
+    "yukoFlag": "YukoFlag",
+    "createdUser": "CreatedUser",
+    "lastUpdateUser": "LastUpdateUser",
+    "lastUpdateProgram": "LastUpdateProgram"
+}

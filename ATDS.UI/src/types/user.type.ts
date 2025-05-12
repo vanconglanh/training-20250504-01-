@@ -1,55 +1,51 @@
-import { SortField } from "@/utils/validation/common.type";
+﻿import { SearchParams } from "./common.type";
 import { ListResponse } from "./http.type";
 
-// src/types/user.ts
+// User type from database
 export interface User {
-  id: string;
-  username: string;
-  email: string;
-  role: string;
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-  lastUpdate: string;
-  lastUpdateUser: string;
-  lastUpdateProgram: string;
-  passwordHash?: string;
-  yukoFlag?: boolean;
-}
-
-export interface UserFormValues {
-  username: string;
-  email: string;
-  role: string;
-  status: string;
-  password?: string;
+      id: number;
+      code: string;
+      name: string;
+      email: string;
+      username: string;
+      language: string;
+      password: string;
+      passwordHash: string;
+      roleId: number;
+      createdAt: string;
+      updatedAt: string;
+      yukoFlag: number;
+      createdUser: number;
+      lastUpdateUser: number;
+      lastUpdateProgram: string;
 }
 
 
-export interface UserParams {
-  page?: number;
-  limit?: number;
-  search?: string[];
-  sortBy?: string;
-  sortOrder?: 'asc' | 'desc';
-  sortFields?: SortField[];
-  status?: string;
-  role?: string;
-  username?: string;
-  email?: string;
-  dateRange?: {
-    start: Date | null;
-    end: Date | null;
-  };
-}
+// UserFormValuess will be used to create or update user
+// UserFormValues equal User without some fields not needed (system fields) to be updated or created
+export type UserFormValues = Omit<
+  User,
+  | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'lastUpdate'
+  | 'lastUpdateUser'
+  | 'lastUpdateProgram'
+  | 'createdUser'
+  | 'code'
+>;
 
+
+// UserParams extends SearchParams and Partial<UserFormValues>
+export interface UserParams extends SearchParams, Partial<UserFormValues> {} 
+
+// Can be extends fields from UserFormValues
+// export interface UserParams extends SearchParams, Partial<UserFormValues> {
+//   id?: number;
+//   createdAt?: string;
+// } 
+
+// Format response from API
 export interface UserListResponse extends ListResponse<User> {}
  
-
-export interface UserSearchSuggestion {
-  id: string;
-  username: string;
-  email: string;
-  type: 'username' | 'email';
-}
 

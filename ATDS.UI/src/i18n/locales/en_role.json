@@ -1,0 +1,14 @@
+﻿
+{  
+  "roles": {
+        "id": "Id",
+    "code": "Code",
+    "name": "Name",
+    "isSystem": "IsSystem",
+    "createdAt": "CreatedAt",
+    "updatedAt": "UpdatedAt",
+    "yukoFlag": "YukoFlag",
+    "createdUser": "CreatedUser",
+    "lastUpdateUser": "LastUpdateUser",
+    "lastUpdateProgram": "LastUpdateProgram"
+}

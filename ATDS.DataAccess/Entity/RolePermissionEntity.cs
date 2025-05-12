@@ -8,6 +8,9 @@ namespace ATDS.DataAccess.Entity
 {
     public class RolePermissionEntity : BaseEntity
     {
+        //Id
+        public int Id = 0;
+
         //RoleId
         public int RoleId = 0;
 
@@ -24,10 +27,16 @@ namespace ATDS.DataAccess.Entity
         public DateTime? UpdatedAt = null;
 
         //YukoFlag
-        public string? YukoFlag = "";
+        public int? YukoFlag = 0;
 
         //CreatedUser
         public int? CreatedUser = 0;
+
+        //LastUpdateUser
+        public int? LastUpdateUser = 0;
+
+        //LastUpdateProgram
+        public string? LastUpdateProgram = "";
 
 
         //Foreign Table

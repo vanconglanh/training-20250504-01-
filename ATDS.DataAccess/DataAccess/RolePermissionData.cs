@@ -35,12 +35,13 @@ namespace ATDS.DataAccess
                 sql.Length = 0;                                              // SQL定義
                 sql.Append(" SELECT                                                                                     ");
                 sql.Append(" 1                                                                                          ");
+                sql.Append(" ,IFNULL(ID                            , 0) AS Id                            ");  //   Id
                 sql.Append(" ,IFNULL(ROLE_ID                       , 0) AS RoleId                        ");  //   RoleId
                 sql.Append(" ,IFNULL(PERMISSION_SCREEN_ID          , 0) AS PermissionScreenId            ");  //   PermissionScreenId
                 sql.Append(" ,IFNULL(CODE                          ,'') AS Code                          ");  //   Code
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     ,'') AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -103,10 +104,10 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="Where"></param>
         /// <param name="Order"></param>
-        /// <param name="iPageIndex"></param>
+        /// <param name="iPage"></param>
         /// <param name="iRecordOfPage"></param>
         /// <returns></returns>
-        public string sqlBaseSetSelectPage(string Where, string Order, int iPageIndex, int iRecordOfPage)
+        public string sqlBaseSetSelectPage(string Where, string Order, int iPage, int iRecordOfPage)
         {
             System.Text.StringBuilder sql = new System.Text.StringBuilder();
 
@@ -116,12 +117,13 @@ namespace ATDS.DataAccess
                 sql.Length = 0;                                              // SQL定義
                 sql.Append(" SELECT                                                                                     ");
                 sql.Append(" 1                                                                                          ");
+                sql.Append(" ,IFNULL(ID                            , 0) AS Id                            ");  //   Id
                 sql.Append(" ,IFNULL(ROLE_ID                       , 0) AS RoleId                        ");  //   RoleId
                 sql.Append(" ,IFNULL(PERMISSION_SCREEN_ID          , 0) AS PermissionScreenId            ");  //   PermissionScreenId
                 sql.Append(" ,IFNULL(CODE                          ,'') AS Code                          ");  //   Code
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     ,'') AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -139,7 +141,7 @@ namespace ATDS.DataAccess
                     sql.Append(Order);                                                                        //   並び順(ﾕｰｻﾞｰ条件)
                 }
                 // Get Record of page
-                sql.Append(" OFFSET " + (iPageIndex -1) * iRecordOfPage + " ROWS FETCH NEXT "+ iRecordOfPage + " ROWS ONLY ");
+                sql.Append(" LIMIT " + iRecordOfPage + " OFFSET " + (iPage - 1) * iRecordOfPage);
 
                 return sql.ToString();
             }
@@ -165,7 +167,9 @@ namespace ATDS.DataAccess
                 // INSERT
                 sql.Length = 0;                                              // SQL定義
                 sql.Append(" INSERT INTO M_ROLE_PERMISSION     (");
-                sql.Append("  CODE                              ");  //   Code
+                sql.Append("  ROLE_ID                           ");  //   RoleId
+                sql.Append(" ,PERMISSION_SCREEN_ID              ");  //   PermissionScreenId
+                sql.Append(" ,CODE                              ");  //   Code
                 sql.Append(" ,CREATED_AT                        ");  //   CreatedAt
                 sql.Append(" ,UPDATED_AT                        ");  //   UpdatedAt
                 sql.Append(" ,YUKO_FLAG                         ");  //   YukoFlag
@@ -174,17 +178,17 @@ namespace ATDS.DataAccess
                 sql.Append(" ,LAST_UPDATE_PROGRAM               ");  //   LastUpdateProgram
                 sql.Append(" )  ");
 
-                sql.Append("OUTPUT Inserted.RoleIdPermissionScreenId"); // データ登録の自動採番データ取得
-
                 sql.Append(" VALUES ( ");
-                sql.Append("  @Code                              ");  //   Code
+                sql.Append("  @RoleId                            ");  //   RoleId
+                sql.Append(" ,@PermissionScreenId               ");  //   PermissionScreenId
+                sql.Append(" ,@Code                             ");  //   Code
                 sql.Append(" ,@CreatedAt                        ");  //   CreatedAt
                 sql.Append(" ,@UpdatedAt                        ");  //   UpdatedAt
                 sql.Append(" ,@YukoFlag                         ");  //   YukoFlag
                 sql.Append(" ,@CreatedUser                      ");  //   CreatedUser
                 sql.Append(" ,@LastUpdateUser                   ");  //   LastUpdateUser
                 sql.Append(" ,@LastUpdateProgram                ");  //   LastUpdateProgram
-                sql.Append(" )  ");
+                sql.Append(" ); SELECT LAST_INSERT_ID();        ");  //   データ登録の自動採番データ取得
 
                 return sql.ToString();
             }
@@ -212,13 +216,17 @@ namespace ATDS.DataAccess
             try
             {
                 sql.Append(" UPDATE  M_ROLE_PERMISSION                                            ");
-                sql.Append(" SET CODE                           = @Code                          ");  //   Code
+                sql.Append(" SET ROLE_ID                        = @RoleId                        ");  //   RoleId
+                sql.Append("    ,PERMISSION_SCREEN_ID           = @PermissionScreenId            "); //   PermissionScreenId
+                sql.Append("    ,CODE                           = @Code                          "); //   Code
                 sql.Append("    ,CREATED_AT                     = @CreatedAt                     "); //   CreatedAt
                 sql.Append("    ,UPDATED_AT                     = @UpdatedAt                     "); //   UpdatedAt
                 sql.Append("    ,YUKO_FLAG                      = @YukoFlag                      "); //   YukoFlag
                 sql.Append("    ,CREATED_USER                   = @CreatedUser                   "); //   CreatedUser
                 sql.Append("    ,LAST_UPDATE_USER               = @LastUpdateUser                "); //   LastUpdateUser
                 sql.Append("    ,LAST_UPDATE_PROGRAM            = @LastUpdateProgram             "); //   LastUpdateProgram
+
+                sql.Append(" WHERE ID                             = @Id                            ");  //   検索条件定義
                 return sql.ToString();
             }
             catch (Exception)
@@ -233,11 +241,11 @@ namespace ATDS.DataAccess
 
         /// <summary>
         /// sqlBaseSetUpdate
-        /// </summary>        /// <param name="ROLE_ID"></param>        /// <param name="PERMISSION_SCREEN_ID"></param>
+        /// </summary>        /// <param name="ID"></param>
         /// <param name="vstrUpdateUser"></param>
         /// <param name="vstrUpdateProgram"></param>
         /// <returns></returns>
-        public string sqlBaseSetDelete(int piRoleId, int piPermissionScreenId,
+        public string sqlBaseSetDelete(int piId,
                                        string vstrUpdateUser, 
                                        string vstrUpdateProgram)
         {
@@ -247,11 +255,9 @@ namespace ATDS.DataAccess
             {
                 sql.Append(" UPDATE  M_ROLE_PERMISSION                                                                           ");
                 sql.Append(" SET YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.DISABLED + "         ,");
-                sql.Append("     LAST_UPDATE_USER           =   '" + vstrUpdateUser + "'                    ,");
-                sql.Append("     LAST_UPDATE                =   '" + DateTime.Now.ToString("yyyy-MM-dd") + "'   ,");
+                sql.Append("     LAST_UPDATE_USER           =    " + vstrUpdateUser + "                    ,");
                 sql.Append("     LAST_UPDATE_PROGRAM        =   '" + vstrUpdateProgram + "'                  ");
-                sql.Append(" WHERE ROLE_ID                  = @RoleId                        ");  //   検索条件定義
-                sql.Append("       PERMISSION_SCREEN_ID     = @PermissionScreenId            ");  //   検索条件定義
+                sql.Append(" WHERE ID                       = @Id                            ");  //   検索条件定義
 
                 sql.Append(" AND YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.ENABLED);
 
@@ -284,8 +290,7 @@ namespace ATDS.DataAccess
                 sql.Length = 0;                                              //   SQL定義
                 sql.Append(" UPDATE M_ROLE_PERMISSION                       ");
                 sql.Append(" SET YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.DISABLED + "        ,");  
-                sql.Append("     LAST_UPDATE_USER           =   '" + vstrUpdateUser + "'                    ,");    
-                sql.Append("     LAST_UPDATE                =   '" + DateTime.Now.ToString("yyyy-MM-dd") + "'   ,");    
+                sql.Append("     LAST_UPDATE_USER           =    " + vstrUpdateUser + "                     ,");      
                 sql.Append("     LAST_UPDATE_PROGRAM        =   '" + vstrUpdateProgram + "'                  ");  
                 sql.Append(" WHERE YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.ENABLED);
 
@@ -323,6 +328,7 @@ namespace ATDS.DataAccess
 
                 {
                     var withBlock = RolePermission;                                               // @@@Table.NAME情報格納
+                    withBlock.Id = System.Convert.ToInt32(Sdr["Id"]); //   Id
                     withBlock.RoleId = System.Convert.ToInt32(Sdr["RoleId"]); //   RoleId
                     withBlock.PermissionScreenId = System.Convert.ToInt32(Sdr["PermissionScreenId"]); //   PermissionScreenId
                     withBlock.Code = ((string)Sdr["Code"]).Trim(); //   Code
@@ -338,7 +344,7 @@ namespace ATDS.DataAccess
                     else{
                         withBlock.UpdatedAt = Convert.ToDateTime(Sdr["UpdatedAt"]); //  RolePermissionDate 
                     }
-                    withBlock.YukoFlag = ((string)Sdr["YukoFlag"]).Trim(); //   YukoFlag
+                    withBlock.YukoFlag = System.Convert.ToInt32(Sdr["YukoFlag"]); //   YukoFlag
                     withBlock.CreatedUser = System.Convert.ToInt32(Sdr["CreatedUser"]); //   CreatedUser
                     withBlock.LastUpdateUser = System.Convert.ToInt32(Sdr["LastUpdateUser"]); //   LastUpdateUser
                     withBlock.LastUpdateProgram = ((string)Sdr["LastUpdateProgram"]).Trim(); //   LastUpdateProgram
@@ -363,7 +369,7 @@ namespace ATDS.DataAccess
         /// <param name="Con">MySQLServerHelper</param>
         /// <param name="vstrRolePermissionId"></param>
         /// <returns></returns>
-        public RolePermissionEntity GetData(MySQLServerHelper Con ,int piRoleId, int piPermissionScreenId)
+        public RolePermissionEntity GetData(MySQLServerHelper Con ,int piId)
         {
             string sql = "";
             string where = "";
@@ -376,8 +382,7 @@ namespace ATDS.DataAccess
 
                 // --- 条件設定
                 where += "  AND YUKO_FLAG   =   " + (int)Constant.YUKO_FLAG.ENABLED + " ";
-                where += "  AND ROLE_ID                        = " + piRoleId                         + " "; //   RoleId
-                where += "  AND PERMISSION_SCREEN_ID           = " + piPermissionScreenId             + " "; //   PermissionScreenId
+                where += "  AND ID                             = " + piId                             + " "; //   Id
 
                 // --- SQL設定
                 sql = sqlBaseSetSelect(where, Order);
@@ -463,7 +468,7 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="string"></param>
         /// <returns></returns>
-        public bool CheckData(MySQLServerHelper con ,int piRoleId, int piPermissionScreenId)
+        public bool CheckData(MySQLServerHelper con ,int piId)
         {
             string sql = ""; 
             string where = "";
@@ -475,8 +480,7 @@ namespace ATDS.DataAccess
             {              
 
                 //--- 条件設定
-                where += "  AND ROLE_ID                        = " + piRoleId                         + " "; //   RoleId
-                where += "  AND PERMISSION_SCREEN_ID           = " + piPermissionScreenId             + " "; //   PermissionScreenId
+                where += "  AND ID                             = " + piId                             + " "; //   Id
 
                 //--- SQL設定
                 sql = sqlBaseSetSelect(where, order);
@@ -603,7 +607,7 @@ namespace ATDS.DataAccess
 
                     using (Sdr){
                         while ((Sdr.Read())){
-                            withBlock.Code = System.Convert.ToInt32(Sdr["RoleIdPermissionScreenId"]);
+                            withBlock.Code = System.Convert.ToInt32(Sdr["Id"]);
                         }
                     }
                 }
@@ -695,7 +699,7 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="vCls"></param>
         /// <returns></returns>
-        public ReturnInfo Delete(MySQLServerHelper con, int piRoleId, int piPermissionScreenId, string vstrUpdateUser, string vstrUpdateProgram)
+        public ReturnInfo Delete(MySQLServerHelper con, int piId, string vstrUpdateUser, string vstrUpdateProgram)
         {
             string sql;
             List<IDbDataParameter> Params = new List<IDbDataParameter>();
@@ -706,10 +710,9 @@ namespace ATDS.DataAccess
                 sql = "";
 
                 // --- SQL設定
-                sql = sqlBaseSetDelete(piRoleId,piPermissionScreenId, vstrUpdateUser, vstrUpdateProgram);
+                sql = sqlBaseSetDelete(piId, vstrUpdateUser, vstrUpdateProgram);
 
-                Params.Add(DBUtils.CreateParam("@RoleId", piRoleId));  // RoleId
-                Params.Add(DBUtils.CreateParam("@PermissionScreenId", piPermissionScreenId));  // PermissionScreenId
+                Params.Add(DBUtils.CreateParam("@Id", piId));  // Id
 
                 //--- SQL実行
                 con.ExecuteSQLWithParams(sql, Params);
@@ -837,8 +840,8 @@ namespace ATDS.DataAccess
                                             string where, 
                                             List<IDbDataParameter> lstParameter, 
                                             string order,
-                                            int iPageIndex = 1,
-                                            int iPageSize = 20)
+                                            int iPage = 1,
+                                            int iSize = 20)
         {
             string sql = "";
             IDataReader Sdr;
@@ -858,7 +861,7 @@ namespace ATDS.DataAccess
                 if (iTotalRecord > 0)
                 {
                     //--- SQL設定
-                    sql = sqlBaseSetSelectPage(where, order, iPageIndex, iPageSize);
+                    sql = sqlBaseSetSelectPage(where, order, iPage, iSize);
 
                     //--- 情報取得                    
                     Sdr = con.SelectSQLWithParams(sql, lstParameter.ToList());
@@ -873,7 +876,7 @@ namespace ATDS.DataAccess
                     }
                 }
 
-                return new PaginatedList<RolePermissionEntity>(lstRolePermissionEntity, iTotalRecord, iPageIndex, iPageSize);
+                return new PaginatedList<RolePermissionEntity>(lstRolePermissionEntity, iTotalRecord, iPage, iSize);
 
             }
             catch (Exception)
@@ -888,7 +891,7 @@ namespace ATDS.DataAccess
         #endregion
 
 #region 【一覧取得】 SearchByKey
-        public List<RolePermissionEntity> SearchByKey(MySQLServerHelper con ,int piRoleId, int piPermissionScreenId)
+        public List<RolePermissionEntity> SearchByKey(MySQLServerHelper con ,int piId)
         {
             string sql = "";
             string where = "";
@@ -902,19 +905,13 @@ namespace ATDS.DataAccess
             {
 
                 //--- 条件設定
-            if(piRoleId != -1){
-                    where += "AND ROLE_ID = @RoleId";
-            }
-            if(piPermissionScreenId != -1){
-                    where += "AND PERMISSION_SCREEN_ID = @PermissionScreenId";
+            if(piId != -1){
+                    where += "AND ID = @Id";
             }
 
                 //--- SQL Params
-            if(piRoleId != -1 ){
-                    Params.Add(DBUtils.CreateParam("@RoleId", piRoleId));
-            }
-            if(piPermissionScreenId != -1 ){
-                    Params.Add(DBUtils.CreateParam("@PermissionScreenId", piPermissionScreenId));
+            if(piId != -1 ){
+                    Params.Add(DBUtils.CreateParam("@Id", piId));
             }
 
                 //--- SQL設定

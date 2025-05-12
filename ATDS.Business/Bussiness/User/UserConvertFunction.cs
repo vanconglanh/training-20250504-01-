@@ -28,7 +28,7 @@ namespace ATDS.Business
                     withBlock.Code = vCls.Code; //Code
                     withBlock.Name = vCls.Name; //Name
                     withBlock.Email = vCls.Email; //Email
-                    withBlock.UserName = vCls.UserName; //UserName
+                    withBlock.Username = vCls.Username; //Username
                     withBlock.Language = vCls.Language; //Language
                     withBlock.Password = vCls.Password; //Password
                     withBlock.PasswordHash = vCls.PasswordHash; //PasswordHash
@@ -72,7 +72,7 @@ namespace ATDS.Business
                     withBlock.Code = vCls.Code; //Code
                     withBlock.Name = vCls.Name; //Name
                     withBlock.Email = vCls.Email; //Email
-                    withBlock.UserName = vCls.UserName; //UserName
+                    withBlock.Username = vCls.Username; //Username
                     withBlock.Language = vCls.Language; //Language
                     withBlock.Password = vCls.Password; //Password
                     withBlock.PasswordHash = vCls.PasswordHash; //PasswordHash
@@ -110,7 +110,7 @@ namespace ATDS.Business
                         withBlock.Code = userEntity.Code; //Code
                         withBlock.Name = userEntity.Name; //Name
                         withBlock.Email = userEntity.Email; //Email
-                        withBlock.UserName = userEntity.UserName; //UserName
+                        withBlock.Username = userEntity.Username; //Username
                         withBlock.Language = userEntity.Language; //Language
                         withBlock.Password = userEntity.Password; //Password
                         withBlock.PasswordHash = userEntity.PasswordHash; //PasswordHash
@@ -147,7 +147,7 @@ namespace ATDS.Business
                     withBlock.Code = vCls.Code; //Code
                     withBlock.Name = vCls.Name; //Name
                     withBlock.Email = vCls.Email; //Email
-                    withBlock.UserName = vCls.UserName; //UserName
+                    withBlock.Username = vCls.Username; //Username
                     withBlock.Language = vCls.Language; //Language
                     withBlock.Password = vCls.Password; //Password
                     withBlock.PasswordHash = vCls.PasswordHash; //PasswordHash
@@ -181,7 +181,7 @@ namespace ATDS.Business
                     withBlock.Code = vCls.Code; //Code
                     withBlock.Name = vCls.Name; //Name
                     withBlock.Email = vCls.Email; //Email
-                    withBlock.UserName = vCls.UserName; //UserName
+                    withBlock.Username = vCls.Username; //Username
                     withBlock.Language = vCls.Language; //Language
                     withBlock.Password = vCls.Password; //Password
                     withBlock.PasswordHash = vCls.PasswordHash; //PasswordHash
@@ -215,7 +215,7 @@ namespace ATDS.Business
                     withBlock.Code = vCls.Code; //Code
                     withBlock.Name = vCls.Name; //Name
                     withBlock.Email = vCls.Email; //Email
-                    withBlock.UserName = vCls.UserName; //UserName
+                    withBlock.Username = vCls.Username; //Username
                     withBlock.Language = vCls.Language; //Language
                     withBlock.Password = vCls.Password; //Password
                     withBlock.PasswordHash = vCls.PasswordHash; //PasswordHash
@@ -246,7 +246,7 @@ namespace ATDS.Business
                     lstParameter.Add(DBUtils.CreateParam("@Code", vCls.Code));//Code
                     lstParameter.Add(DBUtils.CreateParam("@Name", vCls.Name));//Name
                     lstParameter.Add(DBUtils.CreateParam("@Email", vCls.Email));//Email
-                    lstParameter.Add(DBUtils.CreateParam("@UserName", vCls.UserName));//UserName
+                    lstParameter.Add(DBUtils.CreateParam("@Username", vCls.Username));//Username
                     lstParameter.Add(DBUtils.CreateParam("@Language", vCls.Language));//Language
                     lstParameter.Add(DBUtils.CreateParam("@Password", vCls.Password));//Password
                     lstParameter.Add(DBUtils.CreateParam("@PasswordHash", vCls.PasswordHash));//PasswordHash
@@ -283,7 +283,7 @@ namespace ATDS.Business
                     withBlock.Code = vCls.Code; //Code
                     withBlock.Name = vCls.Name; //Name
                     withBlock.Email = vCls.Email; //Email
-                    withBlock.UserName = vCls.UserName; //UserName
+                    withBlock.Username = vCls.Username; //Username
                     withBlock.Language = vCls.Language; //Language
                     withBlock.Password = vCls.Password; //Password
                     withBlock.PasswordHash = vCls.PasswordHash; //PasswordHash
@@ -292,6 +292,8 @@ namespace ATDS.Business
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
                     withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
+                    withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
+                    withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
                 }
             }
             catch (Exception ex)
@@ -328,8 +330,8 @@ namespace ATDS.Business
                 if (filter.Email != null){
                         where += " AND EMAIL = @Email";
                 }
-                if (filter.UserName != null){
-                        where += " AND USER_NAME = @UserName";
+                if (filter.Username != null){
+                        where += " AND USERNAME = @Username";
                 }
                 if (filter.Language != null){
                         where += " AND LANGUAGE = @Language";
@@ -392,8 +394,8 @@ namespace ATDS.Business
                 if (filter.Email != null){
                     where += " AND EMAIL = @Email";
                 }
-                if (filter.UserName != null){
-                    where += " AND USER_NAME = @UserName";
+                if (filter.Username != null){
+                    where += " AND USERNAME = @Username";
                 }
                 if (filter.Language != null){
                     where += " AND LANGUAGE = @Language";
@@ -456,8 +458,8 @@ namespace ATDS.Business
             if( filter.Email != null ){
                 lstParameter.Add(DBUtils.CreateParam("@Email", filter.Email));
             }
-            if( filter.UserName != null ){
-                lstParameter.Add(DBUtils.CreateParam("@UserName", filter.UserName));
+            if( filter.Username != null ){
+                lstParameter.Add(DBUtils.CreateParam("@Username", filter.Username));
             }
             if( filter.Language != null ){
                 lstParameter.Add(DBUtils.CreateParam("@Language", filter.Language));
@@ -519,8 +521,8 @@ namespace ATDS.Business
             if( filter.Email != null ){
                 lstParameter.Add(DBUtils.CreateParam("@Email", filter.Email));
             }
-            if( filter.UserName != null ){
-                lstParameter.Add(DBUtils.CreateParam("@UserName", filter.UserName));
+            if( filter.Username != null ){
+                lstParameter.Add(DBUtils.CreateParam("@Username", filter.Username));
             }
             if( filter.Language != null ){
                 lstParameter.Add(DBUtils.CreateParam("@Language", filter.Language));

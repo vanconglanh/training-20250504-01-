@@ -24,6 +24,7 @@ namespace ATDS.Business
                 clsRet = new RolePermissionUIInfo();
                 {
                     var withBlock = clsRet;
+                    withBlock.Id = vCls.Id; //Id
                     withBlock.RoleId = vCls.RoleId; //RoleId
                     withBlock.PermissionScreenId = vCls.PermissionScreenId; //PermissionScreenId
                     withBlock.Code = vCls.Code; //Code
@@ -62,6 +63,7 @@ namespace ATDS.Business
                 clsRet = new RolePermissionEntity();
                 {
                     var withBlock = clsRet;
+                    withBlock.Id = vCls.Id; //Id
                     withBlock.RoleId = vCls.RoleId; //RoleId
                     withBlock.PermissionScreenId = vCls.PermissionScreenId; //PermissionScreenId
                     withBlock.Code = vCls.Code; //Code
@@ -94,6 +96,7 @@ namespace ATDS.Business
                     clsRet = new RolePermissionUIInfo();
                     {
                         var withBlock = clsRet;
+                        withBlock.Id = rolePermissionEntity.Id; //Id
                         withBlock.RoleId = rolePermissionEntity.RoleId; //RoleId
                         withBlock.PermissionScreenId = rolePermissionEntity.PermissionScreenId; //PermissionScreenId
                         withBlock.Code = rolePermissionEntity.Code; //Code
@@ -125,6 +128,7 @@ namespace ATDS.Business
                 clsRet = new RolePermissionEntity();
                 {
                     var withBlock = clsRet;
+                    withBlock.Id = vCls.Id; //Id
                     withBlock.RoleId = vCls.RoleId; //RoleId
                     withBlock.PermissionScreenId = vCls.PermissionScreenId; //PermissionScreenId
                     withBlock.Code = vCls.Code; //Code
@@ -153,6 +157,7 @@ namespace ATDS.Business
                 clsRet = new RolePermissionEntity();
                 {
                     var withBlock = clsRet;
+                    withBlock.Id = vCls.Id; //Id
                     withBlock.RoleId = vCls.RoleId; //RoleId
                     withBlock.PermissionScreenId = vCls.PermissionScreenId; //PermissionScreenId
                     withBlock.Code = vCls.Code; //Code
@@ -181,6 +186,7 @@ namespace ATDS.Business
                 clsRet = new RolePermissionEntity();
                 {
                     var withBlock = clsRet;
+                    withBlock.Id = vCls.Id; //Id
                     withBlock.RoleId = vCls.RoleId; //RoleId
                     withBlock.PermissionScreenId = vCls.PermissionScreenId; //PermissionScreenId
                     withBlock.Code = vCls.Code; //Code
@@ -206,6 +212,7 @@ namespace ATDS.Business
 
             try
             {
+                    lstParameter.Add(DBUtils.CreateParam("@Id", vCls.Id));//Id
                     lstParameter.Add(DBUtils.CreateParam("@RoleId", vCls.RoleId));//RoleId
                     lstParameter.Add(DBUtils.CreateParam("@PermissionScreenId", vCls.PermissionScreenId));//PermissionScreenId
                     lstParameter.Add(DBUtils.CreateParam("@Code", vCls.Code));//Code
@@ -237,6 +244,7 @@ namespace ATDS.Business
                 clsRet = new RolePermissionItemInfo();
                 {
                     var withBlock = clsRet;
+                    withBlock.Id = vCls.Id; //Id
                     withBlock.RoleId = vCls.RoleId; //RoleId
                     withBlock.PermissionScreenId = vCls.PermissionScreenId; //PermissionScreenId
                     withBlock.Code = vCls.Code; //Code
@@ -244,6 +252,8 @@ namespace ATDS.Business
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
                     withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
+                    withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
+                    withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
                 }
             }
             catch (Exception ex)
@@ -268,6 +278,9 @@ namespace ATDS.Business
                 if (filter == null) return "";
 
                 //--- 条件設定
+                if (filter.Id != null){
+                        where += " AND ID = @Id";
+                }
                 if (filter.RoleId != null){
                         where += " AND ROLE_ID = @RoleId";
                 }
@@ -314,6 +327,9 @@ namespace ATDS.Business
 
                 //--- 条件設定
                 
+                if (filter.Id != null){
+                    where += " AND ID = @Id";
+                }
                 if (filter.RoleId != null){
                     where += " AND ROLE_ID = @RoleId";
                 }
@@ -360,6 +376,9 @@ namespace ATDS.Business
 
                 //--- SQL Params
                 
+            if( filter.Id != null ){
+                lstParameter.Add(DBUtils.CreateParam("@Id", filter.Id));
+            }
             if( filter.RoleId != null ){
                 lstParameter.Add(DBUtils.CreateParam("@RoleId", filter.RoleId));
             }
@@ -405,6 +424,9 @@ namespace ATDS.Business
                 if (filter == null) return lstParameter;
 
                 //--- SQL Params
+            if( filter.Id != null ){
+                lstParameter.Add(DBUtils.CreateParam("@Id", filter.Id));
+            }
             if( filter.RoleId != null ){
                 lstParameter.Add(DBUtils.CreateParam("@RoleId", filter.RoleId));
             }

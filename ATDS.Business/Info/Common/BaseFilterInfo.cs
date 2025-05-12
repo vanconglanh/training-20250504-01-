@@ -12,12 +12,12 @@ namespace ATDS.Business.Info.Common
     {
         [DisplayName("số thứ tự trang muốn get")]
         [MinValidate(1)]
-        public virtual int PageIndex { get; set; } = 1;
+        public virtual int Page { get; set; } = 1;
 
 
         [DisplayName("kích thước trang")]
         [RangeValidate(1.0, 1000.0)]
-        public virtual int PageSize { get; set; } = 10;
+        public virtual int Size { get; set; } = 10;
 
         [Description("Sắp xếp")]
         public virtual string? OrderBy { get; set; } = "YUKO_FLAG";

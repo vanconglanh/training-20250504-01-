@@ -18,6 +18,7 @@
   },
   "common": {
     "advancedFilter": "Bộ lọc nâng cao",
+    "loading": "Đang tải...",
     "clearFilters": "Xóa bộ lọc",
     "sort": "Sắp xếp",
     "availableFields": "Các trường có sẵn",  
@@ -78,6 +79,9 @@
     },
     "fields": {
       "username": "Tên đăng nhập",
+      "name": "Tên người dùng",
+      "code": "Mã người dùng",
+      "language": "Ngôn ngữ",
       "email": "Email",
       "role": "Vai trò",
       "status": "Trạng thái",

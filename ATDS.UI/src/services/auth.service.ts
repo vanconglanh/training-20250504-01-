@@ -1,7 +1,7 @@
 import { Profile } from '@/types/auth.type';
-import authApi, { AuthResponse, RegisterRequest, UserCredentials } from '../apis/authApi';
+import authApi, { AuthResponse, RegisterRequest, UserCredentials } from '../apis/auth.api';
 import { useAppDispatch } from '@/hooks/useRedux';
-import { setProfile, setLoading } from '@/store/slices/AuthSlice';
+import { setProfile, setLoading } from '@/store/slices/auth.slice';
 
 // Define user interface
 export interface User {
@@ -191,7 +191,7 @@ class AuthService {
       const payload = JSON.parse(jsonPayload);
       
       return {
-        username: payload.UserName,
+        username: payload.Username,
         email: payload.Email,
       };
     } catch (error) {

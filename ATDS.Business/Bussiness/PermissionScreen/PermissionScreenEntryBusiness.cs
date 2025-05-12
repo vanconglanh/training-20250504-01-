@@ -231,8 +231,8 @@ namespace ATDS.Business
                 //   // DELETE Meisai
                 //   foreach (var mesaiDB in RolePermissionListDB)
                 //   {
-                //       if (cls.RolePermissionList.Exists(x => x.RoleId, PermissionScreenId == mesaiDB.RoleId, PermissionScreenId))
-                //           ret = daRolePermission.Delete(con, mesaiDB.RoleId, PermissionScreenId, vstrUpdateUser, vstrUpdateProgram);
+                //       if (cls.RolePermissionList.Exists(x => x.Id == mesaiDB.Id))
+                //           ret = daRolePermission.Delete(con, mesaiDB.Id, vstrUpdateUser, vstrUpdateProgram);
                 //   }
                 //}                
 
@@ -310,8 +310,8 @@ namespace ATDS.Business
                 //   // DELETE Meisai
                 //   foreach (var mesaiDB in RolePermissionListDB)
                 //   {
-                //       if (cls.RolePermissionList.Exists(x => x.RoleId, PermissionScreenId == mesaiDB.RoleId, PermissionScreenId))
-                //           ret = daRolePermission.Delete(con, mesaiDB.RoleId, PermissionScreenId, vstrUpdateUser, vstrUpdateProgram);
+                //       if (cls.RolePermissionList.Exists(x => x.Id == mesaiDB.Id))
+                //           ret = daRolePermission.Delete(con, mesaiDB.Id, vstrUpdateUser, vstrUpdateProgram);
                 //   }
                 //}                
 

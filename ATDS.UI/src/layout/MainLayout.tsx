@@ -5,7 +5,7 @@ import { MenuItem as MenuItemType, menuItems } from '@/config/menuConfig';
 import { useAuth } from '@/hooks/useAuth';
 import { usePermissions } from '@/hooks/usePermissions';
 import { useAppDispatch, useAppSelector } from '@/hooks/useRedux';
-import { setDrawerOpen } from '@/store/slices/UISlice';
+import { setDrawerOpen } from '@/store/slices/ui.slice.ts';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -50,9 +50,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Responsive drawer widths
-const drawerWidthPercent = 15; // Drawer width as percentage of viewport width
-const drawerMinWidth = 260; // Minimum width in pixels 
-const drawerMaxWidth = 320; // Maximum width in pixels
+const drawerWidth = 280; // Fixed drawer width in pixels
 const miniDrawerWidth = 70; // Mini drawer width in pixels
 
 // Mock notifications data
@@ -411,16 +409,8 @@ const MainLayout: React.FC = () => {
             duration: theme.transitions.duration.leavingScreen,
           }),
           ...(open && !miniDrawer) ? {
-            marginLeft: {
-              xs: 0, 
-              sm: '50%',
-              md: `clamp(${drawerMinWidth}px, ${drawerWidthPercent}%, ${drawerMaxWidth}px)`
-            },
-            width: { 
-              xs: '100%',
-              sm: `calc(100% - 50%)`,
-              md: `calc(100% - clamp(${drawerMinWidth}px, ${drawerWidthPercent}%, ${drawerMaxWidth}px))` 
-            }
+            marginLeft: drawerWidth,
+            width: `calc(100% - ${drawerWidth}px)`
           } : miniDrawer ? {
             marginLeft: miniDrawerWidth,
             width: `calc(100% - ${miniDrawerWidth}px)`
@@ -599,20 +589,12 @@ const MainLayout: React.FC = () => {
         open={open}
         onClose={handleDrawerClose}
         sx={{
-          width: miniDrawer ? miniDrawerWidth : {
-            xs: '85%', // On very small screens, use 85% width but max 290px
-            sm: '50%',
-            md: `${drawerWidthPercent}%`,
-          },
+          width: miniDrawer ? miniDrawerWidth : drawerWidth,
           flexShrink: 0,
           whiteSpace: 'nowrap',
           boxSizing: 'border-box',
           '& .MuiDrawer-paper': {
-            width: miniDrawer ? miniDrawerWidth : {
-              xs: '85%', // Mobile: 85% of screen but max 290px
-              sm: '50%',
-              md: `clamp(${drawerMinWidth}px, ${drawerWidthPercent}%, ${drawerMaxWidth}px)`,
-            },
+            width: miniDrawer ? miniDrawerWidth : drawerWidth,
             overflowX: 'hidden',
             borderRight: `1px solid ${theme.palette.divider}`,
             transition: theme.transitions.create('width', {
@@ -666,13 +648,10 @@ const MainLayout: React.FC = () => {
             sm: open 
               ? miniDrawer 
                 ? `calc(100% - ${miniDrawerWidth}px)` 
-                : { 
-                    sm: '50%', 
-                    md: `calc(100% - clamp(${drawerMinWidth}px, ${drawerWidthPercent}%, ${drawerMaxWidth}px))` 
-                  } 
+                : `calc(100% - ${drawerWidth}px)`
               : '100%'
           },
-          marginTop: { xs: '56px', sm: '64px' }, // Adjust top margin for mobile
+          marginTop: { xs: '56px', sm: '64px' },
           backgroundColor: theme.palette.background.default,
           minHeight: { xs: 'calc(100vh - 56px)', sm: 'calc(100vh - 64px)' },
           display: 'flex',
@@ -754,7 +733,7 @@ const MainLayout: React.FC = () => {
         sx={{
           position: 'fixed',
           top: 16,
-          left: open && !miniDrawer ? { xs: 16, sm: `clamp(${drawerMinWidth}px, ${drawerWidthPercent}% - 16px, ${drawerMaxWidth}px)` } : 50,
+          left: open && !miniDrawer ? drawerWidth - 16 : 50,
           zIndex: theme.zIndex.drawer + 2,
           transition: 'left 0.3s',
           display: { xs: 'none', sm: 'block' }

@@ -1,3 +1,4 @@
+import { SortField } from '@/types/common.type';
 import BadgeIcon from '@mui/icons-material/Badge';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -7,6 +8,9 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import PersonIcon from '@mui/icons-material/Person';
 import SortIcon from '@mui/icons-material/Sort';
+import TranslateIcon from '@mui/icons-material/Translate';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import {
   alpha,
   Box,
@@ -19,13 +23,8 @@ import {
   Typography,
   useTheme
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-
-export interface SortField {
-  field: string;
-  order: 'asc' | 'desc';
-}
 
 export interface SortMenuProps {
   onSort: (sortFields: SortField[]) => void;
@@ -53,15 +52,15 @@ const SortMenu: React.FC<SortMenuProps> = ({
   const [draggedField, setDraggedField] = useState<string | null>(null);
   const [dragOverField, setDragOverField] = useState<string | null>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  }, []);
 
-  const toggleSort = (field: string) => {
+  const toggleSort = useCallback((field: string) => {
     const existingIndex = sortFields.findIndex(sf => sf.field === field);
     let newSortFields: SortField[];
 
@@ -77,30 +76,31 @@ const SortMenu: React.FC<SortMenuProps> = ({
       newSortFields = [...sortFields, { field, order: 'asc' }];
     }
 
+    // Update state and call onSort in a single operation
     setSortFields(newSortFields);
     onSort(newSortFields);
-  };
+  }, [sortFields, onSort]);
 
-  const removeSort = (field: string) => {
+  const removeSort = useCallback((field: string) => {
     const newSortFields = sortFields.filter(sf => sf.field !== field);
     setSortFields(newSortFields);
     onSort(newSortFields);
-  };
+  }, [sortFields, onSort]);
 
-  const handleDragStart = (field: string) => {
+  const handleDragStart = useCallback((field: string) => {
     setDraggedField(field);
-  };
+  }, []);
 
-  const handleDragOver = (e: React.DragEvent, field: string) => {
+  const handleDragOver = useCallback((e: React.DragEvent, field: string) => {
     e.preventDefault();
     setDragOverField(field);
-  };
+  }, []);
 
-  const handleDragLeave = () => {
+  const handleDragLeave = useCallback(() => {
     setDragOverField(null);
-  };
+  }, []);
 
-  const handleDrop = (targetField: string) => {
+  const handleDrop = useCallback((targetField: string) => {
     if (!draggedField || draggedField === targetField) return;
 
     const draggedIndex = sortFields.findIndex(sf => sf.field === draggedField);
@@ -116,9 +116,9 @@ const SortMenu: React.FC<SortMenuProps> = ({
     onSort(newSortFields);
     setDraggedField(null);
     setDragOverField(null);
-  };
+  }, [draggedField, sortFields, onSort]);
 
-  const getSortIcon = (order: 'asc' | 'desc') => {
+  const getSortIcon = useCallback((order: 'asc' | 'desc') => {
     return order === 'asc' ? (
       <Box sx={{ display: 'flex', alignItems: 'center', color: 'success.main' }}>
         <ExpandLessIcon fontSize="small" />
@@ -130,88 +130,93 @@ const SortMenu: React.FC<SortMenuProps> = ({
         <Typography variant="caption" sx={{ ml: 0.5 }}>↓</Typography>
       </Box>
     );
-  };
+  }, []);
 
-  const getFieldIcon = (field: string) => {
-    switch (field) {
+  const getFieldIcon = useCallback((fieldId: string) => {
+    switch (fieldId) {
       case 'username':
         return <PersonIcon />;
+      case 'name':
+        return <AccountCircleIcon />;
       case 'email':
         return <EmailIcon />;
-      case 'role':
-      case 'status':
+      case 'language':
+        return <TranslateIcon />;
+      case 'roleId':
+        return <VerifiedUserIcon />;
+      case 'yukoFlag':
         return <BadgeIcon />;
       case 'createdAt':
         return <CalendarTodayIcon />;
       default:
         return null;
     }
-  };
+  }, []);
 
   return (
     <>
       <Tooltip title={sortFields.length > 0 ? t('common.sortApplied') : t('common.sort')}>
-      <Button
-        size="small"
-        onClick={handleClick}
-        startIcon={<SortIcon sx={{ color: '#ffffff' }} />}
-        endIcon={sortFields.length > 0 ? <ExpandLessIcon sx={{ color: '#ffffff' }} /> : <ExpandMoreIcon sx={{ color: '#ffffff' }} />}
-        variant="contained"
-        disableElevation
-        sx={{ 
-          height: 40,
-          px: 2,
-          borderRadius: 2,
-          minWidth: { xs: '100%', sm: 'auto' },
-          background: sortFields.length > 0 
-            ? 'linear-gradient(45deg, #3d78ff 30%, #2a61e6 90%)'
-            : 'linear-gradient(45deg, #6b97ff 30%, #3d78ff 90%)',
-          color: '#ffffff',
-          fontWeight: 600,
-          letterSpacing: '0.5px',
-          boxShadow: '0 3px 5px 2px rgba(59, 120, 255, .3)',
-          border: 'none',
-          transition: 'all 0.3s ease',
-          '&:hover': {
-            background: 'linear-gradient(45deg, #3d78ff 30%, #2a61e6 90%)',
-            transform: 'translateY(-2px)',
-            boxShadow: '0 4px 8px 2px rgba(59, 120, 255, .4)',
-          },
-          '&:active': {
-            transform: 'translateY(0px)',
-            boxShadow: '0 2px 4px 1px rgba(59, 120, 255, .3)'
-          }
-        }}
-      >
-        <Box sx={{ 
-          display: 'flex', 
-          alignItems: 'center',
-          gap: 0.5
-        }}>
-          {t(buttonLabel)}
-          {sortFields.length > 0 && (
-            <Box component="span" sx={{ 
-              ml: 0.5, 
-              bgcolor: 'rgba(255, 255, 255, 0.25)',
-              color: 'white',
-              borderRadius: 12,
-              px: 1,
-              py: 0.15,
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: 20,
-              backdropFilter: 'blur(4px)',
-              transition: 'all 0.3s ease'
-            }}>
-              {sortFields.length}
-            </Box>
-          )}
-        </Box>
-      </Button>
-    </Tooltip>  
+        <Button
+          size="small"
+          onClick={handleClick}
+          startIcon={<SortIcon sx={{ color: '#ffffff' }} />}
+          endIcon={sortFields.length > 0 ? <ExpandLessIcon sx={{ color: '#ffffff' }} /> : <ExpandMoreIcon sx={{ color: '#ffffff' }} />}
+          variant="contained"
+          disableElevation
+          sx={{ 
+            height: 40,
+            px: 2,
+            borderRadius: 2,
+            minWidth: { xs: '100%', sm: 'auto' },
+            background: sortFields.length > 0 
+              ? 'linear-gradient(45deg, #3d78ff 30%, #2a61e6 90%)'
+              : 'linear-gradient(45deg, #6b97ff 30%, #3d78ff 90%)',
+            color: '#ffffff',
+            fontWeight: 600,
+            letterSpacing: '0.5px',
+            boxShadow: '0 3px 5px 2px rgba(59, 120, 255, .3)',
+            border: 'none',
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              background: 'linear-gradient(45deg, #3d78ff 30%, #2a61e6 90%)',
+              transform: 'translateY(-2px)',
+              boxShadow: '0 4px 8px 2px rgba(59, 120, 255, .4)',
+            },
+            '&:active': {
+              transform: 'translateY(0px)',
+              boxShadow: '0 2px 4px 1px rgba(59, 120, 255, .3)'
+            }
+          }}
+        >
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center',
+            gap: 0.5
+          }}>
+            {t(buttonLabel)}
+            {sortFields.length > 0 && (
+              <Box component="span" sx={{ 
+                ml: 0.5, 
+                bgcolor: 'rgba(255, 255, 255, 0.25)',
+                color: 'white',
+                borderRadius: 12,
+                px: 1,
+                py: 0.15,
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                minWidth: 20,
+                backdropFilter: 'blur(4px)',
+                transition: 'all 0.3s ease'
+              }}>
+                {sortFields.length}
+              </Box>
+            )}
+          </Box>
+        </Button>
+      </Tooltip>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
@@ -325,7 +330,7 @@ const SortMenu: React.FC<SortMenuProps> = ({
                     justifyContent: 'flex-start',
                     textTransform: 'none',
                     height: 40,
-                    border: 'none',  // Added this line to remove the border
+                    border: 'none',
                     '&:hover': {
                       bgcolor: isActive 
                         ? alpha(theme.palette.primary.main, 0.9)

@@ -43,7 +43,7 @@ namespace ATDS.API.Controllers
             //_multiLanguageService.GetResource("aaa");
             VPermissionFilter filter = new VPermissionFilter();
             List<VPermissionItemInfo> result = _vPermissionSearchBusiness.Search(filter);            
-            return new PagingResult<VPermissionItemInfo>(result, result.Count, 1, filter.PageSize);
+            return new PagingResult<VPermissionItemInfo>(result, result.Count, 1, filter.Size);
         }
 
         // GET: api/<VPermissionController>
@@ -52,7 +52,7 @@ namespace ATDS.API.Controllers
         public async Task<IActionResult> GetPage([FromQuery] VPermissionFilter filter)
         {
             PaginatedList<VPermissionItemInfo> result = _vPermissionSearchBusiness.SearchPage(filter);
-            return new PagingResult<VPermissionItemInfo>(result, result.TotalRecord, filter.PageIndex, filter.PageSize);
+            return new PagingResult<VPermissionItemInfo>(result, result.TotalRecord, filter.Page, filter.Size);
         }        
 
         #endregion

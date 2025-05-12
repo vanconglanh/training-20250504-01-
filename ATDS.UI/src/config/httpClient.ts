@@ -105,8 +105,8 @@ class HttpClient {
     return this.instance.put<T>(url, data);
   }
 
-  public async delete<T>(url: string): Promise<ApiResponse<T>> {
-    return this.instance.delete<T>(url);
+  public async delete<T>(url: string, data?: any): Promise<ApiResponse<T>> {
+    return this.instance.delete<T>(url, { data });
   }
 
   public async patch<T>(url: string, data?: any): Promise<ApiResponse<T>> {

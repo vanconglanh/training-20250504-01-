@@ -204,18 +204,18 @@ namespace ATDS.Business
                 var whereCondition = UserConvertFunction.ConvertFilterToWhereCondition(filter);
                 var lstParameter = UserConvertFunction.ConvertFilterToParamsCondition(filter);
                 var order = filter.OrderBy;
-                var iCurrentPage = filter.PageIndex;
-                var iPageSize = filter.PageSize;
+                var iCurrentPage = filter.Page;
+                var iSize = filter.Size;
 
                 // --- Search data
-                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iPageSize);
+                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iSize);
 
                 // --- Convert data
                 foreach (UserEntity row in lst)
                     // Convert data
                     lstRet.Add(UserConvertFunction.ConvertToUserItemInfo(row));
 
-                lstResult = new PaginatedList<UserItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iPageSize);
+                lstResult = new PaginatedList<UserItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iSize);
             }
             catch (Exception)
             {
@@ -230,8 +230,8 @@ namespace ATDS.Business
         }
         #endregion
 
-        #region 【メソッド】 GetLoginInfo(UserFilter filter)
-        
+#region 【メソッド】 GetLoginInfo(UserFilter filter)
+
         public UserLoginInfo GetLoginInfo(UserFilter filter)
         {
             UserLoginInfo userLoginInfo = null;
@@ -261,7 +261,7 @@ namespace ATDS.Business
                     var lstParameterPermission = VPermissionConvertFunction.ConvertFilterToParamsCondition(permissionFilter);
                     //Search data
                     var lstPermission = VPermissionConvertFunction.ConvertToVPermissionItemInfoList(vPermissionDA.Search(con, whereConditionPermission, lstParameterPermission, String.Empty));
-                    userLoginInfo.ListPermissons = lstPermission.GroupBy(x => x.ScreenName)
+                    userLoginInfo.Permissions = lstPermission.GroupBy(x => x.ScreenName)
                                                                         .Select(g => new UserPermissonAction
                                                                         {
                                                                             ScreenName = g.Key,
@@ -283,6 +283,5 @@ namespace ATDS.Business
             return userLoginInfo;
         }
         #endregion
-
     }
 }

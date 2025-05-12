@@ -41,7 +41,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(IS_SYSTEM                     , 0) AS IsSystem                      ");  //   IsSystem
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     ,'') AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -104,10 +104,10 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="Where"></param>
         /// <param name="Order"></param>
-        /// <param name="iPageIndex"></param>
+        /// <param name="iPage"></param>
         /// <param name="iRecordOfPage"></param>
         /// <returns></returns>
-        public string sqlBaseSetSelectPage(string Where, string Order, int iPageIndex, int iRecordOfPage)
+        public string sqlBaseSetSelectPage(string Where, string Order, int iPage, int iRecordOfPage)
         {
             System.Text.StringBuilder sql = new System.Text.StringBuilder();
 
@@ -123,7 +123,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(IS_SYSTEM                     , 0) AS IsSystem                      ");  //   IsSystem
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     ,'') AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -141,7 +141,7 @@ namespace ATDS.DataAccess
                     sql.Append(Order);                                                                        //   並び順(ﾕｰｻﾞｰ条件)
                 }
                 // Get Record of page
-                sql.Append(" OFFSET " + (iPageIndex -1) * iRecordOfPage + " ROWS FETCH NEXT "+ iRecordOfPage + " ROWS ONLY ");
+                sql.Append(" LIMIT " + iRecordOfPage + " OFFSET " + (iPage - 1) * iRecordOfPage);
 
                 return sql.ToString();
             }
@@ -178,8 +178,6 @@ namespace ATDS.DataAccess
                 sql.Append(" ,LAST_UPDATE_PROGRAM               ");  //   LastUpdateProgram
                 sql.Append(" )  ");
 
-                sql.Append("OUTPUT Inserted.Id"); // データ登録の自動採番データ取得
-
                 sql.Append(" VALUES ( ");
                 sql.Append("  @Code                              ");  //   Code
                 sql.Append(" ,@Name                             ");  //   Name
@@ -190,7 +188,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,@CreatedUser                      ");  //   CreatedUser
                 sql.Append(" ,@LastUpdateUser                   ");  //   LastUpdateUser
                 sql.Append(" ,@LastUpdateProgram                ");  //   LastUpdateProgram
-                sql.Append(" )  ");
+                sql.Append(" ); SELECT LAST_INSERT_ID();        ");  //   データ登録の自動採番データ取得
 
                 return sql.ToString();
             }
@@ -227,6 +225,8 @@ namespace ATDS.DataAccess
                 sql.Append("    ,CREATED_USER                   = @CreatedUser                   "); //   CreatedUser
                 sql.Append("    ,LAST_UPDATE_USER               = @LastUpdateUser                "); //   LastUpdateUser
                 sql.Append("    ,LAST_UPDATE_PROGRAM            = @LastUpdateProgram             "); //   LastUpdateProgram
+
+                sql.Append(" WHERE ID                             = @Id                            ");  //   検索条件定義
                 return sql.ToString();
             }
             catch (Exception)
@@ -255,8 +255,7 @@ namespace ATDS.DataAccess
             {
                 sql.Append(" UPDATE  M_ROLE                                                                                      ");
                 sql.Append(" SET YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.DISABLED + "         ,");
-                sql.Append("     LAST_UPDATE_USER           =   '" + vstrUpdateUser + "'                    ,");
-                sql.Append("     LAST_UPDATE                =   '" + DateTime.Now.ToString("yyyy-MM-dd") + "'   ,");
+                sql.Append("     LAST_UPDATE_USER           =    " + vstrUpdateUser + "                    ,");
                 sql.Append("     LAST_UPDATE_PROGRAM        =   '" + vstrUpdateProgram + "'                  ");
                 sql.Append(" WHERE ID                       = @Id                            ");  //   検索条件定義
 
@@ -308,7 +307,7 @@ namespace ATDS.DataAccess
                     else{
                         withBlock.UpdatedAt = Convert.ToDateTime(Sdr["UpdatedAt"]); //  RoleDate 
                     }
-                    withBlock.YukoFlag = ((string)Sdr["YukoFlag"]).Trim(); //   YukoFlag
+                    withBlock.YukoFlag = System.Convert.ToInt32(Sdr["YukoFlag"]); //   YukoFlag
                     withBlock.CreatedUser = System.Convert.ToInt32(Sdr["CreatedUser"]); //   CreatedUser
                     withBlock.LastUpdateUser = System.Convert.ToInt32(Sdr["LastUpdateUser"]); //   LastUpdateUser
                     withBlock.LastUpdateProgram = ((string)Sdr["LastUpdateProgram"]).Trim(); //   LastUpdateProgram
@@ -703,8 +702,8 @@ namespace ATDS.DataAccess
                                             string where, 
                                             List<IDbDataParameter> lstParameter, 
                                             string order,
-                                            int iPageIndex = 1,
-                                            int iPageSize = 20)
+                                            int iPage = 1,
+                                            int iSize = 20)
         {
             string sql = "";
             IDataReader Sdr;
@@ -724,7 +723,7 @@ namespace ATDS.DataAccess
                 if (iTotalRecord > 0)
                 {
                     //--- SQL設定
-                    sql = sqlBaseSetSelectPage(where, order, iPageIndex, iPageSize);
+                    sql = sqlBaseSetSelectPage(where, order, iPage, iSize);
 
                     //--- 情報取得                    
                     Sdr = con.SelectSQLWithParams(sql, lstParameter.ToList());
@@ -739,7 +738,7 @@ namespace ATDS.DataAccess
                     }
                 }
 
-                return new PaginatedList<RoleEntity>(lstRoleEntity, iTotalRecord, iPageIndex, iPageSize);
+                return new PaginatedList<RoleEntity>(lstRoleEntity, iTotalRecord, iPage, iSize);
 
             }
             catch (Exception)

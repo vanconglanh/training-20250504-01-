@@ -1,0 +1,14 @@
+﻿
+{  
+  "rolePermissions": {
+        "id": "Id",
+    "roleId": "RoleId",
+    "permissionScreenId": "PermissionScreenId",
+    "code": "Code",
+    "createdAt": "CreatedAt",
+    "updatedAt": "UpdatedAt",
+    "yukoFlag": "YukoFlag",
+    "createdUser": "CreatedUser",
+    "lastUpdateUser": "LastUpdateUser",
+    "lastUpdateProgram": "LastUpdateProgram"
+}

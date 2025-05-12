@@ -1,4 +1,4 @@
-import DashboardIcon from '@mui/icons-material/Dashboard';
+﻿import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -29,30 +29,107 @@ export const menuItems: MenuItem[] = [
     children: [],
     screenName: Menu.DASHBOARD
   },
-  { 
-    id: Menu.PRODUCT_MANAGEMENT, 
+    { 
+    id: Menu.PERMISSIONS, 
     path: null, 
-    label: TranslationKey.PRODUCTS,
+    label: TranslationKey.PERMISSION_MANAGEMENT,
     icon: <ShoppingCartIcon />,
     children: [
       {
-        id: Menu.PRODUCTS,
-        path: RoutePath.PRODUCTS,
-        label: TranslationKey.PRODUCTS,
+        id: Menu.PERMISSIONS,
+        path: RoutePath.PERMISSIONS,
+        label: TranslationKey.PERMISSION,
         icon: <InventoryIcon />,
         children: [],
-        screenName: Menu.PRODUCTS
-      },
-      {
-        id: Menu.CATEGORIES,
-        path: RoutePath.CATEGORIES,
-        label: TranslationKey.CATEGORIES,
-        icon: <CategoryIcon />,
-        children: [],
-        screenName: Menu.CATEGORIES
+        screenName: Menu.PERMISSIONS
       }
     ],
-    screenName: Menu.PRODUCT_MANAGEMENT
+    screenName: Menu.PERMISSIONS
+  },
+  { 
+    id: Menu.PERMISSION_SCREENS, 
+    path: null, 
+    label: TranslationKey.PERMISSION_SCREEN_MANAGEMENT,
+    icon: <ShoppingCartIcon />,
+    children: [
+      {
+        id: Menu.PERMISSION_SCREENS,
+        path: RoutePath.PERMISSION_SCREENS,
+        label: TranslationKey.PERMISSION_SCREEN,
+        icon: <InventoryIcon />,
+        children: [],
+        screenName: Menu.PERMISSION_SCREENS
+      }
+    ],
+    screenName: Menu.PERMISSION_SCREENS
+  },
+  { 
+    id: Menu.ROLES, 
+    path: null, 
+    label: TranslationKey.ROLE_MANAGEMENT,
+    icon: <ShoppingCartIcon />,
+    children: [
+      {
+        id: Menu.ROLES,
+        path: RoutePath.ROLES,
+        label: TranslationKey.ROLE,
+        icon: <InventoryIcon />,
+        children: [],
+        screenName: Menu.ROLES
+      }
+    ],
+    screenName: Menu.ROLES
+  },
+  { 
+    id: Menu.ROLE_PERMISSIONS, 
+    path: null, 
+    label: TranslationKey.ROLE_PERMISSION_MANAGEMENT,
+    icon: <ShoppingCartIcon />,
+    children: [
+      {
+        id: Menu.ROLE_PERMISSIONS,
+        path: RoutePath.ROLE_PERMISSIONS,
+        label: TranslationKey.ROLE_PERMISSION,
+        icon: <InventoryIcon />,
+        children: [],
+        screenName: Menu.ROLE_PERMISSIONS
+      }
+    ],
+    screenName: Menu.ROLE_PERMISSIONS
+  },
+  { 
+    id: Menu.SCREENS, 
+    path: null, 
+    label: TranslationKey.SCREEN_MANAGEMENT,
+    icon: <ShoppingCartIcon />,
+    children: [
+      {
+        id: Menu.SCREENS,
+        path: RoutePath.SCREENS,
+        label: TranslationKey.SCREEN,
+        icon: <InventoryIcon />,
+        children: [],
+        screenName: Menu.SCREENS
+      }
+    ],
+    screenName: Menu.SCREENS
+  },
+  { 
+    id: Menu.USERS, 
+    path: null, 
+    label: TranslationKey.USER_MANAGEMENT,
+    icon: <ShoppingCartIcon />,
+    children: [
+      {
+        id: Menu.USERS,
+        path: RoutePath.USERS,
+        label: TranslationKey.USER,
+        icon: <InventoryIcon />,
+        children: [],
+        screenName: Menu.USERS
+      }
+    ],
+    screenName: Menu.USERS
   },
   { 
     id: Menu.USER_MANAGEMENT, 
@@ -80,7 +157,7 @@ export const menuItems: MenuItem[] = [
       {
         id: Menu.ROLES,
         path: RoutePath.ROLES,
-        label: TranslationKey.ROLES,
+        label: TranslationKey.ROLE,
         icon: <AssignmentIndIcon />,
         children: [],
         screenName: Menu.ROLES
@@ -88,4 +165,5 @@ export const menuItems: MenuItem[] = [
     ],
     screenName: Menu.USER_MANAGEMENT
   }
+  
 ]; 

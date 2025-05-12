@@ -21,7 +21,7 @@ namespace ATDS.API.Controllers
             var user = new UserLoginInfo
             {
                 Id = int.Parse(identity.FindFirst(ClaimConstant.UserId)?.Value ?? "0"),
-                UserName = identity.FindFirst(ClaimConstant.UserName)?.Value,
+                Username = identity.FindFirst(ClaimConstant.Username)?.Value,
                 Password = "", // not share
                 Language = identity.FindFirst(ClaimConstant.Language)?.Value,
                 Email = identity.FindFirst(ClaimConstant.Email)?.Value,
@@ -32,7 +32,7 @@ namespace ATDS.API.Controllers
                 UpdatedAt = DateTime.TryParse(identity.FindFirst(ClaimConstant.UpdatedAt)?.Value, out var updatedAt)
                             ? updatedAt
                             : DateTime.MinValue,
-                ListPermissons = GetPermissionsFromClaims(identity),
+                Permissions = GetPermissionsFromClaims(identity),
             };
 
             var result = new DataResult<UserLoginInfo>(user);
@@ -42,7 +42,7 @@ namespace ATDS.API.Controllers
 
         private List<UserPermissonAction> GetPermissionsFromClaims(ClaimsIdentity user)
             {
-                var json = user.FindFirst(ClaimConstant.PermissonActions)?.Value;
+                var json = user.FindFirst(ClaimConstant.PermissionActions)?.Value;
 
                 if (!string.IsNullOrEmpty(json))
                 {

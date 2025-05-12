@@ -14,7 +14,7 @@ namespace ATDS.Business
     {
 
 #region 【メソッド】 SearchByKey
-        public RolePermissionItemInfo SearchByKey(int piRoleId, int piPermissionScreenId)
+        public RolePermissionItemInfo SearchByKey(int piId)
         {
             MySQLServerHelper con = new MySQLServerHelper(GlobalParameter.ConnectionString);
             var da = new RolePermissionData();
@@ -27,7 +27,7 @@ namespace ATDS.Business
                 con.Open();
 
                 // --- Search data
-                lst = da.SearchByKey(con ,piRoleId,piPermissionScreenId);
+                lst = da.SearchByKey(con ,piId);
 
                 // --- Convert data
                 foreach (RolePermissionEntity row in lst){
@@ -204,18 +204,18 @@ namespace ATDS.Business
                 var whereCondition = RolePermissionConvertFunction.ConvertFilterToWhereCondition(filter);
                 var lstParameter = RolePermissionConvertFunction.ConvertFilterToParamsCondition(filter);
                 var order = filter.OrderBy;
-                var iCurrentPage = filter.PageIndex;
-                var iPageSize = filter.PageSize;
+                var iCurrentPage = filter.Page;
+                var iSize = filter.Size;
 
                 // --- Search data
-                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iPageSize);
+                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iSize);
 
                 // --- Convert data
                 foreach (RolePermissionEntity row in lst)
                     // Convert data
                     lstRet.Add(RolePermissionConvertFunction.ConvertToRolePermissionItemInfo(row));
 
-                lstResult = new PaginatedList<RolePermissionItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iPageSize);
+                lstResult = new PaginatedList<RolePermissionItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iSize);
             }
             catch (Exception)
             {

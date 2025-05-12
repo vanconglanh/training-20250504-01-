@@ -39,14 +39,14 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(CODE                          ,'') AS Code                          ");  //   Code
                 sql.Append(" ,IFNULL(NAME                          ,'') AS Name                          ");  //   Name
                 sql.Append(" ,IFNULL(EMAIL                         ,'') AS Email                         ");  //   Email
-                sql.Append(" ,IFNULL(USER_NAME                     ,'') AS UserName                      ");  //   UserName
+                sql.Append(" ,IFNULL(USERNAME                     ,'') AS Username                      ");  //   Username
                 sql.Append(" ,IFNULL(LANGUAGE                      ,'') AS Language                      ");  //   Language
                 sql.Append(" ,IFNULL(PASSWORD                      ,'') AS Password                      ");  //   Password
                 sql.Append(" ,IFNULL(PASSWORD_HASH                 ,'') AS PasswordHash                  ");  //   PasswordHash
                 sql.Append(" ,IFNULL(ROLE_ID                       , 0) AS RoleId                        ");  //   RoleId
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     ,'') AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -109,10 +109,10 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="Where"></param>
         /// <param name="Order"></param>
-        /// <param name="iPageIndex"></param>
+        /// <param name="iPage"></param>
         /// <param name="iRecordOfPage"></param>
         /// <returns></returns>
-        public string sqlBaseSetSelectPage(string Where, string Order, int iPageIndex, int iRecordOfPage)
+        public string sqlBaseSetSelectPage(string Where, string Order, int iPage, int iRecordOfPage)
         {
             System.Text.StringBuilder sql = new System.Text.StringBuilder();
 
@@ -126,14 +126,14 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(CODE                          ,'') AS Code                          ");  //   Code
                 sql.Append(" ,IFNULL(NAME                          ,'') AS Name                          ");  //   Name
                 sql.Append(" ,IFNULL(EMAIL                         ,'') AS Email                         ");  //   Email
-                sql.Append(" ,IFNULL(USER_NAME                     ,'') AS UserName                      ");  //   UserName
+                sql.Append(" ,IFNULL(USERNAME                     ,'') AS Username                      ");  //   Username
                 sql.Append(" ,IFNULL(LANGUAGE                      ,'') AS Language                      ");  //   Language
                 sql.Append(" ,IFNULL(PASSWORD                      ,'') AS Password                      ");  //   Password
                 sql.Append(" ,IFNULL(PASSWORD_HASH                 ,'') AS PasswordHash                  ");  //   PasswordHash
                 sql.Append(" ,IFNULL(ROLE_ID                       , 0) AS RoleId                        ");  //   RoleId
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     ,'') AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -151,7 +151,7 @@ namespace ATDS.DataAccess
                     sql.Append(Order);                                                                        //   並び順(ﾕｰｻﾞｰ条件)
                 }
                 // Get Record of page
-                sql.Append(" OFFSET " + (iPageIndex -1) * iRecordOfPage + " ROWS FETCH NEXT "+ iRecordOfPage + " ROWS ONLY ");
+                sql.Append(" LIMIT " + iRecordOfPage + " OFFSET " + (iPage - 1) * iRecordOfPage);
 
                 return sql.ToString();
             }
@@ -180,7 +180,7 @@ namespace ATDS.DataAccess
                 sql.Append("  CODE                              ");  //   Code
                 sql.Append(" ,NAME                              ");  //   Name
                 sql.Append(" ,EMAIL                             ");  //   Email
-                sql.Append(" ,USER_NAME                         ");  //   UserName
+                sql.Append(" ,USERNAME                         ");  //   Username
                 sql.Append(" ,LANGUAGE                          ");  //   Language
                 sql.Append(" ,PASSWORD                          ");  //   Password
                 sql.Append(" ,PASSWORD_HASH                     ");  //   PasswordHash
@@ -199,7 +199,7 @@ namespace ATDS.DataAccess
                 sql.Append("  @Code                              ");  //   Code
                 sql.Append(" ,@Name                             ");  //   Name
                 sql.Append(" ,@Email                            ");  //   Email
-                sql.Append(" ,@UserName                         ");  //   UserName
+                sql.Append(" ,@Username                         ");  //   Username
                 sql.Append(" ,@Language                         ");  //   Language
                 sql.Append(" ,@Password                         ");  //   Password
                 sql.Append(" ,@PasswordHash                     ");  //   PasswordHash
@@ -241,7 +241,7 @@ namespace ATDS.DataAccess
                 sql.Append(" SET CODE                           = @Code                          ");  //   Code
                 sql.Append("    ,NAME                           = @Name                          "); //   Name
                 sql.Append("    ,EMAIL                          = @Email                         "); //   Email
-                sql.Append("    ,USER_NAME                      = @UserName                      "); //   UserName
+                sql.Append("    ,USERNAME                      = @Username                      "); //   Username
                 sql.Append("    ,LANGUAGE                       = @Language                      "); //   Language
                 sql.Append("    ,PASSWORD                       = @Password                      "); //   Password
                 sql.Append("    ,PASSWORD_HASH                  = @PasswordHash                  "); //   PasswordHash
@@ -358,7 +358,7 @@ namespace ATDS.DataAccess
                     withBlock.Code = ((string)Sdr["Code"]).Trim(); //   Code
                     withBlock.Name = ((string)Sdr["Name"]).Trim(); //   Name
                     withBlock.Email = ((string)Sdr["Email"]).Trim(); //   Email
-                    withBlock.UserName = ((string)Sdr["UserName"]).Trim(); //   UserName
+                    withBlock.Username = ((string)Sdr["Username"]).Trim(); //   Username
                     withBlock.Language = ((string)Sdr["Language"]).Trim(); //   Language
                     withBlock.Password = ((string)Sdr["Password"]).Trim(); //   Password
                     withBlock.PasswordHash = ((string)Sdr["PasswordHash"]).Trim(); //   PasswordHash
@@ -375,7 +375,7 @@ namespace ATDS.DataAccess
                     else{
                         withBlock.UpdatedAt = Convert.ToDateTime(Sdr["UpdatedAt"]); //  UserDate 
                     }
-                    withBlock.YukoFlag = ((string)Sdr["YukoFlag"]).Trim(); //   YukoFlag
+                    withBlock.YukoFlag = System.Convert.ToInt32(Sdr["YukoFlag"]); //   YukoFlag
                     withBlock.CreatedUser = System.Convert.ToInt32(Sdr["CreatedUser"]); //   CreatedUser
                     withBlock.LastUpdateUser = System.Convert.ToInt32(Sdr["LastUpdateUser"]); //   LastUpdateUser
                     withBlock.LastUpdateProgram = ((string)Sdr["LastUpdateProgram"]).Trim(); //   LastUpdateProgram
@@ -869,8 +869,8 @@ namespace ATDS.DataAccess
                                             string where, 
                                             List<IDbDataParameter> lstParameter, 
                                             string order,
-                                            int iPageIndex = 1,
-                                            int iPageSize = 20)
+                                            int iPage = 1,
+                                            int iSize = 20)
         {
             string sql = "";
             IDataReader Sdr;
@@ -890,7 +890,7 @@ namespace ATDS.DataAccess
                 if (iTotalRecord > 0)
                 {
                     //--- SQL設定
-                    sql = sqlBaseSetSelectPage(where, order, iPageIndex, iPageSize);
+                    sql = sqlBaseSetSelectPage(where, order, iPage, iSize);
 
                     //--- 情報取得                    
                     Sdr = con.SelectSQLWithParams(sql, lstParameter.ToList());
@@ -905,7 +905,7 @@ namespace ATDS.DataAccess
                     }
                 }
 
-                return new PaginatedList<UserEntity>(lstUserEntity, iTotalRecord, iPageIndex, iPageSize);
+                return new PaginatedList<UserEntity>(lstUserEntity, iTotalRecord, iPage, iSize);
 
             }
             catch (Exception)

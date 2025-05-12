@@ -204,18 +204,18 @@ namespace ATDS.Business
                 var whereCondition = ScreenConvertFunction.ConvertFilterToWhereCondition(filter);
                 var lstParameter = ScreenConvertFunction.ConvertFilterToParamsCondition(filter);
                 var order = filter.OrderBy;
-                var iCurrentPage = filter.PageIndex;
-                var iPageSize = filter.PageSize;
+                var iCurrentPage = filter.Page;
+                var iSize = filter.Size;
 
                 // --- Search data
-                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iPageSize);
+                var lst = da.SearchPage(con, whereCondition, lstParameter, order, iCurrentPage, iSize);
 
                 // --- Convert data
                 foreach (ScreenEntity row in lst)
                     // Convert data
                     lstRet.Add(ScreenConvertFunction.ConvertToScreenItemInfo(row));
 
-                lstResult = new PaginatedList<ScreenItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iPageSize);
+                lstResult = new PaginatedList<ScreenItemInfo>(lstRet, lst.TotalRecord, iCurrentPage, iSize);
             }
             catch (Exception)
             {

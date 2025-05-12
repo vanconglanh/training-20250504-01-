@@ -1,15 +1,14 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { SnackbarProvider } from 'notistack';
-import { Provider } from 'react-redux';
-import router from './routes';
-import './i18n';
-import { store } from './store';
 import { HelmetProvider } from 'react-helmet-async';
+import { Provider } from 'react-redux';
+import { RouterProvider } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import './i18n';
+import router from './routes';
+import { store } from './store';
 
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -119,16 +118,7 @@ function App() {
         <HelmetProvider>
           <ThemeProvider theme={themeMui}>
             <CssBaseline />
-            <SnackbarProvider 
-              maxSnack={3} 
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              autoHideDuration={3000}
-            >
               <RouterProvider router={router} />
-            </SnackbarProvider>
           </ThemeProvider>
         </HelmetProvider>
         <ReactQueryDevtools initialIsOpen={false} />

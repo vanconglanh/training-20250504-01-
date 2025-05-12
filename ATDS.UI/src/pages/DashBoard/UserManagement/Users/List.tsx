@@ -1,10 +1,11 @@
 import ConfirmDialog from '@/components/ConfirmDialog/ConfirmDialog';
-import SortMenu, { SortField } from '@/components/SortMenu/SortMenu';
+import SortMenu from '@/components/SortMenu/SortMenu';
 import { Menu } from '@/config/constant/feature';
 import { PermissionAction } from '@/config/enum/PermissionAction';
 import { usePermissions } from '@/hooks/usePermissions';
-import Filter, { ActiveFilter, FilterOption, FilterValues } from '@/pages/DashBoard/UserManagement/Users/Filter';
-import { userService } from '@/services/userService';
+import Filter from '@/pages/DashBoard/UserManagement/Users/Filter';
+import { userService } from '@/services/user.service.ts';
+import { ActiveFilter, FilterOption, SortField } from '@/types/common.type';
 import { User, UserListResponse, UserParams } from '@/types/user.type';
 import { formatDate } from '@/utils/datetime';
 import AddIcon from '@mui/icons-material/Add';
@@ -17,12 +18,10 @@ import ViewColumnIcon from '@mui/icons-material/ViewColumn';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import {
   alpha,
-  Autocomplete,
   Box,
   Button,
   Checkbox,
   Chip,
-  CircularProgress,
   IconButton,
   InputAdornment,
   MenuItem,
@@ -44,11 +43,15 @@ import {
   Typography,
   useTheme
 } from '@mui/material';
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
+// Constants for column management
+const STORAGE_KEY = 'userTableColumns'; 
+const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'yukoFlag']; 
 
 // Column configuration type
 interface ColumnConfig {
@@ -63,10 +66,6 @@ const isValidData = (data: UserListResponse | undefined): data is UserListRespon
   return !!data && Array.isArray(data.data);
 };
 
-// Helper function to check if we have data
-const hasData = (data: UserListResponse | undefined): boolean => {
-  return isValidData(data) && data.data.length > 0;
-};
 
 // Custom Popper component for Autocomplete
 const CustomPopper = React.forwardRef<HTMLDivElement, PopperProps>((props, ref) => (
@@ -88,64 +87,223 @@ const CustomPopper = React.forwardRef<HTMLDivElement, PopperProps>((props, ref) 
 
 CustomPopper.displayName = 'CustomPopper';
 
+// Tách logic xử lý filter values thành custom hook
+const useFilterValues = (open: boolean, activeFilters: ActiveFilter[], defaultFilters: FilterOption[]) => {
+  const [filterValues, setFilterValues] = useState<Record<string, string[]>>({});
+
+  useEffect(() => {
+    if (open) {
+      const initialValues = defaultFilters.reduce((acc, filter) => ({
+        ...acc,
+        [filter.id]: filter.defaultValue ? [filter.defaultValue] : []
+      }), {});
+
+      const activeValues = activeFilters.reduce((acc, filter) => ({
+        ...acc,
+        [filter.field]: [filter.value]
+      }), {});
+
+      setFilterValues({ ...initialValues, ...activeValues });
+    }
+  }, [open, activeFilters, defaultFilters]);
+
+  return [filterValues, setFilterValues] as const;
+};
+
+// Tách riêng component CustomPagination
+const CustomPagination = memo(({ 
+  page, 
+  totalPages, 
+  onPageChange, 
+  isFetching 
+}: { 
+  page: number; 
+  totalPages: number; 
+  onPageChange: (page: number) => void;
+  isFetching: boolean;
+}) => {
+  const handleChange = useCallback((_: React.ChangeEvent<unknown>, value: number) => {
+    onPageChange(value);
+  }, [onPageChange]);
+
+  return (
+    <Pagination
+      count={totalPages}
+      page={page}
+      onChange={handleChange}
+      color="primary"
+      shape="rounded"
+      showFirstButton
+      showLastButton
+      disabled={isFetching}
+      sx={{
+        '& .MuiPaginationItem-root': {
+          transition: 'all 0.2s ease',
+          '&:hover': {
+            transform: 'translateY(-2px)'
+          }
+        }
+      }}
+    />
+  );
+});
+
+CustomPagination.displayName = 'CustomPagination';
+
+// Tách riêng component PaginationFooter
+const PaginationFooter = memo(({
+  paginationInfo,
+  isFetching,
+  rowsPerPageOptions,
+  onPageChange,
+  onRowsPerPageChange,
+  t
+}: {
+  paginationInfo: {
+    page: number;
+    size: number;
+    total: number;
+    start: number;
+    end: number;
+    totalPages: number;
+  };
+  isFetching: boolean;
+  isMobile: boolean;
+  rowsPerPageOptions: number[];
+  onPageChange: (page: number) => void;
+  onRowsPerPageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  t: (key: string) => string;
+}) => {
+  const theme = useTheme();
+
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: { xs: 'column', sm: 'row' },
+        alignItems: { xs: 'stretch', sm: 'center' },
+        justifyContent: 'space-between',
+        gap: { xs: 2, sm: 0 },
+        px: { xs: 1, sm: 2 },
+        py: { xs: 2, sm: 1.5 },
+        borderTop: '1px solid',
+        borderColor: 'divider',
+        bgcolor: alpha(theme.palette.primary.main, 0.02),
+        position: 'relative',
+        minHeight: '64px'
+      }}
+    >
+      <Stack 
+        direction="row" 
+        alignItems="center" 
+        spacing={2}
+        sx={{ position: 'relative', zIndex: 2 }}
+      >
+        <TextField
+          select
+          size="small"
+          value={paginationInfo.size}
+          onChange={onRowsPerPageChange}
+          sx={{ 
+            width: 70,
+            '& .MuiSelect-select': {
+              py: 1
+            }
+          }}
+          disabled={isFetching}
+        >
+          {rowsPerPageOptions.map((option) => (
+            <MenuItem key={option} value={option}>
+              {option}
+            </MenuItem>
+          ))}
+        </TextField>
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            display: { xs: 'none', sm: 'block' },
+            color: isFetching ? 'text.disabled' : 'text.primary',
+            transition: 'color 0.2s ease'
+          }}
+        >
+          {t('common.show')} {`${paginationInfo.start} - ${paginationInfo.end} / ${paginationInfo.total} ${t('common.data')}`}
+        </Typography>
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            display: { xs: 'block', sm: 'none' },
+            color: isFetching ? 'text.disabled' : 'text.primary',
+            transition: 'color 0.2s ease'
+          }}
+        >
+          {`${paginationInfo.start}-${paginationInfo.end}/${paginationInfo.total}`}
+        </Typography>
+      </Stack>
+
+      <Box sx={{ position: 'relative', zIndex: 2 }}>
+        <CustomPagination
+          page={paginationInfo.page}
+          totalPages={paginationInfo.totalPages}
+          onPageChange={onPageChange}
+          isFetching={isFetching}
+        />
+      </Box>
+    </Box>
+  );
+}, (prevProps, nextProps) => {
+  return (
+    prevProps.paginationInfo.page === nextProps.paginationInfo.page &&
+    prevProps.paginationInfo.size === nextProps.paginationInfo.size &&
+    prevProps.paginationInfo.total === nextProps.paginationInfo.total &&
+    prevProps.isFetching === nextProps.isFetching &&
+    prevProps.isMobile === nextProps.isMobile
+  );
+});
+
+PaginationFooter.displayName = 'PaginationFooter';
+
 const UserList: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { hasPermission } = usePermissions();
   const theme = useTheme();
+  const queryClient = useQueryClient();
+  const location = useLocation();
   
   // Permission checks
   const canCreate = hasPermission(Menu.USERS, PermissionAction.CREATE);
   const canUpdate = hasPermission(Menu.USERS, PermissionAction.UPDATE);
   const canDelete = hasPermission(Menu.USERS, PermissionAction.DELETE);
   
-  // Add username autocomplete states
-  const [usernameLoading, setUsernameLoading] = useState(false);
-  const [usernameSuggestions, setUsernameSuggestions] = useState<any[]>([]);
-  const [selectedUsername, setSelectedUsername] = useState<string>('');
+  // Get page from URL or localStorage
+  const getInitialPage = () => {
+    const searchParams = new URLSearchParams(location.search);
+    const pageFromUrl = searchParams.get('page');
+    if (pageFromUrl) {
+      const page = Number(pageFromUrl);
+      localStorage.setItem('usersCurrentPage', page.toString());
+      return page;
+    }
+    return Number(localStorage.getItem('usersCurrentPage')) || 1;
+  };
 
   // Pagination and other states
   const [params, setParams] = useState<UserParams>({
-    page: 0,
-    limit: 10,
+    page: getInitialPage(),
+    size: 10,
     search: [],
-    sortBy: 'username',
-    sortOrder: 'asc'
   });
 
-  const [selected, setSelected] = useState<string[]>([]);
+  const [selected, setSelected] = useState<number[]>([]);
   const [confirmDialog, setConfirmDialog] = useState({
     open: false,
-    userId: '',
+    userId: 1,
     multiple: false
   });
 
-  // Filter states
-  const [statusFilter, setStatusFilter] = useState({
-    active: false,
-    inactive: false,
-    pending: false
-  });
+  const [_, setFilterValues] = useFilterValues(false, [], []);
 
-  const [roleFilter, setRoleFilter] = useState({
-    admin: false,
-    manager: false,
-    user: false
-  });
-
-  const [filterValues, setFilterValues] = useState<FilterValues>({
-    username: '',
-    email: '',
-    role: '',
-    status: '',
-    createdAt: '',
-    updatedAt: '',
-    lastUpdate: '',
-    lastUpdateUser: '',
-    lastUpdateProgram: '',
-    passwordHash: '',
-    yukoFlag: ''
-  });
+  const [username, setUsername] = useState('');
 
   // Advanced filter states
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -160,14 +318,32 @@ const UserList: React.FC = () => {
     direction: 'asc'
   });
 
-  // Column visibility state
-  const [columns, setColumns] = useState<ColumnConfig[]>([
-    { id: 'username', label: t('users.fields.username'), visible: true, sortable: true },
-    { id: 'email', label: t('users.fields.email'), visible: true, sortable: true },
-    { id: 'role', label: t('users.fields.role'), visible: true, sortable: true },
-    { id: 'status', label: t('users.fields.status'), visible: true, sortable: true },
-    { id: 'createdAt', label: t('users.fields.createdAt'), visible: true, sortable: true },
-  ]);
+  // Column visibility state with localStorage persistence
+  const [columns, setColumns] = useState<ColumnConfig[]>(() => {
+    const savedColumns = localStorage.getItem(STORAGE_KEY);
+    if (savedColumns) {
+      return JSON.parse(savedColumns);
+    }
+    
+    // Default columns configuration
+    return [
+      { id: 'username', label: t('users.fields.username'), visible: true, sortable: true },
+      { id: 'name', label: t('users.fields.name'), visible: true, sortable: true },
+      { id: 'email', label: t('users.fields.email'), visible: true, sortable: true },
+      { id: 'language', label: t('users.fields.language'), visible: true, sortable: true },
+      { id: 'roleId', label: t('users.fields.role'), visible: true, sortable: true },
+      { id: 'yukoFlag', label: t('users.fields.status'), visible: true, sortable: true },
+      { id: 'createdAt', label: t('users.fields.createdAt'), visible: true, sortable: true },
+    ].map(col => ({
+      ...col,
+      visible: DEFAULT_VISIBLE_COLUMNS.includes(col.id)
+    }));
+  });
+
+  // Save columns state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(columns));
+  }, [columns]);
 
   // Column menu state
   const [columnMenuAnchor, setColumnMenuAnchor] = useState<null | HTMLElement>(null);
@@ -178,27 +354,207 @@ const UserList: React.FC = () => {
     column.label.toLowerCase().includes(columnSearch.toLowerCase())
   );
 
-  // Query setup
+  // State để lưu trữ dữ liệu đã tải
+  const [cachedData, setCachedData] = useState<Record<string, User[]>>({});
+
+  // State để lưu trữ dữ liệu hiển thị hiện tại
+  const [displayData, setDisplayData] = useState<User[]>([]);
+
+  // Effect to handle URL changes and force reload
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const pageFromUrl = searchParams.get('page');
+    const forceReload = location.state?.forceReload;
+
+    if (pageFromUrl) {
+      const page = Number(pageFromUrl);
+      setParams(prev => ({ ...prev, page }));
+      localStorage.setItem('usersCurrentPage', page.toString());
+    }
+
+    // If force reload is true, refetch the data
+    if (forceReload) {
+      queryClient.invalidateQueries({ 
+        queryKey: ['users'],
+        refetchType: 'all'
+      });
+      // Clear the force reload state
+      navigate(location.pathname + location.search, { 
+        replace: true,
+        state: {} 
+      });
+    }
+  }, [location.search, location.state, queryClient, navigate]);
+
+  // Tối ưu query options
   const { data, isLoading, isFetching, refetch } = useQuery<UserListResponse>({
-    queryKey: ['users', params, { statusFilter, roleFilter }],
+    queryKey: ['users', params],
     queryFn: async () => {
       try {
-        const filterParams: UserParams = {
-          ...params,
-        };
-
-        const result = await userService.getUsers(filterParams);
+        const result = await userService.getUsers(params);
         return result;
       } catch (error) {
+        // Properly handle error object
+        const errorMessage = error instanceof Error ? error.message : 'An error occurred';
         toast.error(t('errors.fetchFailed'));
-        return { data: [], total: 0, page: 0, limit: 10 };
+        console.error('Error fetching users:', errorMessage);
+        return { data: [], total: 0, page: 0, size: 10 };
       }
     },
-    refetchOnWindowFocus: false
+    refetchOnWindowFocus: false,
+    enabled: true,
+    refetchOnMount: true,
+    refetchOnReconnect: true,
+    staleTime: 30000,
+    placeholderData: (previousData) => previousData,
   });
 
+  // Effect để cập nhật displayData
+  useEffect(() => {
+    if (isValidData(data)) {
+      setDisplayData(data.data);
+    }
+  }, [data]);
+
+  // Memoize pagination calculations
+  const paginationInfo = useMemo(() => {
+    const page = params.page ?? 1;
+    const size = params.size ?? 10;
+    const total = data?.total ?? 0;
+    const start = total > 0 ? (page - 1) * size + 1 : 0;
+    const end = Math.min(page * size, total);
+    const totalPages = Math.ceil(total / size);
+
+    return {
+      page,
+      size,
+      total,
+      start,
+      end,
+      totalPages
+    };
+  }, [params.page, params.size, data?.total]);
+
+  // Memoize rows per page options
+  const rowsPerPageOptions = useMemo(() => [5, 10, 25, 50], []);
+
+  // Prefetch next page data
+  const prefetchNextPage = useCallback((nextPage: number) => {
+    const nextPageParams: UserParams = {
+      ...params,
+      page: nextPage
+    };
+
+    queryClient.prefetchQuery({
+      queryKey: ['users', nextPageParams],
+      queryFn: async () => {
+        try {
+          const result = await userService.getUsers(nextPageParams);
+          return result;
+        } catch (error) {
+          console.error('Prefetch error:', error);
+          return { data: [], total: 0, page: 0, size: 10 };
+        }
+      }
+    });
+  }, [params,  queryClient]);
+
+  // Handle filter changes
+  const handleFilterApply = useCallback((filters: ActiveFilter[]) => {
+    setActiveFilters(filters);
+
+    // Reset relevant params
+    const newParams: UserParams = {
+      ...params,
+      page: 1,
+      username: undefined,
+      name: undefined,
+      email: undefined,
+      language: undefined,
+      roleId: undefined,
+      yukoFlag: undefined
+    };
+
+    filters.forEach(filter => {
+      if (filter.field in newParams) {
+        const key = filter.field as keyof UserParams;
+        if (key === 'yukoFlag') {
+          newParams[key] = filter.value === 'true';
+        } else {
+          newParams[key] = filter.value as any;
+        }
+      }
+    });
+
+    // Clear cached data when filters change
+    setCachedData({});
+    setParams(newParams);
+  }, [params]);
+
+  // Prefetch next page when current page data is loaded
+  useEffect(() => {
+    const currentPage = params.page ?? 1;
+    if (data && currentPage < paginationInfo.totalPages && !isFetching) {
+      const nextPage = currentPage + 1;
+      // Only prefetch if we don't already have the data cached
+      if (!cachedData[String(nextPage)]) {
+        prefetchNextPage(nextPage);
+      }
+    }
+  }, [data, params.page, paginationInfo.totalPages, prefetchNextPage, isFetching, cachedData]);
+
+  // Tối ưu handlePageChange
+  const handlePageChange = useCallback((newPage: number) => {
+    // Lưu lại trang hiện tại vào localStorage
+    localStorage.setItem('usersCurrentPage', newPage.toString());
+    
+    // Cập nhật URL với số trang mới
+    navigate(`/dashboard/users?page=${newPage}`, { replace: true });
+    
+    // Cập nhật params
+    setParams(prev => ({ ...prev, page: newPage }));
+  }, [navigate]);
+
+  // Effect để cập nhật displayData khi có dữ liệu mới
+  useEffect(() => {
+    if (isValidData(data)) {
+      setDisplayData(data.data);
+      // Cache dữ liệu mới
+      setCachedData(prev => ({
+        ...prev,
+        [String(params.page)]: data.data
+      }));
+    }
+  }, [data, params.page]);
+
+  // Handle rows per page change
+  const handleChangeRowsPerPage = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const newSize = parseInt(event.target.value, 10);
+    
+    // Giữ lại dữ liệu hiện tại
+    const currentDisplayData = displayData;
+    
+    // Update params
+    setParams(prev => ({ 
+      ...prev, 
+      size: newSize,
+      page: 1
+    }));
+    
+    // Clear cache
+    setCachedData({});
+    
+    // Update URL
+    navigate('/dashboard/users?page=1', { replace: true });
+    
+    // Giữ lại dữ liệu cho đến khi có dữ liệu mới
+    if (currentDisplayData.length > 0) {
+      setDisplayData(currentDisplayData);
+    }
+  }, [navigate, displayData]);
+
   // Handle delete user(s)
-  const handleDelete = async (userId?: string) => {
+  const handleDelete = async (userId?: number) => {
     if (userId) {
       // Single delete
       setConfirmDialog({
@@ -210,7 +566,7 @@ const UserList: React.FC = () => {
       // Multiple delete
       setConfirmDialog({
         open: true,
-        userId: '',
+        userId: 1,
         multiple: true
       });
     }
@@ -220,8 +576,7 @@ const UserList: React.FC = () => {
   const confirmDelete = async () => {
     try {
       if (confirmDialog.multiple) {
-        // Delete multiple users
-        await Promise.all(selected.map(id => userService.deleteUser(id)));
+        await userService.deleteUsers(selected);
         toast.success(t('users.deleteMultipleSuccess'));
         setSelected([]);
       } else {
@@ -235,7 +590,7 @@ const UserList: React.FC = () => {
     } finally {
       setConfirmDialog({
         open: false,
-        userId: '',
+        userId: 1,
         multiple: false
       });
     }
@@ -250,42 +605,24 @@ const UserList: React.FC = () => {
     });
   };
 
-  // Handle rows per page change
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setParams(prev => ({ 
-      ...prev, 
-      limit: parseInt(event.target.value, 10),
-      page: 0 
-    }));
-  };
-
   // Navigate to create user page
   const handleCreateUser = () => {
     navigate('/dashboard/users/create');
   };
 
   // Navigate to edit user page
-  const handleEditUser = (userId: string) => {
+  const handleEditUser = (userId: number) => {
     navigate(`/dashboard/users/edit/${userId}`);
   };
 
   // Navigate to view user page
-  const handleViewUser = (userId: string) => {
+  const handleViewUser = (userId: number) => {
     navigate(`/dashboard/users/view/${userId}`);
   };
 
   // Calculate status chip color
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'active':
-        return 'success';
-      case 'inactive':
-        return 'error';
-      case 'pending':
-        return 'warning';
-      default:
-        return 'default';
-    }
+  const getStatusColor = (yukoFlag: boolean) => {
+    return yukoFlag ? 'success' : 'error';
   };
 
   // Handle column sort
@@ -303,7 +640,8 @@ const UserList: React.FC = () => {
   };
 
   // Handle sort menu
-  const handleSortMenu = (sortFields: SortField[]) => {
+  const handleSortMenu = useCallback((sortFields: SortField[]) => {
+    console.log('sortFields', sortFields);
     setParams(prev => ({
       ...prev,
       sortFields,
@@ -311,7 +649,7 @@ const UserList: React.FC = () => {
       sortBy: undefined,
       sortOrder: undefined
     }));
-  };
+  }, []);
 
   // Table header cell component
   const TableHeaderCell: React.FC<{
@@ -321,8 +659,6 @@ const UserList: React.FC = () => {
     align?: 'left' | 'right' | 'center';
     onClick?: (field: string) => void;
   }> = ({ field, label, sortable = true, align = 'left', onClick }) => {
-    const theme = useTheme();
-    
     return (
       <TableCell
         align={align}
@@ -330,13 +666,16 @@ const UserList: React.FC = () => {
         sx={{
           cursor: sortable ? 'pointer' : 'default',
           userSelect: 'none',
+          bgcolor: 'grey.100',
           '&:hover': sortable ? {
-            bgcolor: alpha(theme.palette.primary.main, 0.04)
+            bgcolor: 'grey.200'
           } : {},
           transition: 'all 0.2s ease',
           padding: '16px',
           fontWeight: 600,
-          position: 'relative',
+          position: 'sticky',
+          top: 0,
+          zIndex: 2,
           whiteSpace: 'nowrap'
         }}
       >
@@ -381,9 +720,9 @@ const UserList: React.FC = () => {
   };
 
   // Handle select one row
-  const handleSelectOne = (id: string) => {
+  const handleSelectOne = (id: number) => {
     const selectedIndex = selected.indexOf(id);
-    let newSelected: string[] = [];
+    let newSelected: number[] = [];
 
     if (selectedIndex === -1) {
       // Select
@@ -397,36 +736,70 @@ const UserList: React.FC = () => {
   };
 
   // Check if a row is selected
-  const isSelected = (id: string) => selected.indexOf(id) !== -1;
+  const isSelected = (id: number) => selected.indexOf(id) !== -1;
 
-  // Render table rows with skeleton loading
+  // Render table rows with optimized loading
   const renderTableRows = () => {
-    // If loading and no previous data
-    if (isLoading && !hasData(data)) {
-      return Array(params.limit)
+    // Chỉ hiển thị skeleton khi load trang đầu tiên và không có dữ liệu
+    if (isLoading && params.page === 1 && displayData.length === 0) {
+      return Array(params.size)
         .fill(0)
         .map((_, index) => (
           <TableRow key={`skeleton-${index}`}>
             <TableCell padding="checkbox">
-              <Skeleton animation="wave" width={20} height={20} />
+              <Skeleton 
+                animation="wave" 
+                width={20} 
+                height={20} 
+                sx={{ 
+                  transform: 'scale(1)',
+                  transformOrigin: '0 0'
+                }} 
+              />
             </TableCell>
             {columns.map((column) => column.visible && (
               <TableCell key={`skeleton-${column.id}`}>
-                <Skeleton animation="wave" width="80%" />
+                <Skeleton 
+                  animation="wave" 
+                  width="80%" 
+                  height={24}
+                  sx={{ 
+                    transform: 'scale(1)',
+                    transformOrigin: '0 0'
+                  }} 
+                />
               </TableCell>
             ))}
             <TableCell align="right">
-              <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                <Skeleton animation="wave" variant="circular" width={28} height={28} sx={{ mr: 1 }} />
-                <Skeleton animation="wave" variant="circular" width={28} height={28} />
+              <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 1 }}>
+                <Skeleton 
+                  animation="wave" 
+                  variant="circular" 
+                  width={28} 
+                  height={28}
+                  sx={{ 
+                    transform: 'scale(1)',
+                    transformOrigin: '0 0'
+                  }} 
+                />
+                <Skeleton 
+                  animation="wave" 
+                  variant="circular" 
+                  width={28} 
+                  height={28}
+                  sx={{ 
+                    transform: 'scale(1)',
+                    transformOrigin: '0 0'
+                  }} 
+                />
               </Box>
             </TableCell>
           </TableRow>
         ));
     }
 
-    // If we have data but it's empty
-    if (!hasData(data)) {
+    // Nếu không có dữ liệu hiển thị
+    if (displayData.length === 0 && !isLoading) {
       return (
         <TableRow>
           <TableCell colSpan={columns.filter(col => col.visible).length + 2} align="center">
@@ -436,15 +809,19 @@ const UserList: React.FC = () => {
       );
     }
 
-    // If we have data, render it
-    return (isValidData(data) ? data.data : []).map((user: User) => {
+    // Sử dụng displayData để render
+    return displayData.map((user: User) => {
       const isItemSelected = isSelected(user.id);
       
       return (
         <TableRow 
           hover 
           key={user.id} 
-          sx={{ opacity: isFetching ? 0.7 : 1 }}
+          sx={{ 
+            opacity: isFetching ? 0.7 : 1,
+            position: 'relative',
+            transition: 'opacity 0.2s ease'
+          }}
           onClick={() => handleSelectOne(user.id)}
           selected={isItemSelected}
           role="checkbox"
@@ -459,25 +836,29 @@ const UserList: React.FC = () => {
           </TableCell>
           {columns.map((column) => column.visible && (
             <TableCell key={column.id}>
-              {column.id === 'status' ? (
+              {column.id === 'yukoFlag' ? (
                 <Chip 
-                  label={t(`users.statuses.${user.status}`)} 
-                  color={getStatusColor(user.status) as any}
+                  label={t(`users.statuses.${user.yukoFlag ? 'active' : 'inactive'}`)} 
+                  color={getStatusColor(user.yukoFlag)}
                   size="small"
                 />
               ) : column.id === 'createdAt' ? (
                 formatDate(new Date(user.createdAt).toString())
-              ) : column.id === 'role' ? (
-                t(`users.roles.${user.role}`)
+              ) : column.id === 'roleId' ? (
+                t(`users.roles.${user.roleId}`)
               ) : column.id === 'username' ? (
                 user.username
+              ) : column.id === 'name' ? (
+                user.name
               ) : column.id === 'email' ? (
                 user.email
+              ) : column.id === 'language' ? (
+                user.language
               ) : null}
             </TableCell>
           ))}
           <TableCell align="right">
-          <Tooltip title={t('common.view')}>
+            <Tooltip title={t('common.view')}>
               <span>
                 <IconButton 
                   size="small" 
@@ -530,116 +911,44 @@ const UserList: React.FC = () => {
   // Reset filters
   const handleFilterClear = () => {
     setActiveFilters([]);
-    setFilterValues({
-      username: '',
-      email: '',
-      role: '',
-      status: '',
-      createdAt: '',
-      updatedAt: '',
-      lastUpdate: '',
-      lastUpdateUser: '',
-      lastUpdateProgram: '',
-      passwordHash: '',
-      yukoFlag: ''
-    });
+    setFilterValues({});
     setParams((prev: UserParams) => ({
       ...prev,
       username: undefined,
+      name: undefined,
       email: undefined,
+      language: undefined,
       role: undefined,
       status: undefined,
-      page: 0
+      page: 1
     }));
   };
 
   // Filter options
-  const userFilterOptions: FilterOption[] = [
-    {
-      id: 'username',
-      label: t('users.fields.username'),
-      type: 'autocomplete',
-      searchFunction: async (value: string) => {
-        try {
-          return await userService.getSearchSuggestionsByType(value, 'username');
-        } catch (error) {
-          console.error('Error fetching username suggestions:', error);
-          return [];
-        }
-      }
-    },
-    {
-      id: 'email',
-      label: t('users.fields.email'),
-      type: 'autocomplete',
-      searchFunction: async (value: string) => {
-        try {
-          return await userService.getSearchSuggestionsByType(value, 'email');
-        } catch (error) {
-          console.error('Error fetching email suggestions:', error);
-          return [];
-        }
-      }
-    },
-    {
-      id: 'role',
-      label: t('users.fields.role'),
-      type: 'select',
-      options: [
-        { value: 'admin', label: t('users.roles.admin') },
-        { value: 'manager', label: t('users.roles.manager') },
-        { value: 'user', label: t('users.roles.user') }
-      ]
-    },
-    {
-      id: 'status',
-      label: t('users.fields.status'),
-      type: 'select',
-      options: [
-        { value: 'active', label: t('users.statuses.active') },
-        { value: 'inactive', label: t('users.statuses.inactive') },
-        { value: 'pending', label: t('users.statuses.pending') }
-      ]
-    }
-  ];
+  const userFilterOptions: FilterOption[] = useMemo(() => {
+    const baseFilters: FilterOption[] = [
+      {
+        id: 'username',
+        label: t('users.fields.username'),
+        type: 'text',
+      },
+      {
+        id: 'name',
+        label: t('users.fields.name'),
+        type: 'text',
+      },
+    ];
 
-  // Handle filter changes
-  const handleFilterApply = (filters: ActiveFilter[]) => {
-    setActiveFilters(filters);
-    
-    // Update params with new filters
-    const newParams: UserParams = {
-      ...params,
-      page: 0,
-      username: undefined,
-      email: undefined,
-      role: undefined,
-      status: undefined
-    };
-
-    filters.forEach(filter => {
-      const values = filter.value.split(',').map(v => v.trim()).filter(v => v.length > 0);
-      if (values.length === 0) return;
-      
-      // Take only the first value for each filter
-      switch (filter.field) {
-        case 'username':
-          newParams.username = values[0];
-          break;
-        case 'email':
-          newParams.email = values[0];
-          break;
-        case 'role':
-          newParams.role = values[0];
-          break;
-        case 'status':
-          newParams.status = values[0];
-          break;
+    // Lọc các filter dựa trên các cột đang hiển thị
+    return baseFilters.filter(filter => {
+      // Luôn hiển thị các filter cơ bản
+      if (['username', 'name', 'email'].includes(filter.id)) {
+        return true;
       }
+      // Chỉ hiển thị filter cho các cột đang được hiển thị
+      return columns.find(col => col.id === filter.id)?.visible;
     });
-
-    setParams(newParams);
-  };
+  }, [columns, t]);
 
   // Handle column menu open
   const handleColumnMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -661,33 +970,7 @@ const UserList: React.FC = () => {
 
   // Get visible columns count
   const visibleColumnsCount = columns.filter(col => col.visible).length;
-
-  // Add username search handler
-  const handleUsernameSearch = async (value: string) => {
-    if (value && value.length > 0) {
-      setUsernameLoading(true);
-      try {
-        const results = await userService.getSearchSuggestionsByType(value, 'username');
-        setUsernameSuggestions(results.map(user => typeof user === 'string' ? user : user.username));
-      } catch (error) {
-        console.error('Error fetching username suggestions:', error);
-        setUsernameSuggestions([]);
-      } finally {
-        setUsernameLoading(false);
-      }
-    } else {
-      setUsernameSuggestions([]);
-    }
-  };
-
-  // Add username change handler
-  const handleUsernameChange = (newValue: string | null) => {
-    setParams(prev => ({
-      ...prev,
-      username: newValue || undefined,
-      page: 0
-    }));
-  };
+  const totalColumnsCount = columns.length;
 
   const isMobile = false; // Assuming isMobile is not provided in the original code
 
@@ -719,55 +1002,28 @@ const UserList: React.FC = () => {
             alignItems={{ xs: 'stretch', sm: 'center' }}
             justifyContent="space-between"
           >
-            <Autocomplete
-              freeSolo
-              options={usernameSuggestions}
-              getOptionLabel={option => typeof option === 'string' ? option : ''}
-              value={selectedUsername}
-              loading={usernameLoading}
-              onInputChange={async (_, value) => {
-                await handleUsernameSearch(value);
+            <TextField
+              label={t('users.fields.username')}
+              size="small"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  setParams(prev => ({
+                    ...prev,
+                    username: username,
+                    page: 1
+                  }));
+                }
               }}
-              onChange={(_, newValue) => {
-                handleUsernameChange(newValue);
-              }}
-              PopperComponent={CustomPopper}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label={t('users.fields.username')}
-                  size="small"
-                  InputProps={{
-                    ...params.InputProps,
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <SearchIcon color="action" />
-                      </InputAdornment>
-                    ),
-                    endAdornment: (
-                      <>
-                        {usernameLoading ? <CircularProgress color="inherit" size={16} /> : null}
-                        {params.InputProps.endAdornment}
-                      </>
-                    )
-                  }}
-                  sx={{
-                    width: { xs: '100%', sm: 300 },
-                    '& .MuiOutlinedInput-root': {
-                      '& fieldset': {
-                        borderColor: 'divider',
-                      },
-                      '&:hover fieldset': {
-                        borderColor: 'primary.main',
-                      },
-                      '&.Mui-focused fieldset': {
-                        borderColor: 'primary.main',
-                      },
-                    },
-                  }}
-                />
-              )}
-            />
+               InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon color="action" />
+                  </InputAdornment>
+                ),
+              }} />
             
             <Stack 
               direction={{ xs: 'column', sm: 'row' }} 
@@ -793,7 +1049,7 @@ const UserList: React.FC = () => {
                     }
                   }}
                 >
-                  {t('common.columns')} ({visibleColumnsCount})
+                  {t('common.columns')} ({visibleColumnsCount}/{totalColumnsCount})
                 </Button>
               </Tooltip>
 
@@ -824,7 +1080,9 @@ const UserList: React.FC = () => {
 
               <Tooltip title={t('common.advancedFilter')}>
                 <Button
-                  onClick={() => setIsFilterOpen(true)}
+                  onClick={() => {
+                    setIsFilterOpen(true)
+                  }}
                   size="small"
                   startIcon={<FilterListIcon />}
                   variant="contained"
@@ -856,13 +1114,7 @@ const UserList: React.FC = () => {
                 buttonLabel="common.sort"
                 activeSortsLabel="common.activeSorts"
                 availableFieldsLabel="common.availableFields"
-                availableFields={[
-                  'username',
-                  'email',
-                  'role',
-                  'status',
-                  'createdAt'
-                ]}
+                availableFields={columns.map(col => col.id)}
               />
 
               <Tooltip title={!canCreate ? t('errors.insufficientPermissions') : ''}>
@@ -899,15 +1151,28 @@ const UserList: React.FC = () => {
           </Stack>
         </Box>
 
-        {/* Table Section */}
-        <TableContainer sx={{ 
-          maxHeight: { xs: 'calc(100vh - 280px)', sm: 'calc(100vh - 300px)' },
-          overflowX: 'auto'
-        }}>
+        {/* Table Section with optimized rendering */}
+        <TableContainer 
+          sx={{ 
+            maxHeight: { xs: 'calc(100vh - 280px)', sm: 'calc(100vh - 300px)' },
+            overflowX: 'auto',
+            '& .MuiTable-root': {
+              minWidth: 1000,
+            }
+          }}
+        >
           <Table stickyHeader size={isMobile ? "small" : "medium"}>
             <TableHead>
               <TableRow>
-                <TableCell padding="checkbox">
+                <TableCell 
+                  padding="checkbox" 
+                  sx={{ 
+                    bgcolor: 'grey.100',
+                    position: 'sticky',
+                    top: 0,
+                    zIndex: 2
+                  }}
+                >
                   <Checkbox
                     indeterminate={selected.length > 0 && isValidData(data) && selected.length < data.data.length}
                     checked={isValidData(data) && data.data.length > 0 && selected.length === data.data.length}
@@ -924,7 +1189,12 @@ const UserList: React.FC = () => {
                     sortable={column.sortable}
                   />
                 ))}
-                <TableHeaderCell field="actions" label={t('common.actions')} sortable={false} align="right" />
+                <TableHeaderCell 
+                  field="actions" 
+                  label={t('common.actions')} 
+                  sortable={false} 
+                  align="right"
+                />
               </TableRow>
             </TableHead>
             <TableBody>
@@ -933,62 +1203,16 @@ const UserList: React.FC = () => {
           </Table>
         </TableContainer>
 
-        {/* Pagination Footer */}
-        {(() => {
-          const page = params.page ?? 0;
-          const limit = params.limit ?? 10;
-          return (
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: { xs: 'column', sm: 'row' },
-                alignItems: { xs: 'stretch', sm: 'center' },
-                justifyContent: 'space-between',
-                gap: { xs: 2, sm: 0 },
-                px: { xs: 1, sm: 2 },
-                py: { xs: 2, sm: 1.5 },
-                borderTop: '1px solid',
-                borderColor: 'divider',
-                bgcolor: alpha(theme.palette.primary.main, 0.02),
-              }}
-            >
-              {/* Left: Rows per page and data count */}
-              <Stack direction="row" alignItems="center" spacing={2}>
-                <TextField
-                  select
-                  size="small"
-                  value={limit}
-                  onChange={handleChangeRowsPerPage}
-                  sx={{ width: 70 }}
-                >
-                  {[5, 10, 25, 50].map((option) => (
-                    <MenuItem key={option} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
-                <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' } }}>
-                  {t('common.show')} {`${page * limit + 1} - ${Math.min((page + 1) * limit, isValidData(data) ? data.total : 0)} / ${isValidData(data) ? data.total : 0} ${t('common.data')}`}
-                </Typography>
-                <Typography variant="body2" sx={{ display: { xs: 'block', sm: 'none' } }}>
-                  {`${page * limit + 1}-${Math.min((page + 1) * limit, isValidData(data) ? data.total : 0)}/${isValidData(data) ? data.total : 0}`}
-                </Typography>
-              </Stack>
-
-              {/* Right: Pagination */}
-              <Pagination
-                count={Math.ceil((isValidData(data) ? data.total : 0) / limit)}
-                page={page + 1}
-                onChange={(_, value) => setParams(prev => ({ ...prev, page: value - 1 }))}
-                color="primary"
-                shape="rounded"
-                showFirstButton={!isMobile}
-                showLastButton={!isMobile}
-                size={isMobile ? "small" : "medium"}
-              />
-            </Box>
-          );
-        })()}
+        {/* Pagination Footer with optimized rendering */}
+        <PaginationFooter
+          paginationInfo={paginationInfo}
+          isFetching={isFetching}
+          isMobile={isMobile}
+          rowsPerPageOptions={rowsPerPageOptions}
+          onPageChange={handlePageChange}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          t={t}
+        />
       </Paper>
 
       {/* Confirm Dialog for delete */}
@@ -1009,7 +1233,6 @@ const UserList: React.FC = () => {
       <Filter
         open={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
-        filterOptions={userFilterOptions}
         activeFilters={activeFilters}
         onApply={handleFilterApply}
         onClear={handleFilterClear}

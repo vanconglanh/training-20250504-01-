@@ -6,8 +6,8 @@
         // --- 有効フラグ
         public enum YUKO_FLAG
         {
-            ENABLED = 0,
-            DISABLED = 9
+            ENABLED = 1,
+            DISABLED = 0
         }
 
         // --- 有効フラグデータベース種別列挙型

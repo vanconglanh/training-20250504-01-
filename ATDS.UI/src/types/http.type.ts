@@ -19,6 +19,6 @@ export interface ApiResponse<T> {
 export interface ListResponse<T> {
   total: number;
   page: number;
-  limit: number;
+  size: number;
   data: T[];
 }

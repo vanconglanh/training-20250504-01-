@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './useRedux';
-import { setAuth, setProfile, setLoading, setError, logout } from '@/store/slices/AuthSlice';
-import authApi from '@/apis/authApi';
+import { setAuth, setProfile, setLoading, setError, logout } from '@/store/slices/auth.slice';
+import authApi from '@/apis/auth.api';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useSnackbar } from 'notistack';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 export const useAuth = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { enqueueSnackbar } = useSnackbar();
   const { t } = useTranslation();
   const { isAuthenticated, loading, profile } = useAppSelector(state => state.auth);
   
@@ -46,9 +45,11 @@ export const useAuth = () => {
       
       // Fetch profile after successful login
       const profile = await authApi.getProfile();
+      console.log(profile);
+      
       dispatch(setProfile(profile));
       
-      enqueueSnackbar(t('auth.loginSuccess'), { variant: 'success' });
+      toast.success(t('auth.loginSuccess'));
       
       // Get the return URL from location state or default to dashboard
       const from = location.state?.from?.pathname || '/dashboard';
@@ -56,7 +57,7 @@ export const useAuth = () => {
     } catch (error) {
       console.error('Login failed:', error);
       dispatch(setError(t('auth.loginFailed')));
-      enqueueSnackbar(t('auth.loginFailed'), { variant: 'error' });
+      toast.error(t('auth.loginFailed'));
     } finally {
       dispatch(setLoading(false));
     }
