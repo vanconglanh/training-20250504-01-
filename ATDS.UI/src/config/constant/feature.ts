@@ -37,6 +37,11 @@ export const Menu = {
     USER_VIEW: 'USER_VIEW',
     CATEGORIES: 'CATEGORIES_MANAGEMENT',
     ADMINISTRATORS: 'ADMINISTRATORS',
+    ORDERS: 'ORDERS',
+    ORDER_CREATE : 'ORDER_CREATE',
+    ORDER_UPDATE: 'ORDER_UPDATE',
+    ORDER_VIEW: 'ORDER_VIEW',
+    
 } as const;
 
 // Route paths
@@ -52,6 +57,7 @@ export const RoutePath = {
     USERS: '/dashboard/users',
     CATEGORIES: '/dashboard/categories',
     ADMINS: '/dashboard/admins',
+    ORDERS: '/dashboard/orders',
 } as const;
 
 // Translation keys
@@ -75,4 +81,5 @@ export const TranslationKey = {
     PRODUCTS: 'sidebar.productList',
     CATEGORIES: 'sidebar.categories',
     ADMINISTRATORS: 'sidebar.administrators',
+    ORDER: 'sidebar.orderlist',
 } as const;

@@ -40,6 +40,8 @@ const UpdateOrInsertUser = lazy(() => import('@/pages/DashBoard/User/UpdateOrIns
 const NotFound = lazy(() => import('@/pages/Error/NotFound'));
 const Forbidden = lazy(() => import('@/pages/Error/Forbidden'));
 const RolesList = lazy(() => import('@/pages/DashBoard/UserManagement/Roles/List'));
+const OrderList = lazy(() => import('@/pages/DashBoard/Order/List'));
+const UpdateOrInsertOrder = lazy(() => import('@/pages/DashBoard/Order/UpdateOrInsert'));
 // Auth pages
 const Login = lazy(() => import('@/pages/Auth/Login'));
 
@@ -328,6 +330,38 @@ export const routes: RouteConfig[] = [
         title: 'Roles',
         protected: true,
         screenName: Menu.ROLES,
+        actionName: PermissionAction.VIEW
+      },
+      {
+        path : 'orders',
+        element: <OrderList />,
+        title: 'Orders',
+        protected : true,
+        screenName: Menu.ORDERS,
+        actionName: PermissionAction.VIEW,
+      },
+      {
+        path: 'orders/create',
+        element: <UpdateOrInsertOrder />,
+        title: 'Create Order',
+        protected: true,
+        screenName: Menu.ORDERS,
+        actionName: PermissionAction.CREATE
+      },
+      {
+        path: 'orders/edit/:id',
+        element: <UpdateOrInsertOrder />,
+        title: 'Edit Order',
+        protected: true,
+        screenName: Menu.ORDERS,
+        actionName: PermissionAction.UPDATE
+      },
+      {
+        path: 'users/view/:id',
+        element: <UpdateOrInsertOrder />,
+        title: 'View Order',
+        protected: true,
+        screenName: Menu.ORDERS,
         actionName: PermissionAction.VIEW
       }
     ]

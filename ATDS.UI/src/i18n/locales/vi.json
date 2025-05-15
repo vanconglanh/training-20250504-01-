@@ -111,7 +111,8 @@
     "productList": "Sản phẩm",
     "categories": "Danh mục",
     "administrators": "Quản trị viên",
-    "roles": "Quản lý vai trò"
+    "roles": "Quản lý vai trò",
+    "orderlist": "Quản lý đơn"
   },
   "placeholders": {
     "username": "Nhập tên đăng nhập",

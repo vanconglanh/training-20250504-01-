@@ -113,7 +113,8 @@
     "productList": "Product List",
     "categories": "Categories",
     "administrators": "Administrators",
-    "roles": "Roles"
+    "roles": "Roles",
+    "orders": "Orders"
   },
   "placeholders": {
     "username": "Enter username",

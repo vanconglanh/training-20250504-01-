@@ -164,6 +164,23 @@ export const menuItems: MenuItem[] = [
       }
     ],
     screenName: Menu.USER_MANAGEMENT
+  },
+  {
+  id: Menu.ORDERS, 
+      path: null, 
+      label: TranslationKey.ORDER,
+      icon: <CategoryIcon />,
+      children: [
+        {
+          id: Menu.ORDERS,
+          path: RoutePath.ORDERS,
+          label: TranslationKey.ORDER,
+          icon: <InventoryIcon />,
+          children: [],
+          screenName: Menu.ORDERS
+        }
+      ],
+      screenName: Menu.ORDERS
   }
   
 ]; 
