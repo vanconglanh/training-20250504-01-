@@ -69,7 +69,7 @@ namespace ATDS.Business.Bussiness.Order
             return clsRet;
         }
 
-        public static OrderEntity ConvertToOrderEntity(OrderUpdate vCls)
+        public static OrderEntity ConvertToOrderEntity(OrderUpdate vCls, int id)
         {
             OrderEntity clsRet;
 
@@ -78,7 +78,7 @@ namespace ATDS.Business.Bussiness.Order
                 clsRet = new OrderEntity();
                 {
                     var withBlock = clsRet;
-                    withBlock.Id = vCls.Id; // Id
+                    withBlock.Id = id; // Id
                     withBlock.Name = vCls.Name; // Name
                     withBlock.ExchangeRateUsdVndBuy = vCls.ExchangeRateUsdVndBuy; // ExchangeRateUsdVndBuy
                     withBlock.ExchangeRateUsdVndSell = vCls.ExchangeRateUsdVndSell; // ExchangeRateUsdVndSell

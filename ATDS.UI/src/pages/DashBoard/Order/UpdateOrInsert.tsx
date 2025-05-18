@@ -28,13 +28,14 @@ import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { number } from 'zod';
+import { formatDate } from '@/utils/datetime';
 
 const orderFields: FormField<OrderFormValues>[] = [
     {
   name: 'name',
   label: 'common.name',
   type: 'text',
-  required: true,
+  required: false,
   icon: <PersonIcon color="action" />,
   placeholder: 'placeholders.name'
 },
@@ -42,203 +43,210 @@ const orderFields: FormField<OrderFormValues>[] = [
   name: 'exchangeRateUsdVndBuy',
   label: 'common.exchangeRateUsdVndBuy',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.exchangeRateUsdVndBuy'
 },
 {
   name: 'exchangeRateUsdVndSell',
   label: 'common.exchangeRateUsdVndSell',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.exchangeRateUsdVndSell'
 },
 {
   name: 'transportMethod',
   label: 'common.transportMethod',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.transportMethod'
 },
 {
   name: 'packingMethod',
   label: 'common.packingMethod',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.packingMethod'
 },
 {
   name: 'weightPerContainer',
   label: 'common.weightPerContainer',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.weightPerContainer'
 },
 {
   name: 'estimatedTotalContainers',
   label: 'common.estimatedTotalContainers',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.estimatedTotalContainers'
 },
 {
   name: 'estimatedTotalBookings',
   label: 'common.estimatedTotalBookings',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.estimatedTotalBookings'
 },
 {
   name: 'bookingNoCode',
   label: 'common.bookingNoCode',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.bookingNoCode'
+},
+{
+  name: 'packingDate',
+  label: 'common.packingDate',
+  type: 'date',
+  required: false,
+  placeholder: 'placeholders.packingDate'
 },
 {
   name: 'yardIn',
   label: 'common.yardIn',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.yardIn'
 },
 {
   name: 'truckPlate',
   label: 'common.truckPlate',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.truckPlate'
 },
 {
   name: 'containerNo',
   label: 'common.containerNo',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.containerNo'
 },
 {
   name: 'sealNo',
   label: 'common.sealNo',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.sealNo'
 },
 {
   name: 'supplierName',
   label: 'common.supplierName',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.supplierName'
 },
 {
   name: 'transportCompanyName',
   label: 'common.transportCompanyName',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.transportCompanyName'
 },
 {
   name: 'quantity',
   label: 'common.quantity',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.quantity'
 },
 {
   name: 'coatingCompanyName',
   label: 'common.coatingCompanyName',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.coatingCompanyName'
 },
 {
   name: 'coatedQuantity',
   label: 'common.coatedQuantity',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.coatedQuantity'
 },
 {
   name: 'productUnitPrice',
   label: 'common.productUnitPrice',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.productUnitPrice'
 },
 {
   name: 'coatedProductUnitPrice',
   label: 'common.coatedProductUnitPrice',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.coatedProductUnitPrice'
 },
 {
   name: 'transportUnitPrice',
   label: 'common.transportUnitPrice',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.transportUnitPrice'
 },
 {
   name: 'invoice',
   label: 'common.invoice',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.invoice'
 },
 {
   name: 'packingList',
   label: 'common.packingList',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.packingList'
 },
 {
   name: 'certificateOfQuality',
   label: 'common.certificateOfQuality',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.certificateOfQuality'
 },
 {
   name: 'shippingInstruction',
   label: 'common.shippingInstruction',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.shippingInstruction'
 },
 {
   name: 'verifiedGrossMass',
   label: 'common.verifiedGrossMass',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.verifiedGrossMass'
 },
 {
   name: 'timberPackingDeclaration',
   label: 'common.timberPackingDeclaration',
   type: 'text',
-  required: true,
+  required: false,
   placeholder: 'placeholders.timberPackingDeclaration'
 },
 {
   name: 'weighingCostAtFactory',
   label: 'common.weighingCostAtFactory',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.weighingCostAtFactory'
 },
 {
   name: 'liftingCost',
   label: 'common.liftingCost',
   type: 'number',
-  required: true,
+  required: false,
   placeholder: 'placeholders.liftingCost'
 },
 {
   name: 'yukoFlag',
   label: 'common.status',
   type: 'select',
-  required: true,
+  required: false,
   options: [
     { value: 1, label: 'common.active' },
     { value: 0, label: 'common.inactive' }
@@ -295,7 +303,36 @@ const FormFieldRenderer: React.FC<{
             )}
           />
         );
-
+    case 'date': 
+            return (
+              <Controller
+                name={field.name}
+                control={control}
+                render={({ field: { value, onChange, ...fieldProps } }) => (
+                  <TextField
+                    {...fieldProps}
+                    type="date" 
+                    label={t(field.label)}
+                    value={value || ''} // API có thể trả về null cho date
+                    onChange={onChange}
+                    fullWidth
+                    error={!!errors[field.name]}
+                    helperText={errors[field.name]?.message as string}
+                    InputLabelProps={{
+                      shrink: true, // Để label không bị chồng lên giá trị date
+                    }}
+                    InputProps={{
+                      startAdornment: field.icon && (
+                        <InputAdornment position="start">
+                          {field.icon}
+                        </InputAdornment>
+                      ),
+                    }}
+                    disabled={isViewMode || field.disabled}
+                  />
+                )}
+              />
+            );
       default:
         return (
           <Controller
@@ -304,17 +341,18 @@ const FormFieldRenderer: React.FC<{
             render={({ field: { value, onChange, ...fieldProps } }) => (
               <TextField
                 {...fieldProps}
-                type={field.type}
+                type={field.type} // Xử lý nếu có type 'number'
                 label={t(field.label)}
                 value={value || ''}
-                onChange={ field.type == 'number' ? 
-                  (e) => { onChange((e.target.value));}
-                  : onChange}
+                onChange={field.type === 'number' 
+                  ? (e) => onChange(Number(e.target.value)) 
+                  : onChange
+                }
                 fullWidth
                 multiline={field.multiline}
                 rows={field.rows}
                 error={!!errors[field.name]}
-                helperText={errors[field.name]?.message}
+                helperText={errors[field.name]?.message as string}
                 placeholder={field.placeholder ? t(field.placeholder) : undefined}
                 InputProps={{
                   startAdornment: field.icon && (
@@ -353,10 +391,10 @@ const UpdateOrInsertOrder: React.FC = () => {
 
   // Handle browser back button
   useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      e.preventDefault();
-      e.returnValue = '';
-    };
+    // const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+    //   e.preventDefault();
+    //   e.returnValue = '';
+    // };
 
     const handlePopState = () => {
       navigate(`/dashboard/orders?page=${currentPage}`, {
@@ -365,11 +403,11 @@ const UpdateOrInsertOrder: React.FC = () => {
       });
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    // window.addEventListener('beforeunload', handleBeforeUnload);
     window.addEventListener('popstate', handlePopState);
 
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      // window.removeEventListener('beforeunload', handleBeforeUnload);
       window.removeEventListener('popstate', handlePopState);
     };
   }, [navigate, currentPage]);
@@ -377,7 +415,7 @@ const UpdateOrInsertOrder: React.FC = () => {
   // Form setup with react-hook-form and zod
   const { 
     control, 
-    handleSubmitWithErrorMessage, 
+    handleSubmit, 
     reset, 
     formState: { errors, isSubmitting } 
   } = useZodForm(
@@ -393,6 +431,7 @@ const UpdateOrInsertOrder: React.FC = () => {
         estimatedTotalContainers: 0,
         estimatedTotalBookings: 0,
         bookingNoCode: '',
+        packingDate: '',
         yardIn: '',
         truckPlate: '',
         containerNo: '',
@@ -414,9 +453,9 @@ const UpdateOrInsertOrder: React.FC = () => {
         weighingCostAtFactory: 0,
         liftingCost: 0,
         yukoFlag: 1,
-      },
-      mode: 'onChange',
-      reValidateMode: 'onChange'
+      } as OrderFormValues,
+      // mode: 'onChange',
+      // reValidateMode: 'onChange'
     }
   );
 
@@ -444,6 +483,7 @@ const UpdateOrInsertOrder: React.FC = () => {
     estimatedTotalContainers: orderData.estimatedTotalContainers || 0,
     estimatedTotalBookings: orderData.estimatedTotalBookings || 0,
     bookingNoCode: orderData.bookingNoCode || '',
+    packingDate : formatDate(orderData.packingDate) || '',
     yardIn: orderData.yardIn || '',
     truckPlate: orderData.truckPlate || '',
     containerNo: orderData.containerNo || '',
@@ -498,23 +538,11 @@ const UpdateOrInsertOrder: React.FC = () => {
   });
 
   // Form submission handler
-  const onSubmit =
-    async (data: OrderFormValues) => {
+  const onSubmit = async (data: OrderFormValues) => {
     try {
-      // Ensure roleId is a number
-      const formData = {
-        ...data,
-      };
+      await mutation.mutateAsync(data);
       
-      // If editing and password is empty, remove it      
-      if (isEditMode) {
-        await mutation.mutateAsync(formData);
-      } else {
-        await mutation.mutateAsync(formData);
-      }
-      // Show success toast after successful mutation
     } catch (error) {
-      // Error is already handled in mutation's onError
       console.error('Form submission error:', error);
     }
   };
@@ -528,21 +556,21 @@ const UpdateOrInsertOrder: React.FC = () => {
   };
 
 
-  useEffect(() => {
-    const handlePopState = (event: PopStateEvent) => {
-        event.preventDefault();
-        navigate(`/dashboard/orders?page=${currentPage}`, { 
-            replace: true,
-            state: { forceReload: true }
-          });
-    };
+  // useEffect(() => {
+  //   const handlePopState = (event: PopStateEvent) => {
+  //       event.preventDefault();
+  //       navigate(`/dashboard/orders?page=${currentPage}`, { 
+  //           replace: true,
+  //           state: { forceReload: true }
+  //         });
+  //   };
 
-    window.addEventListener('popstate', (e) => handlePopState(e));
+  //   window.addEventListener('popstate', (e) => handlePopState(e));
 
-    return () => {
-      window.removeEventListener('popstate', (e) => handlePopState(e));
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('popstate', (e) => handlePopState(e));
+  //   };
+  // }, []);
 
 
   // Display loading state while fetching order data
@@ -571,7 +599,7 @@ const UpdateOrInsertOrder: React.FC = () => {
       </Box>
 
       <CardContent sx={{ p: 3 }}>
-        <form onSubmit={handleSubmitWithErrorMessage(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
             {/* Basic Information Section */}
             <Card 

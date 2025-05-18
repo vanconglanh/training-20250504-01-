@@ -48,7 +48,6 @@ export interface Order {
 export type OrderFormValues = Omit<
   Order,
   | 'id'
-  | 'packingDate'
   | 'createdAt'
   | 'updatedAt'
   | 'lastUpdate'

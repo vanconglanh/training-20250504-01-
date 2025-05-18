@@ -321,7 +321,7 @@ namespace ATDS.DataAccess
         /// <param name="vstrUpdateUser"></param>
         /// <param name="vstrUpdateProgram"></param>
         /// <returns></returns>
-        public string sqlBaseSetUpdate(OrderEntity cls, string vstrUpdateUser, string vstrUpdateProgram)
+        public string sqlBaseSetUpdate(OrderEntity cls, string vstrUpdateUser, string vstrUpdateProgram, int id)
         {
             System.Text.StringBuilder sql = new System.Text.StringBuilder();
 
@@ -550,7 +550,7 @@ namespace ATDS.DataAccess
         /// </summary>
         /// <param name="vCls"></param>
         /// <returns></returns>
-        public ReturnInfo Update(MySQLServerHelper Con, ref OrderEntity vCls, List<IDbDataParameter> lstParameter, string vstrUpdateUser, string vstrUpdateProgram)
+        public ReturnInfo Update(MySQLServerHelper Con, ref OrderEntity vCls, List<IDbDataParameter> lstParameter, string vstrUpdateUser, string vstrUpdateProgram, int id)
         {
             string sql = "";
             OrderEntity objCls = new OrderEntity();
@@ -568,7 +568,7 @@ namespace ATDS.DataAccess
                     objCls = vCls;
 
                 // --- SQL設定
-                sql = sqlBaseSetUpdate(objCls, vstrUpdateUser, vstrUpdateProgram);
+                sql = sqlBaseSetUpdate(objCls, vstrUpdateUser, vstrUpdateProgram, id);
 
                 // --- SQL実行
                 Con.ExecuteSQLWithParams(sql, lstParameter);

@@ -103,17 +103,21 @@ namespace ATDS.API.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromBody] OrderUpdate updateInfo)
+        public async Task<IActionResult> Put(int id, [FromBody] OrderUpdate updateInfo)
         {
+            if(updateInfo == null)
+            {
+                return BadRequest("updateInfo null");
+            }
             //validate
-            var result = await ValidateUpdate(updateInfo);
+            var result = await ValidateUpdate(updateInfo, id);
             if (result != null)
                 return BadRequest(result);
 
             //Set user infomation
             string username = string.Empty;
             string deviceID = string.Empty;
-            ReturnInfo updateResultInfo = _orderEntryBusiness.Update(updateInfo, username, deviceID);
+            ReturnInfo updateResultInfo = _orderEntryBusiness.Update(updateInfo, username, deviceID, id);
 
             return Ok(updateResultInfo);
         }
@@ -162,7 +166,7 @@ namespace ATDS.API.Controllers
 
             return null;
         }
-        private async Task<ErrorResult> ValidateUpdate(OrderUpdate input)
+        private async Task<ErrorResult> ValidateUpdate(OrderUpdate input, int id)
         {
             // Check Mandatory - NAME 
             // TODO
@@ -173,7 +177,7 @@ namespace ATDS.API.Controllers
             //}
 
 
-            var entity = _orderSearchBusiness.SearchByKey(input.Id);
+            var entity = _orderSearchBusiness.SearchByKey(id);
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);

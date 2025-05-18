@@ -15,6 +15,7 @@ export const orderSchema = z.object({
     estimatedTotalContainers: z.number().min(0, { message: t('validation.estimatedTotalContainersMin') }),
     estimatedTotalBookings: z.number().min(0, { message: t('validation.estimatedTotalBookingsMin') }),
     bookingNoCode: z.string().max(255, { message: t('validation.usernameMax') }),
+    packingDate: z.coerce.date(),
     yardIn: z.string().max(255, { message: t('validation.usernameMax') }),
     truckPlate: z.string().max(255, { message: t('validation.usernameMax') }),
     containerNo: z.string().max(255, { message: t('validation.usernameMax') }),

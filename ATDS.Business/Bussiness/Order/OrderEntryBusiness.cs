@@ -78,7 +78,7 @@ namespace ATDS.Business.Bussiness.Order
         /// </summary>
         /// <param name="vCls"></param>
         /// <returns></returns>
-        public ReturnInfo Update(OrderUpdate vCls, string vstrUpdateUser, string vstrUpdateProgram)
+        public ReturnInfo Update(OrderUpdate vCls, string vstrUpdateUser, string vstrUpdateProgram, int id)
         {
             MySQLServerHelper con = new MySQLServerHelper(GlobalParameter.ConnectionString);
             OrderData da = new OrderData();
@@ -93,11 +93,11 @@ namespace ATDS.Business.Bussiness.Order
                 con.BeginTrans();
 
                 // --- Convert data
-                cls = OrderConvertFunction.ConvertToOrderEntity(vCls);
+                cls = OrderConvertFunction.ConvertToOrderEntity(vCls, id);
                 var lstParams = OrderConvertFunction.ConvertOrderEntityToParams(cls);
 
                 // --- Update DB
-                ret = da.Update(con, ref cls, lstParams, vstrUpdateUser, vstrUpdateProgram);
+                ret = da.Update(con, ref cls, lstParams, vstrUpdateUser, vstrUpdateProgram, id);
                 //TODO
 
 

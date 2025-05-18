@@ -102,7 +102,7 @@ class HttpClient {
   }
 
   public async put<T>(url: string, data?: any): Promise<ApiResponse<T>> {
-    return this.instance.put<T>(url, {data});
+    return this.instance.put<T>(url, data);
   }
 
   public async delete<T>(url: string, data?: any): Promise<ApiResponse<T>> {

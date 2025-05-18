@@ -357,7 +357,7 @@ export const routes: RouteConfig[] = [
         actionName: PermissionAction.UPDATE
       },
       {
-        path: 'users/view/:id',
+        path: 'orders/view/:id',
         element: <UpdateOrInsertOrder />,
         title: 'View Order',
         protected: true,
