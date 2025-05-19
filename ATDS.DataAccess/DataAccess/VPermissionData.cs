@@ -208,7 +208,7 @@ namespace ATDS.DataAccess
             {
 
                 // --- 条件設定
-                where += "  AND YUKO_FLAG   =   " + (int)Constant.YUKO_FLAG.ENABLED + " ";
+                where += "  AND STATUS   =   " + (int)Constant.STATUS.ENABLED + " ";
 
                 // --- SQL設定
                 sql = sqlBaseSetSelect(where, Order);

@@ -4,7 +4,7 @@
     {
 
         // --- 有効フラグ
-        public enum YUKO_FLAG
+        public enum STATUS
         {
             ENABLED = 1,
             DISABLED = 0

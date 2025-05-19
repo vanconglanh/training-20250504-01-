@@ -20,6 +20,6 @@ namespace ATDS.Business.Info.Common
         public virtual int Size { get; set; } = 10;
 
         [Description("Sắp xếp")]
-        public virtual string? OrderBy { get; set; } = "YUKO_FLAG";
+        public virtual string? OrderBy { get; set; } = "STATUS";
     }
 }

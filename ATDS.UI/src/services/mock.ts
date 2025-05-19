@@ -13,7 +13,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-06-01T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '2',
@@ -27,7 +27,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-02-01T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '3',
@@ -41,7 +41,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-04-25T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '4',
@@ -55,7 +55,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2022-03-01T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '5',
@@ -69,7 +69,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-01-15T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '6',
@@ -83,7 +83,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-08-20T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '7',
@@ -97,7 +97,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-03-30T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '8',
@@ -111,7 +111,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-07-07T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '9',
@@ -125,7 +125,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-09-09T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '10',
@@ -139,7 +139,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-05-05T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '11',
@@ -153,7 +153,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-11-11T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '12',
@@ -167,7 +167,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-12-12T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '13',
@@ -181,7 +181,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-08-08T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '14',
@@ -195,7 +195,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-03-03T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '15',
@@ -209,7 +209,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-02-02T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '16',
@@ -223,7 +223,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-05-05T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '17',
@@ -237,7 +237,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-04-04T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '18',
@@ -251,7 +251,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-08-08T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '19',
@@ -265,7 +265,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-06-06T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
   {
     id: '20',
@@ -279,7 +279,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-07-07T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '21',
@@ -293,7 +293,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-09-09T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '22',
@@ -307,7 +307,7 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-10-10T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: true,
+    status: true,
   },
   {
     id: '23',
@@ -321,6 +321,6 @@ export const mockUsers: User[] = [
     lastUpdate: '2021-11-11T00:00:00Z',
     lastUpdateUser: 'admin',
     lastUpdateProgram: 'user-service',
-    yukoFlag: false,
+    status: false,
   },
 ];

@@ -27,7 +27,7 @@ export const userSchema = z.object({
   roleId: z
     .number()
     .min(1, {message: t('validation.roleIdMin') }) ,
-  yukoFlag: z
+  status: z
     .number(),
 });
 

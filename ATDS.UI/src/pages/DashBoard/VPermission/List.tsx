@@ -51,7 +51,7 @@ import { toast } from 'react-toastify';
 
 // Constants for column management
 const STORAGE_KEY = 'vPermissionTableColumns'; 
-const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'yukoFlag']; 
+const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'status']; 
 
 // Column configuration type
 interface ColumnConfig {
@@ -477,13 +477,13 @@ const VPermissionList: React.FC = () => {
         permissionId: 1,
         permissionCode: '',
         permissionName: '',
-        yukoFlag: 1,
+        status: 1,
     };
 
     filters.forEach(filter => {
       if (filter.field in newParams) {
         const key = filter.field as keyof VPermissionParams;
-        if (key === 'yukoFlag') {
+        if (key === 'status') {
           newParams[key] = Number(filter.value);
         } else {
           newParams[key] = filter.value as any;
@@ -626,8 +626,8 @@ const VPermissionList: React.FC = () => {
   };
 
   // Calculate status chip color
-  const getStatusColor = (yukoFlag: boolean) => {
-    return yukoFlag ? 'success' : 'error';
+  const getStatusColor = (status: boolean) => {
+    return status ? 'success' : 'error';
   };
 
   // Handle column sort
@@ -841,10 +841,10 @@ const VPermissionList: React.FC = () => {
           </TableCell>
           {columns.map((column) => column.visible && (
             <TableCell key={column.id}>
-              {column.id === 'yukoFlag' ? (
+              {column.id === 'status' ? (
                 <Chip 
-                  label={t(`statuses.${vPermission.yukoFlag ? 'active' : 'inactive'}`)} 
-                  color={getStatusColor(Boolean(vPermission.yukoFlag))}
+                  label={t(`statuses.${vPermission.status ? 'active' : 'inactive'}`)} 
+                  color={getStatusColor(Boolean(vPermission.status))}
                   size="small"
                 />
               ) : column.id === 'createdAt' ? (

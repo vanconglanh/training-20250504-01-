@@ -90,7 +90,7 @@ const userFields: FormField<UserFormValues>[] = [
     ]
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'users.fields.status',
     type: 'select',
     required: true,
@@ -121,10 +121,10 @@ const FormFieldRenderer: React.FC<{
                 <InputLabel>{t(field.label)}</InputLabel>
                 <Select
                   {...fieldProps}
-                  value={field.name === 'yukoFlag' ? String(value) : value}
+                  value={field.name === 'status' ? String(value) : value}
                   label={t(field.label)}
                   onChange={(e) => {
-                    if (field.name === 'yukoFlag') {
+                    if (field.name === 'status') {
                       onChange(e.target.value === 'true');
                     } else {
                       onChange(e.target.value);
@@ -247,7 +247,7 @@ const UpdateOrInsertUser: React.FC = () => {
         password: '123@456Aa',
         language: 'en',
         roleId: 1,
-        yukoFlag: true
+        status: true
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -275,7 +275,7 @@ const UpdateOrInsertUser: React.FC = () => {
         password: '', // Don't populate password
         language: userData.language,
         roleId: userData.roleId,
-        yukoFlag: userData.yukoFlag
+        status: userData.status
       });
     }
   }, [userData, reset]);

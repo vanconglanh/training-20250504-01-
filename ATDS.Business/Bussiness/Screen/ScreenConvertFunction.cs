@@ -29,7 +29,7 @@ namespace ATDS.Business
                     withBlock.Name = vCls.Name; //Name
                     withBlock.CreatedAt = vCls.CreatedAt; //CreatedAt
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
-                    withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
+                    withBlock.Status = vCls.Status; //Status
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
                     withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
                     withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
@@ -67,7 +67,7 @@ namespace ATDS.Business
                     withBlock.Name = vCls.Name; //Name
                     withBlock.CreatedAt = vCls.CreatedAt; //CreatedAt
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
-                    withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
+                    withBlock.Status = vCls.Status; //Status
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
                     withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
                     withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
@@ -97,7 +97,7 @@ namespace ATDS.Business
                     withBlock.Name = vCls.Name; //Name
                     withBlock.CreatedAt = vCls.CreatedAt; //CreatedAt
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
-                    withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
+                    withBlock.Status = vCls.Status; //Status
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
                     withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
                     withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
@@ -125,7 +125,7 @@ namespace ATDS.Business
                     withBlock.Name = vCls.Name; //Name
                     withBlock.CreatedAt = vCls.CreatedAt; //CreatedAt
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
-                    withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
+                    withBlock.Status = vCls.Status; //Status
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
                     withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
                     withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
@@ -153,7 +153,7 @@ namespace ATDS.Business
                     withBlock.Name = vCls.Name; //Name
                     withBlock.CreatedAt = vCls.CreatedAt; //CreatedAt
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
-                    withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
+                    withBlock.Status = vCls.Status; //Status
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
                     withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
                     withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
@@ -178,7 +178,7 @@ namespace ATDS.Business
                     lstParameter.Add(DBUtils.CreateParam("@Name", vCls.Name));//Name
                     lstParameter.Add(DBUtils.CreateParam("@CreatedAt", vCls.CreatedAt));//CreatedAt
                     lstParameter.Add(DBUtils.CreateParam("@UpdatedAt", vCls.UpdatedAt));//UpdatedAt
-                    lstParameter.Add(DBUtils.CreateParam("@YukoFlag", vCls.YukoFlag));//YukoFlag
+                    lstParameter.Add(DBUtils.CreateParam("@Status", vCls.Status));//Status
                     lstParameter.Add(DBUtils.CreateParam("@CreatedUser", vCls.CreatedUser));//CreatedUser
                     lstParameter.Add(DBUtils.CreateParam("@LastUpdateUser", vCls.LastUpdateUser));//LastUpdateUser
                     lstParameter.Add(DBUtils.CreateParam("@LastUpdateProgram", vCls.LastUpdateProgram));//LastUpdateProgram
@@ -209,7 +209,7 @@ namespace ATDS.Business
                     withBlock.Name = vCls.Name; //Name
                     withBlock.CreatedAt = vCls.CreatedAt; //CreatedAt
                     withBlock.UpdatedAt = vCls.UpdatedAt; //UpdatedAt
-                    withBlock.YukoFlag = vCls.YukoFlag; //YukoFlag
+                    withBlock.Status = vCls.Status; //Status
                     withBlock.CreatedUser = vCls.CreatedUser; //CreatedUser
                     withBlock.LastUpdateUser = vCls.LastUpdateUser; //LastUpdateUser
                     withBlock.LastUpdateProgram = vCls.LastUpdateProgram; //LastUpdateProgram
@@ -252,8 +252,8 @@ namespace ATDS.Business
                 if (filter.UpdatedAt != null){
                         where += " AND UPDATED_AT = @UpdatedAt";
                 }
-                if (filter.YukoFlag != null){
-                        where += " AND YUKO_FLAG = @YukoFlag";
+                if (filter.Status != null){
+                        where += " AND STATUS = @Status";
                 }
                 if (filter.CreatedUser != null){
                         where += " AND CREATED_USER = @CreatedUser";
@@ -298,8 +298,8 @@ namespace ATDS.Business
                 if (filter.UpdatedAt != null){
                     where += " AND UPDATED_AT = @UpdatedAt";
                 }
-                if (filter.YukoFlag != null){
-                    where += " AND YUKO_FLAG = @YukoFlag";
+                if (filter.Status != null){
+                    where += " AND STATUS = @Status";
                 }
                 if (filter.CreatedUser != null){
                     where += " AND CREATED_USER = @CreatedUser";
@@ -344,8 +344,8 @@ namespace ATDS.Business
             if( filter.UpdatedAt != null ){
                 lstParameter.Add(DBUtils.CreateParam("@UpdatedAt", filter.UpdatedAt));
             }
-            if( filter.YukoFlag != null ){
-                lstParameter.Add(DBUtils.CreateParam("@YukoFlag", filter.YukoFlag));
+            if( filter.Status != null ){
+                lstParameter.Add(DBUtils.CreateParam("@Status", filter.Status));
             }
             if( filter.CreatedUser != null ){
                 lstParameter.Add(DBUtils.CreateParam("@CreatedUser", filter.CreatedUser));
@@ -389,8 +389,8 @@ namespace ATDS.Business
             if( filter.UpdatedAt != null ){
                 lstParameter.Add(DBUtils.CreateParam("@UpdatedAt", filter.UpdatedAt));
             }
-            if( filter.YukoFlag != null ){
-                lstParameter.Add(DBUtils.CreateParam("@YukoFlag", filter.YukoFlag));
+            if( filter.Status != null ){
+                lstParameter.Add(DBUtils.CreateParam("@Status", filter.Status));
             }
             if( filter.CreatedUser != null ){
                 lstParameter.Add(DBUtils.CreateParam("@CreatedUser", filter.CreatedUser));

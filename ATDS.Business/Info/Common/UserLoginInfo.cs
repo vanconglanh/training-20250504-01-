@@ -33,7 +33,7 @@ namespace ATDS.Business.Info
                 this.RoleId = userInfo.RoleId;
                 this.CreatedAt = userInfo.CreatedAt;
                 this.UpdatedAt = userInfo.UpdatedAt;
-                this.YukoFlag = userInfo.YukoFlag;
+                this.Status = userInfo.Status;
                 this.CreatedUser = userInfo.CreatedUser;
             }
             

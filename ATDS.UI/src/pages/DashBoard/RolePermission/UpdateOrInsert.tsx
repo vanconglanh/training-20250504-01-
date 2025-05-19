@@ -46,7 +46,7 @@ const rolePermissionFields: FormField<RolePermissionFormValues>[] = [
     placeholder: 'rolePermissions.placeholders.permissionScreenId'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -195,7 +195,7 @@ const UpdateOrInsertRolePermission: React.FC = () => {
       defaultValues: {
                 roleId: 1,
         permissionScreenId: 1,
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -219,7 +219,7 @@ const UpdateOrInsertRolePermission: React.FC = () => {
       reset({
                 roleId: rolePermissionData.roleId || 1,
         permissionScreenId: rolePermissionData.permissionScreenId || 1,
-        yukoFlag: rolePermissionData.yukoFlag || 1,
+        status: rolePermissionData.status || 1,
       });
     }
   }, [rolePermissionData, reset]);

@@ -9,7 +9,7 @@ export interface Role {
       isSystem: number;
       createdAt: string;
       updatedAt: string;
-      yukoFlag: number;
+      status: number;
       createdUser: number;
       lastUpdateUser: number;
       lastUpdateProgram: string;

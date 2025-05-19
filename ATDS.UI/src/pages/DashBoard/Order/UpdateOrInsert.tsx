@@ -243,7 +243,7 @@ const orderFields: FormField<OrderFormValues>[] = [
   placeholder: 'placeholders.liftingCost'
 },
 {
-  name: 'yukoFlag',
+  name: 'status',
   label: 'common.status',
   type: 'select',
   required: false,
@@ -452,7 +452,7 @@ const UpdateOrInsertOrder: React.FC = () => {
         timberPackingDeclaration: '',
         weighingCostAtFactory: 0,
         liftingCost: 0,
-        yukoFlag: 1,
+        status: 1,
       } as OrderFormValues,
       // mode: 'onChange',
       // reValidateMode: 'onChange'
@@ -504,7 +504,7 @@ const UpdateOrInsertOrder: React.FC = () => {
     timberPackingDeclaration: orderData.timberPackingDeclaration || '',
     weighingCostAtFactory: orderData.weighingCostAtFactory || 0,
     liftingCost: orderData.liftingCost || 0,
-    yukoFlag: orderData.yukoFlag || 1,
+    status: orderData.status || 1,
       });
     }
   }, [orderData, reset]);

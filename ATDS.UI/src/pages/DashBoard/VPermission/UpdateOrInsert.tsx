@@ -102,7 +102,7 @@ const vPermissionFields: FormField<VPermissionFormValues>[] = [
     placeholder: 'vPermissions.placeholders.permissionName'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -258,7 +258,7 @@ const UpdateOrInsertVPermission: React.FC = () => {
         permissionId: 1,
         permissionCode: '',
         permissionName: '',
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -289,7 +289,7 @@ const UpdateOrInsertVPermission: React.FC = () => {
         permissionId: vPermissionData.permissionId || 1,
         permissionCode: vPermissionData.permissionCode || '',
         permissionName: vPermissionData.permissionName || '',
-        yukoFlag: vPermissionData.yukoFlag || 1,
+        status: vPermissionData.status || 1,
       });
     }
   }, [vPermissionData, reset]);

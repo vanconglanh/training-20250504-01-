@@ -51,7 +51,7 @@ import { toast } from 'react-toastify';
 
 // Constants for column management
 const STORAGE_KEY = 'userTableColumns'; 
-const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'yukoFlag']; 
+const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'status']; 
 
 // Column configuration type
 interface ColumnConfig {
@@ -332,7 +332,7 @@ const UserList: React.FC = () => {
       { id: 'email', label: t('users.fields.email'), visible: true, sortable: true },
       { id: 'language', label: t('users.fields.language'), visible: true, sortable: true },
       { id: 'roleId', label: t('users.fields.role'), visible: true, sortable: true },
-      { id: 'yukoFlag', label: t('users.fields.status'), visible: true, sortable: true },
+      { id: 'status', label: t('users.fields.status'), visible: true, sortable: true },
       { id: 'createdAt', label: t('users.fields.createdAt'), visible: true, sortable: true },
     ].map(col => ({
       ...col,
@@ -472,13 +472,13 @@ const UserList: React.FC = () => {
       email: undefined,
       language: undefined,
       roleId: undefined,
-      yukoFlag: undefined
+      status: undefined
     };
 
     filters.forEach(filter => {
       if (filter.field in newParams) {
         const key = filter.field as keyof UserParams;
-        if (key === 'yukoFlag') {
+        if (key === 'status') {
           newParams[key] = filter.value === 'true';
         } else {
           newParams[key] = filter.value as any;
@@ -621,8 +621,8 @@ const UserList: React.FC = () => {
   };
 
   // Calculate status chip color
-  const getStatusColor = (yukoFlag: boolean) => {
-    return yukoFlag ? 'success' : 'error';
+  const getStatusColor = (status: boolean) => {
+    return status ? 'success' : 'error';
   };
 
   // Handle column sort
@@ -836,10 +836,10 @@ const UserList: React.FC = () => {
           </TableCell>
           {columns.map((column) => column.visible && (
             <TableCell key={column.id}>
-              {column.id === 'yukoFlag' ? (
+              {column.id === 'status' ? (
                 <Chip 
-                  label={t(`users.statuses.${user.yukoFlag ? 'active' : 'inactive'}`)} 
-                  color={getStatusColor(user.yukoFlag)}
+                  label={t(`users.statuses.${user.status ? 'active' : 'inactive'}`)} 
+                  color={getStatusColor(Boolean(user.status))}
                   size="small"
                 />
               ) : column.id === 'createdAt' ? (

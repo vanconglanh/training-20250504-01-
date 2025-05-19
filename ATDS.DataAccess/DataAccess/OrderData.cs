@@ -66,7 +66,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(LIFTING_COST                  , 0) AS LiftingCost                    ");  // LiftingCost
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                   ");  // CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                   ");  // UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                       ");  // YukoFlag
+                sql.Append(" ,IFNULL(STATUS                     , 0) AS Status                       ");  // Status
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                    ");  // CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                 ");  // LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           , '') AS LastUpdateProgram             ");  // LastUpdateProgram
@@ -178,7 +178,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(LIFTING_COST                  , 0) AS LiftingCost                    ");  // LiftingCost
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                   ");  // CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                   ");  // UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                       ");  // YukoFlag
+                sql.Append(" ,IFNULL(STATUS                     , 0) AS Status                       ");  // Status
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                    ");  // CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                 ");  // LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           , '') AS LastUpdateProgram             ");  // LastUpdateProgram
@@ -255,7 +255,7 @@ namespace ATDS.DataAccess
                 sql.Append("  ,LIFTING_COST                     ");  // LiftingCost
                 sql.Append("  ,CREATED_AT                       ");  // CreatedAt
                 sql.Append("  ,UPDATED_AT                       ");  // UpdatedAt
-                sql.Append("  ,YUKO_FLAG                        ");  // YukoFlag
+                sql.Append("  ,STATUS                        ");  // Status
                 sql.Append("  ,CREATED_USER                     ");  // CreatedUser
                 sql.Append("  ,LAST_UPDATE_USER                 ");  // LastUpdateUser
                 sql.Append("  ,LAST_UPDATE_PROGRAM              ");  // LastUpdateProgram
@@ -294,7 +294,7 @@ namespace ATDS.DataAccess
                 sql.Append("  ,@LiftingCost                   ");  // LiftingCost
                 sql.Append("  ,@CreatedAt                     ");  // CreatedAt
                 sql.Append("  ,@UpdatedAt                     ");  // UpdatedAt
-                sql.Append("  ,@YukoFlag                      ");  // YukoFlag
+                sql.Append("  ,@Status                      ");  // Status
                 sql.Append("  ,@CreatedUser                   ");  // CreatedUser
                 sql.Append("  ,@LastUpdateUser               ");   // LastUpdateUser
                 sql.Append("  ,@LastUpdateProgram            ");   // LastUpdateProgram
@@ -361,7 +361,7 @@ namespace ATDS.DataAccess
                 sql.Append("  ,LIFTING_COST               = @LiftingCost                 ");  // LiftingCost
                 sql.Append("  ,CREATED_AT                 = @CreatedAt                   ");  // CreatedAt
                 sql.Append("  ,UPDATED_AT                 = @UpdatedAt                   ");  // UpdatedAt
-                sql.Append("  ,YUKO_FLAG                  = @YukoFlag                    ");  // YukoFlag
+                sql.Append("  ,STATUS                  = @Status                    ");  // Status
                 sql.Append("  ,CREATED_USER               = @CreatedUser                 ");  // CreatedUser
                 sql.Append("  ,LAST_UPDATE_USER           = @LastUpdateUser              ");  // LastUpdateUser
                 sql.Append("  ,LAST_UPDATE_PROGRAM        = @LastUpdateProgram           ");  // LastUpdateProgram
@@ -395,12 +395,12 @@ namespace ATDS.DataAccess
             try
             {
                 sql.Append(" UPDATE  T_ORDER                                                                         ");
-                sql.Append(" SET YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.DISABLED + "         ,");
+                sql.Append(" SET STATUS                  =    " + (int)Constant.STATUS.DISABLED + "         ,");
                 sql.Append("     LAST_UPDATE_USER           =    '" + vstrUpdateUser + "'                    ,");
                 sql.Append("     LAST_UPDATE_PROGRAM        =   '" + vstrUpdateProgram + "'                  ");
                 sql.Append(" WHERE ID                       = @Id                            ");  //   検索条件定義
 
-                sql.Append(" AND YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.ENABLED);
+                sql.Append(" AND STATUS                  =    " + (int)Constant.STATUS.ENABLED);
 
                 return sql.ToString();
             }
@@ -463,7 +463,7 @@ namespace ATDS.DataAccess
                     withBlock.LiftingCost = Sdr["LiftingCost"] as decimal?;
                     withBlock.CreatedAt = Convert.ToDateTime(Sdr["CreatedAt"]);
                     withBlock.UpdatedAt = Convert.ToDateTime(Sdr["UpdatedAt"]);
-                    withBlock.YukoFlag = Convert.ToInt32(Sdr["YukoFlag"]);
+                    withBlock.Status = Convert.ToInt32(Sdr["Status"]);
                     withBlock.CreatedUser = Convert.ToInt32(Sdr["CreatedUser"]);
                     withBlock.LastUpdateUser = Convert.ToInt32(Sdr["LastUpdateUser"]);
                     withBlock.LastUpdateProgram = Sdr["LastUpdateProgram"]?.ToString()?.Trim();

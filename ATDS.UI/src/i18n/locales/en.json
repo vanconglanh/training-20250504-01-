@@ -92,7 +92,7 @@
       "createdAt": "Created At",
       "createdFrom": "Created From",
       "createdTo": "Created To",
-      "yukoFlag": "Yuko Flag"
+      "status": "status"
     },
     "roles": {
       "admin": "Administrator",
@@ -140,7 +140,7 @@
         "liftingCost": "LiftingCost",
         "createdAt": "CreatedAt",
         "updatedAt": "UpdatedAt",
-        "yukoFlag": "YukoFlag",
+        "status": "Status",
         "createdUser": "CreatedUser",
         "lastUpdateUser": "LastUpdateUser",
         "lastUpdateProgram": "LastUpdateProgram"

@@ -46,7 +46,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(ROLE_ID                       , 0) AS RoleId                        ");  //   RoleId
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(STATUS                     , 0) AS Status                      ");  //   Status
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -133,7 +133,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,IFNULL(ROLE_ID                       , 0) AS RoleId                        ");  //   RoleId
                 sql.Append(" ,IFNULL(CREATED_AT                    , '" + Constant.DATE_MIN + "') AS CreatedAt                     ");  //   CreatedAt
                 sql.Append(" ,IFNULL(UPDATED_AT                    , '" + Constant.DATE_MIN + "') AS UpdatedAt                     ");  //   UpdatedAt
-                sql.Append(" ,IFNULL(YUKO_FLAG                     , 0) AS YukoFlag                      ");  //   YukoFlag
+                sql.Append(" ,IFNULL(STATUS                     , 0) AS Status                      ");  //   Status
                 sql.Append(" ,IFNULL(CREATED_USER                  , 0) AS CreatedUser                   ");  //   CreatedUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_USER              , 0) AS LastUpdateUser                ");  //   LastUpdateUser
                 sql.Append(" ,IFNULL(LAST_UPDATE_PROGRAM           ,'') AS LastUpdateProgram             ");  //   LastUpdateProgram
@@ -187,7 +187,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,ROLE_ID                           ");  //   RoleId
                 sql.Append(" ,CREATED_AT                        ");  //   CreatedAt
                 sql.Append(" ,UPDATED_AT                        ");  //   UpdatedAt
-                sql.Append(" ,YUKO_FLAG                         ");  //   YukoFlag
+                sql.Append(" ,STATUS                         ");  //   Status
                 sql.Append(" ,CREATED_USER                      ");  //   CreatedUser
                 sql.Append(" ,LAST_UPDATE_USER                  ");  //   LastUpdateUser
                 sql.Append(" ,LAST_UPDATE_PROGRAM               ");  //   LastUpdateProgram
@@ -206,7 +206,7 @@ namespace ATDS.DataAccess
                 sql.Append(" ,@RoleId                           ");  //   RoleId
                 sql.Append(" ,@CreatedAt                        ");  //   CreatedAt
                 sql.Append(" ,@UpdatedAt                        ");  //   UpdatedAt
-                sql.Append(" ,@YukoFlag                         ");  //   YukoFlag
+                sql.Append(" ,@Status                         ");  //   Status
                 sql.Append(" ,@CreatedUser                      ");  //   CreatedUser
                 sql.Append(" ,@LastUpdateUser                   ");  //   LastUpdateUser
                 sql.Append(" ,@LastUpdateProgram                ");  //   LastUpdateProgram
@@ -248,7 +248,7 @@ namespace ATDS.DataAccess
                 sql.Append("    ,ROLE_ID                        = @RoleId                        "); //   RoleId
                 sql.Append("    ,CREATED_AT                     = @CreatedAt                     "); //   CreatedAt
                 sql.Append("    ,UPDATED_AT                     = @UpdatedAt                     "); //   UpdatedAt
-                sql.Append("    ,YUKO_FLAG                      = @YukoFlag                      "); //   YukoFlag
+                sql.Append("    ,STATUS                      = @Status                      "); //   Status
                 sql.Append("    ,CREATED_USER                   = @CreatedUser                   "); //   CreatedUser
                 sql.Append("    ,LAST_UPDATE_USER               = @LastUpdateUser                "); //   LastUpdateUser
                 sql.Append("    ,LAST_UPDATE_PROGRAM            = @LastUpdateProgram             "); //   LastUpdateProgram
@@ -279,13 +279,13 @@ namespace ATDS.DataAccess
             try
             {
                 sql.Append(" UPDATE  M_USER                                                                                      ");
-                sql.Append(" SET YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.DISABLED + "         ,");
+                sql.Append(" SET STATUS                  =    " + (int)Constant.STATUS.DISABLED + "         ,");
                 sql.Append("     LAST_UPDATE_USER           =   '" + vstrUpdateUser + "'                    ,");
                 sql.Append("     LAST_UPDATE                =   '" + DateTime.Now.ToString("yyyy-MM-dd") + "'   ,");
                 sql.Append("     LAST_UPDATE_PROGRAM        =   '" + vstrUpdateProgram + "'                  ");
                 sql.Append(" WHERE ID                       = @Id                            ");  //   検索条件定義
 
-                sql.Append(" AND YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.ENABLED);
+                sql.Append(" AND STATUS                  =    " + (int)Constant.STATUS.ENABLED);
 
                 return sql.ToString();
             }
@@ -315,11 +315,11 @@ namespace ATDS.DataAccess
                 //  DELETE
                 sql.Length = 0;                                              //   SQL定義
                 sql.Append(" UPDATE M_USER                                  ");
-                sql.Append(" SET YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.DISABLED + "        ,");  
+                sql.Append(" SET STATUS                  =    " + (int)Constant.STATUS.DISABLED + "        ,");  
                 sql.Append("     LAST_UPDATE_USER           =   '" + vstrUpdateUser + "'                    ,");    
                 sql.Append("     LAST_UPDATE                =   '" + DateTime.Now.ToString("yyyy-MM-dd") + "'   ,");    
                 sql.Append("     LAST_UPDATE_PROGRAM        =   '" + vstrUpdateProgram + "'                  ");  
-                sql.Append(" WHERE YUKO_FLAG                  =    " + (int)Constant.YUKO_FLAG.ENABLED);
+                sql.Append(" WHERE STATUS                  =    " + (int)Constant.STATUS.ENABLED);
 
                 sql.Append(" AND ROLE_ID                  = @RoleId                        ");  //   検索条件定義
 
@@ -375,7 +375,7 @@ namespace ATDS.DataAccess
                     else{
                         withBlock.UpdatedAt = Convert.ToDateTime(Sdr["UpdatedAt"]); //  UserDate 
                     }
-                    withBlock.YukoFlag = System.Convert.ToInt32(Sdr["YukoFlag"]); //   YukoFlag
+                    withBlock.Status = System.Convert.ToInt32(Sdr["Status"]); //   Status
                     withBlock.CreatedUser = System.Convert.ToInt32(Sdr["CreatedUser"]); //   CreatedUser
                     withBlock.LastUpdateUser = System.Convert.ToInt32(Sdr["LastUpdateUser"]); //   LastUpdateUser
                     withBlock.LastUpdateProgram = ((string)Sdr["LastUpdateProgram"]).Trim(); //   LastUpdateProgram
@@ -412,7 +412,7 @@ namespace ATDS.DataAccess
             {
 
                 // --- 条件設定
-                where += "  AND YUKO_FLAG   =   " + (int)Constant.YUKO_FLAG.ENABLED + " ";
+                where += "  AND STATUS   =   " + (int)Constant.STATUS.ENABLED + " ";
                 where += "  AND ID                             = " + piId                             + " "; //   Id
 
                 // --- SQL設定
@@ -459,7 +459,7 @@ namespace ATDS.DataAccess
 
                 //--- 条件設定
                 where += "  AND  ROLE_ID = " + piRoleId + " "; //   RoleId
-                where += "  AND YUKO_FLAG   =   " + (int)Constant.YUKO_FLAG.ENABLED + " ";
+                where += "  AND STATUS   =   " + (int)Constant.STATUS.ENABLED + " ";
 
                 //--- SQL設定
                 sql = sqlBaseSetSelect(where, order);

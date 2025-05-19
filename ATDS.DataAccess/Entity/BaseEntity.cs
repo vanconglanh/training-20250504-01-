@@ -9,7 +9,7 @@ namespace ATDS.DataAccess.Entity
     public class BaseEntity
     {
         // 有効フラグ
-        // public int YukoFlag;
+        // public int Status;
 
         // 最終更新者
         public int LastUpdateUser = -1;

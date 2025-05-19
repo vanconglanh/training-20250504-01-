@@ -38,7 +38,7 @@ const permissionFields: FormField<PermissionFormValues>[] = [
     placeholder: 'permissions.placeholders.name'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -186,7 +186,7 @@ const UpdateOrInsertPermission: React.FC = () => {
     {
       defaultValues: {
                 name: '',
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -209,7 +209,7 @@ const UpdateOrInsertPermission: React.FC = () => {
     if (permissionData) {
       reset({
                 name: permissionData.name || '',
-        yukoFlag: permissionData.yukoFlag || 1,
+        status: permissionData.status || 1,
       });
     }
   }, [permissionData, reset]);

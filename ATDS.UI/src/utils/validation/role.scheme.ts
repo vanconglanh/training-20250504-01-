@@ -11,7 +11,7 @@ export const roleSchema = z.object({
   isSystem: z
     .number()
     .min(1, {message: t('validation.isSystemMin') }) ,
-  yukoFlag: z
+  status: z
     .number(),
 });
 

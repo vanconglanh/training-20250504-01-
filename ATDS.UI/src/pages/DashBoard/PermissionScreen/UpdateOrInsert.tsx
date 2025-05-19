@@ -46,7 +46,7 @@ const permissionScreenFields: FormField<PermissionScreenFormValues>[] = [
     placeholder: 'permissionScreens.placeholders.screenId'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -195,7 +195,7 @@ const UpdateOrInsertPermissionScreen: React.FC = () => {
       defaultValues: {
                 permissionId: 1,
         screenId: 1,
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -219,7 +219,7 @@ const UpdateOrInsertPermissionScreen: React.FC = () => {
       reset({
                 permissionId: permissionScreenData.permissionId || 1,
         screenId: permissionScreenData.screenId || 1,
-        yukoFlag: permissionScreenData.yukoFlag || 1,
+        status: permissionScreenData.status || 1,
       });
     }
   }, [permissionScreenData, reset]);

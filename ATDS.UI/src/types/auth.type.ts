@@ -11,7 +11,7 @@ export interface Profile {
   status: string;
   createdAt: string; // ISO string
   updatedAt: string; // ISO string
-  yukoFlag: number;
+  status: number;
   permissions: Permission[];
   id: string;
   username: string;

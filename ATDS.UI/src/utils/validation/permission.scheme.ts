@@ -8,7 +8,7 @@ export const permissionSchema = z.object({
     name: z
     .string()
     .max(50, { message: t('validation.nameMax') }),
-  yukoFlag: z
+  status: z
     .number(),
 });
 

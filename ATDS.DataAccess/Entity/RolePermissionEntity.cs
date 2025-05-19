@@ -26,8 +26,8 @@ namespace ATDS.DataAccess.Entity
         //UpdatedAt
         public DateTime? UpdatedAt = null;
 
-        //YukoFlag
-        public int? YukoFlag = 0;
+        //Status
+        public int? Status = 0;
 
         //CreatedUser
         public int? CreatedUser = 0;

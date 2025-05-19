@@ -28,8 +28,8 @@ namespace ATDS.Business.Info
         //UpdatedAt
         public DateTime? UpdatedAt  { get; set; } = null;
 
-        //YukoFlag
-        public int? YukoFlag  { get; set; } = 0;
+        //Status
+        public int? Status  { get; set; } = 0;
 
         //CreatedUser
         public int? CreatedUser  { get; set; } = 0;

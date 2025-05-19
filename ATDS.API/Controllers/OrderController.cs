@@ -35,7 +35,7 @@ namespace ATDS.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetAll([FromQuery] OrderFilter filter)
         {
-            filter.YukoFlag = filter.YukoFlag ?? (int)YUKO_FLAG.ENABLED;
+            filter.Status = filter.Status ?? (int)STATUS.ENABLED;
 
             bool hasPaging = filter.Page > 0 && filter.Size > 0;
 
@@ -145,7 +145,7 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
+            else if (entity.Status == (int)STATUS.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
 
@@ -178,7 +178,7 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
+            else if (entity.Status == (int)STATUS.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
 
@@ -191,7 +191,7 @@ namespace ATDS.API.Controllers
             if (entity == null)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
-            else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
+            else if (entity.Status == (int)STATUS.DISABLED)
                 return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
 

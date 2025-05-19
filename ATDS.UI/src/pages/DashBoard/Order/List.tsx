@@ -52,7 +52,7 @@ import { toast } from 'react-toastify';
 
 // Constants for column management
 const STORAGE_KEY = 'orderTableColumns';
-const DEFAULT_VISIBLE_COLUMNS = ['name', 'exchangeRateUsdVndBuy', 'exchangeRateUsdVndSell', 'transportMethod', 'packingMethod', 'weightPerContainer', 'estimatedTotalContainers', 'estimatedTotalBookings', 'bookingNoCode', 'packingDate', 'yardIn', 'truckPlate', 'containerNo', 'sealNo', 'supplierName', 'transportCompanyName', 'quantity', 'coatingCompanyName', 'coatedQuantity', 'productUnitPrice', 'coatedProductUnitPrice', 'transportUnitPrice', 'invoice', 'packingList', 'certificateOfQuality', 'shippingInstruction', 'verifiedGrossMass', 'timberPackingDeclaration', 'weighingCostAtFactory', 'liftingCost', 'createdAt', 'yukoFlag'];
+const DEFAULT_VISIBLE_COLUMNS = ['name', 'exchangeRateUsdVndBuy', 'exchangeRateUsdVndSell', 'transportMethod', 'packingMethod', 'weightPerContainer', 'estimatedTotalContainers', 'estimatedTotalBookings', 'bookingNoCode', 'packingDate', 'yardIn', 'truckPlate', 'containerNo', 'sealNo', 'supplierName', 'transportCompanyName', 'quantity', 'coatingCompanyName', 'coatedQuantity', 'productUnitPrice', 'coatedProductUnitPrice', 'transportUnitPrice', 'invoice', 'packingList', 'certificateOfQuality', 'shippingInstruction', 'verifiedGrossMass', 'timberPackingDeclaration', 'weighingCostAtFactory', 'liftingCost', 'createdAt', 'status'];
 
 // Column configuration type
 interface ColumnConfig {
@@ -358,7 +358,7 @@ const OrderList: React.FC = () => {
       { id: 'liftingCost', label: t('orders.fields.liftingCost'), visible: true, sortable: true },
       { id: 'createdAt', label: t('orders.fields.createdAt'), visible: true, sortable: true },
       { id: 'updatedAt', label: t('orders.fields.updatedAt'), visible: true, sortable: true },
-      { id: 'yukoFlag', label: t('orders.fields.yukoFlag'), visible: true, sortable: true },
+      { id: 'status', label: t('orders.fields.status'), visible: true, sortable: true },
       { id: 'createdUser', label: t('orders.fields.createdUser'), visible: true, sortable: true },
       { id: 'lastUpdateUser', label: t('orders.fields.lastUpdateUser'), visible: true, sortable: true },
       { id: 'lastUpdateProgram', label: t('orders.fields.lastUpdateProgram'), visible: true, sortable: true },
@@ -496,13 +496,13 @@ const OrderList: React.FC = () => {
       ...params,
       page: 1,
       name: '',
-      yukoFlag: 1,
+      status: 1,
     };
 
     filters.forEach(filter => {
       if (filter.field in newParams) {
         const key = filter.field as keyof OrderParams;
-        if (key === 'yukoFlag') {
+        if (key === 'status') {
           newParams[key] = Number(filter.value);
         } else {
           newParams[key] = filter.value as any;
@@ -645,8 +645,8 @@ const OrderList: React.FC = () => {
   };
 
   // Calculate status chip color
-  const getStatusColor = (yukoFlag: boolean) => {
-    return yukoFlag ? 'success' : 'error';
+  const getStatusColor = (status: boolean) => {
+    return status ? 'success' : 'error';
   };
 
   // Handle column sort
@@ -860,10 +860,10 @@ const OrderList: React.FC = () => {
             </TableCell>
             {columns.map((column) => column.visible && (
               <TableCell key={column.id}>
-                {column.id === 'yukoFlag' ? (
+                {column.id === 'status' ? (
                   <Chip 
-                    label={t(`statuses.${order.yukoFlag ? 'active' : 'inactive'}`)} 
-                    color={getStatusColor(Boolean(order.yukoFlag))}
+                    label={t(`statuses.${order.status ? 'active' : 'inactive'}`)} 
+                    color={getStatusColor(Boolean(order.status))}
                     size="small"
                   />
                 ) : column.id === 'createdAt' ? (
@@ -900,7 +900,7 @@ const OrderList: React.FC = () => {
                 t(`${order.timberPackingDeclaration}`)) : column.id === 'weighingCostAtFactory' ? (
                 t(`${order.weighingCostAtFactory}`)) : column.id === 'liftingCost' ? (
                 t(`${order.createdAt}`)) : column.id === 'updatedAt' ? (
-                t(`${order.yukoFlag}`)) : column.id === 'createdUser' ? (
+                t(`${order.status}`)) : column.id === 'createdUser' ? (
                 t(`${order.createdUser}`)) : column.id === 'lastUpdateUser' ? (
                 t(`${order.lastUpdateUser}`)) : column.id === 'lastUpdateProgram' ? (
                 t(`${order.lastUpdateProgram}`)
@@ -998,7 +998,7 @@ const OrderList: React.FC = () => {
           liftingCost: undefined,
           createdAt: undefined,
           updatedAt: undefined,
-          yukoFlag: undefined,
+          status: undefined,
           createdUser: undefined,
           lastUpdateUser: undefined,
           lastUpdateProgram: undefined,
@@ -1043,7 +1043,7 @@ const OrderList: React.FC = () => {
           { id: 'liftingCost', label: t('orders.fields.liftingCost'), type: 'text' },
           { id: 'createdAt', label: t('orders.fields.createdAt'), type: 'text' },
           { id: 'updatedAt', label: t('orders.fields.updatedAt'), type: 'text' },
-          { id: 'yukoFlag', label: t('orders.fields.yukoFlag'), type: 'text' },
+          { id: 'status', label: t('orders.fields.status'), type: 'text' },
           { id: 'createdUser', label: t('orders.fields.createdUser'), type: 'text' },
           { id: 'lastUpdateUser', label: t('orders.fields.lastUpdateUser'), type: 'text' },
           { id: 'lastUpdateProgram', label: t('orders.fields.lastUpdateProgram'), type: 'text' },
@@ -1052,7 +1052,7 @@ const OrderList: React.FC = () => {
         // L盻皇 cﾃ｡c filter d盻ｱa trﾃｪn cﾃ｡c c盻冲 ﾄ疎ng hi盻ハ th盻・
         return baseFilters.filter(filter => {
         // Luﾃｴn hi盻ハ th盻・cﾃ｡c filter cﾆ｡ b蘯｣n
-        if (['id','name','exchangeRateUsdVndBuy','exchangeRateUsdVndSell','transportMethod','packingMethod','weightPerContainer','estimatedTotalContainers','estimatedTotalBookings','bookingNoCode','packingDate','yardIn','truckPlate','containerNo','sealNo','supplierName','transportCompanyName','quantity','coatingCompanyName','coatedQuantity','productUnitPrice','coatedProductUnitPrice','transportUnitPrice','invoice','packingList','certificateOfQuality','shippingInstruction','verifiedGrossMass','timberPackingDeclaration','weighingCostAtFactory','liftingCost','createdAt','updatedAt','yukoFlag','createdUser','lastUpdateUser','lastUpdateProgram']
+        if (['id','name','exchangeRateUsdVndBuy','exchangeRateUsdVndSell','transportMethod','packingMethod','weightPerContainer','estimatedTotalContainers','estimatedTotalBookings','bookingNoCode','packingDate','yardIn','truckPlate','containerNo','sealNo','supplierName','transportCompanyName','quantity','coatingCompanyName','coatedQuantity','productUnitPrice','coatedProductUnitPrice','transportUnitPrice','invoice','packingList','certificateOfQuality','shippingInstruction','verifiedGrossMass','timberPackingDeclaration','weighingCostAtFactory','liftingCost','createdAt','updatedAt','status','createdUser','lastUpdateUser','lastUpdateProgram']
         .includes(filter.id)) {
           return true;
         }

@@ -12,7 +12,7 @@
     "roleId": "RoleId",
     "createdAt": "CreatedAt",
     "updatedAt": "UpdatedAt",
-    "yukoFlag": "YukoFlag",
+    "status": "Status",
     "createdUser": "CreatedUser",
     "lastUpdateUser": "LastUpdateUser",
     "lastUpdateProgram": "LastUpdateProgram"

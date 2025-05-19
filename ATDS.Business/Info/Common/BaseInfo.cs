@@ -9,7 +9,7 @@ namespace ATDS.Business.Info
     public class BaseInfo
     {
         // 有効フラグ
-        // public int YukoFlag;
+        // public int Status;
 
         // 最終更新者
         public int LastUpdateUser = -1;

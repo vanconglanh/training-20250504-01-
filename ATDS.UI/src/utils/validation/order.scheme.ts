@@ -36,7 +36,7 @@ export const orderSchema = z.object({
     timberPackingDeclaration: z.string().max(255, { message: t('validation.usernameMax') }),
     weighingCostAtFactory: z.number().min(0, { message: t('validation.weighingCostAtFactoryMin') }),
     liftingCost: z.number().min(0, { message: t('validation.liftingCostMin') }),
-    yukoFlag: z.number().min(0, { message: t('validation.yukoFlagMin') })
+    status: z.number().min(0, { message: t('validation.statusMin') })
 
 });
 

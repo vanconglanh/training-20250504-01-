@@ -86,7 +86,7 @@ const userFields: FormField<UserFormValues>[] = [
     placeholder: 'users.placeholders.roleId'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -240,7 +240,7 @@ const UpdateOrInsertUser: React.FC = () => {
         password: '',
         passwordHash: '',
         roleId: 1,
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -269,7 +269,7 @@ const UpdateOrInsertUser: React.FC = () => {
         password: userData.password || '',
         passwordHash: userData.passwordHash || '',
         roleId: userData.roleId || 1,
-        yukoFlag: userData.yukoFlag || 1,
+        status: userData.status || 1,
       });
     }
   }, [userData, reset]);

@@ -144,7 +144,7 @@ const SortMenu: React.FC<SortMenuProps> = ({
         return <TranslateIcon />;
       case 'roleId':
         return <VerifiedUserIcon />;
-      case 'yukoFlag':
+      case 'status':
         return <BadgeIcon />;
       case 'createdAt':
         return <CalendarTodayIcon />;

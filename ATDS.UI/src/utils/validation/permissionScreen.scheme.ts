@@ -9,7 +9,7 @@ export const permissionScreenSchema = z.object({
     .number(),
   screenId: z
     .number(),
-  yukoFlag: z
+  status: z
     .number(),
 });
 

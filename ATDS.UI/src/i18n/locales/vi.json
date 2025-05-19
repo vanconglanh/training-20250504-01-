@@ -90,7 +90,7 @@
       "createdAt": "Ngày tạo",
       "createdFrom": "Tạo từ ngày",
       "createdTo": "Tạo đến ngày",
-      "yukoFlag": "Cờ Yuko"
+      "status": "Cờ Yuko"
     },
     "roles": {
       "admin": "Quản trị viên",
@@ -103,6 +103,51 @@
       "pending": "Đang chờ xử lý"
     }
   },
+
+
+  "orders": {
+    "create": "Tạo đơn hàng",
+    "fields" :{
+        "id": "Mã đơn hàng",
+        "name": "Tên đơn hàng",
+        "exchangeRateUsdVndBuy": "Tỷ giá USD sang VND (Mua)",
+        "exchangeRateUsdVndSell": "Tỷ giá USD sang VND (Bán)",
+        "transportMethod": "Phương thức vận chuyển",
+        "packingMethod": "Phương thức đóng gói",
+        "weightPerContainer": "Trọng lượng mỗi container",
+        "estimatedTotalContainers": "Tổng số container ước tính",
+        "estimatedTotalBookings": "Tổng số đặt chỗ ước tính",
+        "bookingNoCode": "Mã đặt chỗ",
+        "packingDate": "Ngày đóng gói",
+        "yardIn": "Ngày nhập kho",
+        "truckPlate": "Biển số xe tải",
+        "containerNo": "Số container",
+        "sealNo": "Số niêm phong",
+        "supplierName": "Tên nhà cung cấp",
+        "transportCompanyName": "Tên công ty vận chuyển",
+        "quantity": "Số lượng",
+        "coatingCompanyName": "Tên công ty phủ lớp",
+        "coatedQuantity": "Số lượng đã phủ lớp",
+        "productUnitPrice": "Đơn giá sản phẩm",
+        "coatedProductUnitPrice": "Đơn giá sản phẩm đã phủ lớp",
+        "transportUnitPrice": "Đơn giá vận chuyển",
+        "invoice": "Hóa đơn",
+        "packingList": "Danh sách đóng gói",
+        "certificateOfQuality": "Chứng nhận chất lượng",
+        "shippingInstruction": "Hướng dẫn vận chuyển",
+        "verifiedGrossMass": "Khối lượng tổng đã xác nhận",
+        "timberPackingDeclaration": "Tuyên bố đóng gói gỗ",
+        "weighingCostAtFactory": "Chi phí cân tại nhà máy",
+        "liftingCost": "Chi phí nâng",
+        "createdAt": "Ngày tạo",
+        "updatedAt": "Ngày cập nhật",
+        "status": "Trạng thái",
+        "createdUser": "Người tạo",
+        "lastUpdateUser": "Người cập nhật cuối",
+        "lastUpdateProgram": "Chương trình cập nhật cuối"
+    }
+},
+
   "sidebar": {
     "dashboard": "Bảng điều khiển",
     "users": "Quản lý người dùng",

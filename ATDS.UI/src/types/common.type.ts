@@ -38,7 +38,7 @@ export interface FilterOption {
     sortBy?: string;
     sortOrder?: 'asc' | 'desc';
     sortFields?: SortField[];
-    status?: string;
+    status?: number;
   }
 
   export type FieldType =

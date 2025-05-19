@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ATDS.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb40013f075e0903ce6913af321f314e531010cd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+caf48ad4980e9bda1fa5a82da12bbe860863ce8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("ATDS.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ATDS.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

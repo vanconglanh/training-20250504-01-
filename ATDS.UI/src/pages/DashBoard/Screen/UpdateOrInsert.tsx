@@ -38,7 +38,7 @@ const screenFields: FormField<ScreenFormValues>[] = [
     placeholder: 'screens.placeholders.name'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -186,7 +186,7 @@ const UpdateOrInsertScreen: React.FC = () => {
     {
       defaultValues: {
                 name: '',
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -209,7 +209,7 @@ const UpdateOrInsertScreen: React.FC = () => {
     if (screenData) {
       reset({
                 name: screenData.name || '',
-        yukoFlag: screenData.yukoFlag || 1,
+        status: screenData.status || 1,
       });
     }
   }, [screenData, reset]);

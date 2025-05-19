@@ -46,7 +46,7 @@ const roleFields: FormField<RoleFormValues>[] = [
     placeholder: 'roles.placeholders.isSystem'
   },
   {
-    name: 'yukoFlag',
+    name: 'status',
     label: 'common.status',
     type: 'select',
     required: true,
@@ -195,7 +195,7 @@ const UpdateOrInsertRole: React.FC = () => {
       defaultValues: {
                 name: '',
         isSystem: 1,
-        yukoFlag: 1,
+        status: 1,
       },
       mode: 'onChange',
       reValidateMode: 'onChange'
@@ -219,7 +219,7 @@ const UpdateOrInsertRole: React.FC = () => {
       reset({
                 name: roleData.name || '',
         isSystem: roleData.isSystem || 1,
-        yukoFlag: roleData.yukoFlag || 1,
+        status: roleData.status || 1,
       });
     }
   }, [roleData, reset]);

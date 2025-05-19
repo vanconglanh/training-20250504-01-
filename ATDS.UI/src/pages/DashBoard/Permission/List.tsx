@@ -51,7 +51,7 @@ import { toast } from 'react-toastify';
 
 // Constants for column management
 const STORAGE_KEY = 'permissionTableColumns'; 
-const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'yukoFlag']; 
+const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'status']; 
 
 // Column configuration type
 interface ColumnConfig {
@@ -332,7 +332,7 @@ const PermissionList: React.FC = () => {
       { id: 'name', label: t('permissions.fields.name'), visible: true, sortable: true },
       { id: 'createdAt', label: t('permissions.fields.createdAt'), visible: true, sortable: true },
       { id: 'updatedAt', label: t('permissions.fields.updatedAt'), visible: true, sortable: true },
-      { id: 'yukoFlag', label: t('permissions.fields.yukoFlag'), visible: true, sortable: true },
+      { id: 'status', label: t('permissions.fields.status'), visible: true, sortable: true },
       { id: 'createdUser', label: t('permissions.fields.createdUser'), visible: true, sortable: true },
       { id: 'lastUpdateUser', label: t('permissions.fields.lastUpdateUser'), visible: true, sortable: true },
       { id: 'lastUpdateProgram', label: t('permissions.fields.lastUpdateProgram'), visible: true, sortable: true },
@@ -469,13 +469,13 @@ const PermissionList: React.FC = () => {
       ...params,
       page: 1,
                 name: '',
-        yukoFlag: 1,
+        status: 1,
     };
 
     filters.forEach(filter => {
       if (filter.field in newParams) {
         const key = filter.field as keyof PermissionParams;
-        if (key === 'yukoFlag') {
+        if (key === 'status') {
           newParams[key] = Number(filter.value);
         } else {
           newParams[key] = filter.value as any;
@@ -618,8 +618,8 @@ const PermissionList: React.FC = () => {
   };
 
   // Calculate status chip color
-  const getStatusColor = (yukoFlag: boolean) => {
-    return yukoFlag ? 'success' : 'error';
+  const getStatusColor = (status: boolean) => {
+    return status ? 'success' : 'error';
   };
 
   // Handle column sort
@@ -833,10 +833,10 @@ const PermissionList: React.FC = () => {
           </TableCell>
           {columns.map((column) => column.visible && (
             <TableCell key={column.id}>
-              {column.id === 'yukoFlag' ? (
+              {column.id === 'status' ? (
                 <Chip 
-                  label={t(`statuses.${permission.yukoFlag ? 'active' : 'inactive'}`)} 
-                  color={getStatusColor(Boolean(permission.yukoFlag))}
+                  label={t(`statuses.${permission.status ? 'active' : 'inactive'}`)} 
+                  color={getStatusColor(Boolean(permission.status))}
                   size="small"
                 />
               ) : column.id === 'createdAt' ? (
@@ -915,7 +915,7 @@ const PermissionList: React.FC = () => {
       name: undefined,                   
       createdAt: undefined,                   
       updatedAt: undefined,                   
-      yukoFlag: undefined,                   
+      status: undefined,                   
       createdUser: undefined,                   
       lastUpdateUser: undefined,                   
       lastUpdateProgram: undefined,
@@ -942,8 +942,8 @@ const PermissionList: React.FC = () => {
         label: t('permissions.fields.updatedAt'),
         type: 'text',
       },      {
-        id: 'yukoFlag',
-        label: t('permissions.fields.yukoFlag'),
+        id: 'status',
+        label: t('permissions.fields.status'),
         type: 'text',
       },      {
         id: 'createdUser',
@@ -963,7 +963,7 @@ const PermissionList: React.FC = () => {
     // L盻皇 cﾃ｡c filter d盻ｱa trﾃｪn cﾃ｡c c盻冲 ﾄ疎ng hi盻ハ th盻・
     return baseFilters.filter(filter => {
       // Luﾃｴn hi盻ハ th盻・cﾃ｡c filter cﾆ｡ b蘯｣n
-      if (['id','code','name','createdAt','updatedAt','yukoFlag','createdUser','lastUpdateUser','lastUpdateProgram',].includes(filter.id)) {
+      if (['id','code','name','createdAt','updatedAt','status','createdUser','lastUpdateUser','lastUpdateProgram',].includes(filter.id)) {
         return true;
       }
       // Ch盻・hi盻ハ th盻・filter cho cﾃ｡c c盻冲 ﾄ疎ng ﾄ柁ｰ盻｣c hi盻ハ th盻・

@@ -9,7 +9,7 @@ export const rolePermissionSchema = z.object({
     .number(),
   permissionScreenId: z
     .number(),
-  yukoFlag: z
+  status: z
     .number(),
 });
 

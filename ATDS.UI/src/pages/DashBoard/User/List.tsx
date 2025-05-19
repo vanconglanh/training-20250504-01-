@@ -51,7 +51,7 @@ import { toast } from 'react-toastify';
 
 // Constants for column management
 const STORAGE_KEY = 'userTableColumns'; 
-const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'yukoFlag']; 
+const DEFAULT_VISIBLE_COLUMNS = ['username', 'name', 'email', 'roleId', 'status']; 
 
 // Column configuration type
 interface ColumnConfig {
@@ -338,7 +338,7 @@ const UserList: React.FC = () => {
       { id: 'roleId', label: t('users.fields.roleId'), visible: true, sortable: true },
       { id: 'createdAt', label: t('users.fields.createdAt'), visible: true, sortable: true },
       { id: 'updatedAt', label: t('users.fields.updatedAt'), visible: true, sortable: true },
-      { id: 'yukoFlag', label: t('users.fields.yukoFlag'), visible: true, sortable: true },
+      { id: 'status', label: t('users.fields.status'), visible: true, sortable: true },
       { id: 'createdUser', label: t('users.fields.createdUser'), visible: true, sortable: true },
       { id: 'lastUpdateUser', label: t('users.fields.lastUpdateUser'), visible: true, sortable: true },
       { id: 'lastUpdateProgram', label: t('users.fields.lastUpdateProgram'), visible: true, sortable: true },
@@ -481,13 +481,13 @@ const UserList: React.FC = () => {
         password: '',
         passwordHash: '',
         roleId: 1,
-        yukoFlag: 1,
+        status: 1,
     };
 
     filters.forEach(filter => {
       if (filter.field in newParams) {
         const key = filter.field as keyof UserParams;
-        if (key === 'yukoFlag') {
+        if (key === 'status') {
           newParams[key] = Number(filter.value);
         } else {
           newParams[key] = filter.value as any;
@@ -630,8 +630,8 @@ const UserList: React.FC = () => {
   };
 
   // Calculate status chip color
-  const getStatusColor = (yukoFlag: boolean) => {
-    return yukoFlag ? 'success' : 'error';
+  const getStatusColor = (status: boolean) => {
+    return status ? 'success' : 'error';
   };
 
   // Handle column sort
@@ -845,10 +845,10 @@ const UserList: React.FC = () => {
           </TableCell>
           {columns.map((column) => column.visible && (
             <TableCell key={column.id}>
-              {column.id === 'yukoFlag' ? (
+              {column.id === 'status' ? (
                 <Chip 
-                  label={t(`statuses.${user.yukoFlag ? 'active' : 'inactive'}`)} 
-                  color={getStatusColor(Boolean(user.yukoFlag))}
+                  label={t(`statuses.${user.status ? 'active' : 'inactive'}`)} 
+                  color={getStatusColor(Boolean(user.status))}
                   size="small"
                 />
               ) : column.id === 'createdAt' ? (
@@ -939,7 +939,7 @@ const UserList: React.FC = () => {
       roleId: undefined,                   
       createdAt: undefined,                   
       updatedAt: undefined,                   
-      yukoFlag: undefined,                   
+      status: undefined,                   
       createdUser: undefined,                   
       lastUpdateUser: undefined,                   
       lastUpdateProgram: undefined,
@@ -990,8 +990,8 @@ const UserList: React.FC = () => {
         label: t('users.fields.updatedAt'),
         type: 'text',
       },      {
-        id: 'yukoFlag',
-        label: t('users.fields.yukoFlag'),
+        id: 'status',
+        label: t('users.fields.status'),
         type: 'text',
       },      {
         id: 'createdUser',
@@ -1011,7 +1011,7 @@ const UserList: React.FC = () => {
     // L盻皇 cﾃ｡c filter d盻ｱa trﾃｪn cﾃ｡c c盻冲 ﾄ疎ng hi盻ハ th盻・
     return baseFilters.filter(filter => {
       // Luﾃｴn hi盻ハ th盻・cﾃ｡c filter cﾆ｡ b蘯｣n
-      if (['id','code','name','email','username','language','password','passwordHash','roleId','createdAt','updatedAt','yukoFlag','createdUser','lastUpdateUser','lastUpdateProgram',].includes(filter.id)) {
+      if (['id','code','name','email','username','language','password','passwordHash','roleId','createdAt','updatedAt','status','createdUser','lastUpdateUser','lastUpdateProgram',].includes(filter.id)) {
         return true;
       }
       // Ch盻・hi盻ハ th盻・filter cho cﾃ｡c c盻冲 ﾄ疎ng ﾄ柁ｰ盻｣c hi盻ハ th盻・
