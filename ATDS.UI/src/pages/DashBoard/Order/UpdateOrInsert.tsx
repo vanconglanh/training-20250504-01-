@@ -556,21 +556,21 @@ const UpdateOrInsertOrder: React.FC = () => {
   };
 
 
-  // useEffect(() => {
-  //   const handlePopState = (event: PopStateEvent) => {
-  //       event.preventDefault();
-  //       navigate(`/dashboard/orders?page=${currentPage}`, { 
-  //           replace: true,
-  //           state: { forceReload: true }
-  //         });
-  //   };
+  useEffect(() => {
+    const handlePopState = (event: PopStateEvent) => {
+        event.preventDefault();
+        navigate(`/dashboard/orders?page=${currentPage}`, { 
+            replace: true,
+            state: { forceReload: true }
+          });
+    };
 
-  //   window.addEventListener('popstate', (e) => handlePopState(e));
+    window.addEventListener('popstate', (e) => handlePopState(e));
 
-  //   return () => {
-  //     window.removeEventListener('popstate', (e) => handlePopState(e));
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener('popstate', (e) => handlePopState(e));
+    };
+  }, []);
 
 
   // Display loading state while fetching order data

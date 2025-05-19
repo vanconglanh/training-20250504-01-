@@ -18,6 +18,7 @@ i18n
         translation: viTranslation,
       },
     },
+    
     fallbackLng: 'en',
     debug: false,
 

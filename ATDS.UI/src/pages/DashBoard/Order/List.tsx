@@ -325,7 +325,7 @@ const OrderList: React.FC = () => {
 
     // Default columns configuration
     return [
-      { id: 'id', label: t('orders.fields.id'), visible: true, sortable: true },
+      { id: 'id', label: t('orders.fields.id'), visible: true, sortable: true  },
       { id: 'name', label: t('orders.fields.name'), visible: true, sortable: true },
       { id: 'exchangeRateUsdVndBuy', label: t('orders.fields.exchangeRateUsdVndBuy'), visible: true, sortable: true },
       { id: 'exchangeRateUsdVndSell', label: t('orders.fields.exchangeRateUsdVndSell'), visible: true, sortable: true },

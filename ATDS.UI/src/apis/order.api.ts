@@ -16,15 +16,21 @@ export const orderApi = {
         return response.data;
     },
     updateOrder: async (id: number, order: OrderFormValues) => {
-        const response = await apiClient.put<ApiResponse<Order>>(`/order/${id}`, order);
+        const response = await apiClient.put<ApiResponse<Order>>(`/order/${id}`,  order );
         return response.data;
     },
     deleteOrder: async (id: number) => {
         const response = await apiClient.delete<ApiResponse<Order>>(`/order/${id}`);
         return response.data;
     },
+    // deleteOrders: async (ids: number[]) => {
+    //     const response = await apiClient.delete<ApiResponse<Order>>(`/order`, { ids });
+    //     return response.data;
+    // }
     deleteOrders: async (ids: number[]) => {
-        const response = await apiClient.delete<ApiResponse<Order>>(`/order`, { ids });
-        return response.data;
-    }
+    await Promise.all(
+        ids.map(id => apiClient.delete<ApiResponse<Order>>(`/order/${id}`))
+    );
+    return { success: true };
+}
 }

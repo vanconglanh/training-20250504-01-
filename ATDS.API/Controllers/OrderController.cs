@@ -105,10 +105,6 @@ namespace ATDS.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] OrderUpdate updateInfo)
         {
-            if(updateInfo == null)
-            {
-                return BadRequest("updateInfo null");
-            }
             //validate
             var result = await ValidateUpdate(updateInfo, id);
             if (result != null)
@@ -119,7 +115,8 @@ namespace ATDS.API.Controllers
             string deviceID = string.Empty;
             ReturnInfo updateResultInfo = _orderEntryBusiness.Update(updateInfo, username, deviceID, id);
 
-            return Ok(updateResultInfo);
+            //return Ok(updateResultInfo);
+            return new DataResult<string>(updateResultInfo.Code.ToString());
         }
 
        
@@ -146,10 +143,10 @@ namespace ATDS.API.Controllers
         private async Task<ErrorResult> ValidateDetail(OrderItemInfo entity)
         {
             if (entity == null)
-                return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "User"),
+                return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_EXIST].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
             else if (entity.YukoFlag == (int)YUKO_FLAG.DISABLED)
-                return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "User"),
+                return new ErrorResult(message: string.Format(_sharedLocalizer[MessageList.ENTITY_NOT_ACTIVE].Value, "Order"),
                                     statusCode: (int)ResultCode.Success);
 
             return null;

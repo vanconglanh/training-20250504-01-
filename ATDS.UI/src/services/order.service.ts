@@ -63,11 +63,12 @@ export const orderService = {
   updateOrder: async (id: number, orderData: OrderFormValues): Promise<Order> => {
     try {
       
-      const { data } = await orderApi.updateOrder(id, orderData);
-      if (!data) {
+      const apiResponse = await orderApi.updateOrder(id, orderData);
+      
+      if (!apiResponse.data) {
         throw new Error('Invalid response from server');
       }
-      return data;
+      return apiResponse.data;
     } catch (error) {
       throw error;
     }

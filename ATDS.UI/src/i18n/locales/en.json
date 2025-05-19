@@ -105,6 +105,47 @@
       "pending": "Pending"
     }
   },
+  "orders": {
+    "fields" :{
+        "id": "Id",
+        "name": "Name",
+        "exchangeRateUsdVndBuy": "ExchangeRateUsdVndBuy",
+        "exchangeRateUsdVndSell": "ExchangeRateUsdVndSell",
+        "transportMethod": "TransportMethod",
+        "packingMethod": "PackingMethod",
+        "weightPerContainer": "WeightPerContainer",
+        "estimatedTotalContainers": "EstimatedTotalContainers",
+        "estimatedTotalBookings": "EstimatedTotalBookings",
+        "bookingNoCode": "BookingNoCode",
+        "packingDate": "PackingDate",
+        "yardIn": "YardIn",
+        "truckPlate": "TruckPlate",
+        "containerNo": "ContainerNo",
+        "sealNo": "SealNo",
+        "supplierName": "SupplierName",
+        "transportCompanyName": "TransportCompanyName",
+        "quantity": "Quantity",
+        "coatingCompanyName": "CoatingCompanyName",
+        "coatedQuantity": "CoatedQuantity",
+        "productUnitPrice": "ProductUnitPrice",
+        "coatedProductUnitPrice": "CoatedProductUnitPrice",
+        "transportUnitPrice": "TransportUnitPrice",
+        "invoice": "Invoice",
+        "packingList": "PackingList",
+        "certificateOfQuality": "CertificateOfQuality",
+        "shippingInstruction": "ShippingInstruction",
+        "verifiedGrossMass": "VerifiedGrossMass",
+        "timberPackingDeclaration": "TimberPackingDeclaration",
+        "weighingCostAtFactory": "WeighingCostAtFactory",
+        "liftingCost": "LiftingCost",
+        "createdAt": "CreatedAt",
+        "updatedAt": "UpdatedAt",
+        "yukoFlag": "YukoFlag",
+        "createdUser": "CreatedUser",
+        "lastUpdateUser": "LastUpdateUser",
+        "lastUpdateProgram": "LastUpdateProgram"
+        }
+    },
   "sidebar": {
     "dashboard": "Dashboard",
     "users": "User Management",
@@ -114,7 +155,7 @@
     "categories": "Categories",
     "administrators": "Administrators",
     "roles": "Roles",
-    "orders": "Orders"
+    "orderlist": "Orders"
   },
   "placeholders": {
     "username": "Enter username",
